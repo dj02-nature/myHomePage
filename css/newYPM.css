@@ -3,7 +3,7 @@ body{
 	height:auto; 
 	margin:0%; 
 	background-color:# #aab7b8;
-	background-image: url("bgimage.jpg");
+/* 	background-image: url("bgimage.jpg"); */
 	background-repeat: no-repeat; 
 	background-attachment: fixed;
 	background-size: contain;
