@@ -1,0 +1,211 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+  background-color: #5e37ba71;
+}
+
+.body_page_display {
+  width: 100%;
+  height: auto;
+  max-width: 1050px;
+  background-color: #dec0e560;
+  margin: auto;
+  overflow: auto;
+}
+
+/* ------------------------------ */
+/* images slide show */
+.div_slide_show_background {
+  width: auto %;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #6cfd9c; */
+  padding: 5px;
+}
+.div_slide_show_top {
+  width: 95%;
+  height: 400px;
+  margin: auto;
+  /* background-color: #0000fffe; */
+}
+.img_mySlides_top {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 7.5px;
+  margin: auto;
+}
+.div_slide_show_bottom {
+  width: 90%;
+  margin: auto;
+  /* background-color: #ff0000; */
+  padding: 10px;
+}
+.div_demo_slide_bottom {
+  width: 10%;
+  float: left;
+  height: 50px;
+  background-color: #1b0808;
+  border-radius: 20px;
+  transition: transform 0.5s;
+}
+.div_demo_slide_bottom:hover {
+  -ms-transform: scale(1.25); /* IE 9 */
+  -webkit-transform: scale(1.25); /* Safari 3-8 */
+  transform: scale(1.25);
+}
+.img_demo_bottom {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: auto;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.img_demo_bottom_opacity {
+  opacity: 0.75;
+}
+.img_demo_bottom_opacity_off:hover {
+  opacity: 1;
+}
+/* ------------------------------ */
+/* manu items */
+.div_manu {
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.ul_manu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4d85b6;
+}
+.li_manu {
+  float: left;
+}
+li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #5f2929;
+}
+.list_hover:hover {
+  /* background-color: auto; */
+  font-style: italic;
+  /* font-family: ; */
+  /* color: #ff00f2; */
+}
+/* ------------------------------ */
+/* main body */
+.div_introduction {
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.div_research_plan {
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.div_publications {
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.para_text {
+  text-align: justify;
+  font-size: 20px;
+  color: #1c171f;
+}
+.para_text:hover {
+  color: #574203;
+}
+h1:hover {
+  color: #92071c;
+}
+.div_important_results {
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.row {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* background-color: #4d3371f3; */
+  border-radius: 25px;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.column40 {
+  float: left;
+  width: 40%;
+}
+.column60 {
+  float: left;
+  width: 60%;
+  font-size: 25px;
+  color: rgba(90, 42, 42, 0.904);
+}
+.result_images {
+  padding: 15px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+  transition: transform 3.5s;
+  margin: auto;
+}
+.result_images:hover {
+  -ms-transform: scale(1.35); /* IE 9 */
+  -webkit-transform: scale(1.35); /* Safari 3-8 */
+  transform: scale(1.35);
+}
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
+/* ------------------------------ */
