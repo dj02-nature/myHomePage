@@ -264,9 +264,28 @@
             <div class="column40">
               <img
                 class="result_images"
-                src="results/rf_feature.png"
+                src="results/RNMP1_pca.png"
                 alt="Results1"
               />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column40">
+              <img
+                class="result_images"
+                src="results/RNMP2_pca.png"
+                alt="Results1"
+              />
+            </div>
+            <div class="column60">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
+                in soluta eum iusto voluptatum itaque laboriosam officia sed
+                aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in soluta
+                eum iusto voluptatum itaque laboriosam officia sed aperiam
+                aspernatur? consectetur adipisicing elit.
+              </p>
             </div>
           </div>
         </div>
@@ -296,7 +315,7 @@
       function showDivs(n) {
         var i;
         var x = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
+        var dots = document.getElementsByClassName("img_demo_bottom");
         if (n > x.length) {
           slideIndex = 1;
         }
@@ -307,10 +326,10 @@
           x[i].style.display = "none";
         }
         for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+          dots[i].className = dots[i].className.replace(" img_demo_bottom_opacity_off", "");
         }
         x[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " w3-opacity-off";
+        dots[slideIndex - 1].className += " img_demo_bottom_opacity_off";
       }
     </script>
   </body>
