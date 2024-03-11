@@ -6,17 +6,11 @@ html {
 *:after {
   box-sizing: inherit;
 }
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
   width: 100%;
   margin: auto;
   background-color: #5e37ba71;
 }
-
 .body_page_display {
   width: 100%;
   height: auto;
@@ -25,22 +19,10 @@ body {
   margin: auto;
   overflow: auto;
 }
-
-/* ------------------------------ */
-/* images slide show */
-.div_slide_show_background {
-  width: auto %;
-  height: 470px;
-  margin-left: auto;
-  margin-right: auto;
-  /* background-color: #6cfd9c; */
-  padding: 5px;
-}
 .div_slide_show_top {
   width: 95%;
   height: 400px;
   margin: auto;
-  /* background-color: #0000ff8f; */
 }
 .img_mySlides_top {
   width: 100%;
@@ -52,8 +34,6 @@ body {
 .div_slide_show_bottom {
   width: 90%;
   margin: auto;
-  /* background-color: #ff0000; */
-  /* padding: 10px; */
   height: 60px;
 }
 .div_demo_slide_bottom {
@@ -66,8 +46,6 @@ body {
   margin-top: 10px;
 }
 .div_demo_slide_bottom:hover {
-  -ms-transform: scale(1.25); /* IE 9 */
-  -webkit-transform: scale(1.25); /* Safari 3-8 */
   transform: scale(1.25);
 }
 .img_demo_bottom {
@@ -86,8 +64,6 @@ body {
 .img_demo_bottom_opacity_off:hover {
   opacity: 1;
 }
-/* ------------------------------ */
-/* manu items */
 .div_manu {
   width: auto;
   height: auto;
@@ -115,13 +91,8 @@ li a:hover {
   background-color: #5f2929;
 }
 .list_hover:hover {
-  /* background-color: auto; */
   font-style: italic;
-  /* font-family: ; */
-  /* color: #ff00f2; */
 }
-/* ------------------------------ */
-/* main body */
 .div_introduction {
   width: auto;
   height: auto;
@@ -155,24 +126,17 @@ p {
 h1:hover {
   color: #92071c;
 }
-/* --------------------------------- */
-
-/* My Results */
 .div_important_results {
   width: 1000px;
   height: 400px;
   margin-left: 25px;
   margin-right: 25px;
-  /* background-color: #ff5f77; */
 }
 .row {
-  /* background-color: #4d3371f3; */
   width: 100%;
-  /* margin: auto; */
   height: 300px;
 }
 .column40 {
-  /* background-color: blue; */
   float: right;
   width: 45%;
   height: 300px;
@@ -182,7 +146,6 @@ h1:hover {
   padding: 15px;
 }
 .column60 {
-  /* background-color: green; */
   float: left;
   width: 55%;
   height: 300px;
@@ -190,7 +153,6 @@ h1:hover {
   text-align: justify;
   font-size: 25px;
   padding: 15px;
-  /* color: rgba(90, 42, 42, 0.904); */
 }
 .result_images {
   padding: 15px;
@@ -201,44 +163,26 @@ h1:hover {
   margin: auto;
 }
 .result_images:hover {
-  -ms-transform: scale(1.35); /* IE 9 */
-  -webkit-transform: scale(1.35); /* Safari 3-8 */
   transform: scale(1.35);
-  from {
-    top: 0px;
-  }
-  to {
-    top: -10px;
-  }
 }
-/* ------------------------------ */
-/* myResults */
 .div_resluts_container {
   max-width: 100%;
-  max-height: auto;
   position: relative;
   margin: auto;
-  /* padding: 20px; */
   background-color: rgb(204, 242, 15);
 }
 .myResults {
   display: none;
-  /* max-height: 400px; */
-  /* max-width: 1000px; */
   background-color: rgb(255, 17, 0);
   object-fit: cover;
-  /* border-radius: 20px; */
 }
 .div_results {
   vertical-align: middle;
   max-height: 400px;
   max-width: 1000px;
-  /* background-color: rgb(51, 153, 54); */
   object-fit: cover;
-  /* border-radius: 20px; */
   margin: auto;
 }
-/* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
   height: 15px;
@@ -249,18 +193,14 @@ h1:hover {
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-
 .active,
 .dot:hover {
   background-color: #781616;
 }
-
-/* Fading animation */
 .fade {
   animation-name: fade;
   animation-duration: 2.5s;
 }
-
 @keyframes fade {
   from {
     opacity: 0.6;
@@ -269,17 +209,3 @@ h1:hover {
     opacity: 1;
   }
 }
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
-/* ------------------------------ */
