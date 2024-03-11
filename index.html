@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>suplimentory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/suplimentary.css" />
     <meta
@@ -10,11 +11,12 @@
     <script src="js/slids.js"></script>
     <title>My Home Page</title>
   </head>
+
   <body>
     <div class="body_page_display">
       <header>
         <div id="display">
-          <img src="header/prl.png" style=" width: 100%; height: 10%; margin:
+          <img src="imgaes-/prl.png" style=" width: 100%; height: 10%; margin:
           auto; margin-left: auto; margin-top: 5px; margin-bottom: 1px; border:
           1px; align="center" alt="prllogo" />
         </div>
@@ -169,10 +171,10 @@
           </div>
         </div>
       </header>
-      <!-- <br /> -->
-      <hr class="div_introduction" />
+      <!-- +++ -->
       <main>
         <div class="div_introduction">
+          <hr class="div_introduction" />
           <h1>Introduction (Dr. D)</h1>
           <p class="para_text">
             I am working on the properties of strongly interacting matter under
@@ -229,84 +231,75 @@
           </ul>
           <!-- </p> -->
         </div>
+
         <hr class="div_introduction" />
+
         <div class="div_important_results">
           <h1>Some Important Results</h1>
-          
-          <div class="row">
-            <div class="column60">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                in soluta eum iusto voluptatum itaque laboriosam officia sed
-                aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in soluta
-                eum iusto voluptatum itaque laboriosam officia sed aperiam
-                aspernatur? consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="column40">
-              <img
-                class="result_images"
-                src="results/surface.png"
-                alt="Results1"
-              />
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="column40">
-              <img
-                class="result_images"
-                src="results/rf_feature.png"
-                alt="Results1"
-              />
-            </div>
-            <div class="column60">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                in soluta eum iusto voluptatum itaque laboriosam officia sed
-                aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in soluta
-                eum iusto voluptatum itaque laboriosam officia sed aperiam
-                aspernatur? consectetur adipisicing elit.
-              </p>
-            </div>
-          </div>
 
           <div class="row">
-            <div class="column60">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                in soluta eum iusto voluptatum itaque laboriosam officia sed
-                aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in soluta
-                eum iusto voluptatum itaque laboriosam officia sed aperiam
-                aspernatur? consectetur adipisicing elit.
-              </p>
+            <div class="myResults fade div_results">
+              <div class="column60">
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Ullam in soluta eum iusto voluptatum itaque laboriosam officia
+                  sed aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in
+                  soluta eum iusto voluptatum itaque laboriosam officia sed
+                  aperiam aspernatur? consectetur adipisicing elit.
+                </p>
+              </div>
+              <div class="column40">
+                <img
+                  class="result_images"
+                  src="results/RNMP1_pca.png"
+                  alt="Results1"
+                />
+              </div>
             </div>
-            <div class="column40">
-              <img
-                class="result_images"
-                src="results/RNMP1_pca.png"
-                alt="Results1"
-              />
+
+            <div class="myResults fade">
+              <div class="column60 div_results">
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Ullam in soluta eum iusto voluptatum itaque laboriosam officia
+                  sed aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in
+                  soluta eum iusto voluptatum itaque laboriosam officia sed
+                  aperiam aspernatur? consectetur adipisicing elit.
+                </p>
+              </div>
+              <div class="column40">
+                <img
+                  class="result_images"
+                  src="results/RNMP2_pca.png"
+                  alt="Results1"
+                />
+              </div>
+            </div>
+
+            <div class="myResults fade">
+              <div class="column60 div_results">
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Ullam in soluta eum iusto voluptatum itaque laboriosam officia
+                  sed aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in
+                  soluta eum iusto voluptatum itaque laboriosam officia sed
+                  aperiam aspernatur? consectetur adipisicing elit.
+                </p>
+              </div>
+              <div class="column40">
+                <img
+                  class="result_images"
+                  src="results/RNMP3_pca.png"
+                  alt="Results1"
+                />
+              </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="column40">
-              <img
-                class="result_images"
-                src="results/RNMP2_pca.png"
-                alt="Results1"
-              />
-            </div>
-            <div class="column60">
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-                in soluta eum iusto voluptatum itaque laboriosam officia sed
-                aperiam aspernatur? Lorem ipsum, dolor sit amet Ullam in soluta
-                eum iusto voluptatum itaque laboriosam officia sed aperiam
-                aspernatur? consectetur adipisicing elit.
-              </p>
-            </div>
+          <br />
+          <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
           </div>
         </div>
 
@@ -346,10 +339,44 @@
           x[i].style.display = "none";
         }
         for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" img_demo_bottom_opacity_off", "");
+          dots[i].className = dots[i].className.replace(
+            "img_demo_bottom_opacity_off",
+            ""
+          );
         }
         x[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " img_demo_bottom_opacity_off";
+        dots[slideIndex - 1].className += "img_demo_bottom_opacity_off";
+      }
+
+      let resIndex = 1;
+      showResults(resIndex);
+
+      function plusSlides(n) {
+        showResults((resIndex += n));
+      }
+
+      function currentSlide(n) {
+        showResults((resIndex = n));
+      }
+
+      function showResults(n) {
+        let i;
+        let slides = document.getElementsByClassName("myResults");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          resIndex = 1;
+        }
+        if (n < 1) {
+          resIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[resIndex - 1].style.display = "block";
+        dots[resIndex - 1].className += " active";
       }
     </script>
   </body>
