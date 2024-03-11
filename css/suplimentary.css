@@ -30,7 +30,7 @@ body {
 /* images slide show */
 .div_slide_show_background {
   width: auto %;
-  height: 450px;
+  height: 460px;
   margin-left: auto;
   margin-right: auto;
   /* background-color: #6cfd9c; */
@@ -53,7 +53,8 @@ body {
   width: 90%;
   margin: auto;
   /* background-color: #ff0000; */
-  padding: 10px;
+  /* padding: 10px; */
+  margin-top:10px
 }
 .div_demo_slide_bottom {
   width: 10%;
