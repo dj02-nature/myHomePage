@@ -90,6 +90,9 @@ li a {
 li a:hover {
   background-color: #5f2929;
 }
+em {
+  background-color: goldenrod;
+}
 .list_hover:hover {
   font-style: italic;
 }
@@ -209,3 +212,46 @@ h1:hover {
     opacity: 1;
   }
 }
+
+
+/* -------------------------------------- */
+.dropbtn {
+  background-color: #4d85b6;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.div_dropdown {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+}
+
+.div_dropdown_content {
+  display: none; 
+  position: absolute; 
+  background-color: black;
+  min-width: 8em;
+  z-index: 1;
+  border-radius: 0.1cm;
+}
+
+.div_dropdown_content a:hover {
+  background-color: yellowgreen;
+  color: red;
+  font-weight: bold;
+  z-index: 10;
+  border-radius: 0.2cm;
+}
+
+.div_dropdown:hover .div_dropdown_content {
+  display: block;
+}
+
+.div_dropdown:hover .dropbtn {
+  background-color: red;
+}
+/*-------------------------------------*/
