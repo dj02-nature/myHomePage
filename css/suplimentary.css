@@ -91,10 +91,12 @@ li a:hover {
   background-color: #5f2929;
 }
 em {
-  background-color: goldenrod;
+  font-weight: bold;
+  background-color: #ABEBC6;
 }
 .list_hover:hover {
-  font-style: italic;
+/*  font-style: italic;*/
+  color: indianred;
 }
 .div_introduction {
   width: auto;
@@ -212,7 +214,11 @@ h1:hover {
     opacity: 1;
   }
 }
-
+.li_pubilication {
+}
+.li_pubilication:hover {
+  font-weight: bold;
+}
 
 /* -------------------------------------- */
 .dropbtn {
