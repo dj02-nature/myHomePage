@@ -17,7 +17,7 @@
       <header>
         <div id="display">
           <img
-            src="header/homepage2_wbg_60.png"
+            src="header/homepage2.png"
             style="
               width: 100%;
               height: 10%;
@@ -36,10 +36,19 @@
           <hr />
           <ul class="ul_manu">
             <li class="li_manu"><a href="#">Home</a></li>
-            <li class="li_manu"><a href="#">Posters/Talks</a></li>
+
+            <li class="div_dropdown" style="float: left"><a class="dropbtn" href="#">Posters/Talks</a>
+              <div class="div_dropdown_content">
+                <a href="files/Non-radial_oscillations.pdf">Non-radial...</a>
+                <a href="files/Robust_Universal.pdf">Robust Universal...</a>
+                <a href="#">...</a>
+              </div>
+            </li>
+
             <li class="li_manu"><a href="#">Workshops/Conferences/Visits</a></li>
+            <li class="li_manu"><a href="#">Notes</a></li>
             <li class="li_manu"><a href="mailto:dpqraja02@gmail.com">Email Me</a></li>
-            <li class="div_dropdown" style="float: right"><button class="dropbtn">Important Links</button>
+            <li class="div_dropdown" style="float: right"><a class="dropbtn">Important Links</a>
               <div class="div_dropdown_content">
                 <a href="https://inspirehep.net/authors/1750571">iNSPIREHEP</a>
                 <a href="https://orcid.org/0000-0001-9292-3598">ORCiD</a>
@@ -362,10 +371,19 @@
           </div>
         </div>
       </main>
-
+      <hr class="div_introduction" />
+      <footer>
+      <!-- <p style="text-align: center;">
+        <?php
+        echo "You are the", $access_number, " visitor on this site!";
+        ?>
+      </p> -->
+      <p style="text-align: center;"> <span id="datetime"></span> </p>
+      </footer>
       <hr class="div_introduction" />
     </div>
 
+    
     <script>
       function currentDiv(n) {
         showDivs((slideIndex = n));
@@ -424,6 +442,23 @@
         slides[resIndex - 1].style.display = "block";
         dots[resIndex - 1].className += " active";
       }
+    </script>
+
+    <script>
+      // create a function to update the date and time
+      function updateDateTime() {
+        // create a new `Date` object
+        const now = new Date();
+
+        // get the current date and time as a string
+        const currentDateTime = now.toLocaleString();
+
+        // update the `textContent` property of the `span` element with the `id` of `datetime`
+        document.querySelector('#datetime').textContent = currentDateTime;
+      }
+
+      // call the `updateDateTime` function every second
+      setInterval(updateDateTime, 1000);
     </script>
   </body>
 </html>
