@@ -91,12 +91,17 @@ li a:hover {
   background-color: #5f2929;
 }
 em {
-  font-weight: bold;
-  background-color: #ABEBC6;
+  font-style: normal;
+  color: #9f2f2f;
 }
+em:hover {
+  color: black;
+}
+
 .list_hover:hover {
-/*  font-style: italic;*/
-  color: indianred;
+  color: #ffffffd3;
+  background-color: #47414167;
+  width: 45%;
 }
 .div_introduction {
   width: auto;
@@ -131,6 +136,47 @@ p {
 h1:hover {
   color: #92071c;
 }
+
+.div_education {
+  width: auto;
+  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+h3 {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 22px;
+}
+.div_education:hover {
+  color: #92071c;
+}
+.university_name {
+  width: fit-content;
+  text-align: justify;
+  font-size: 18px;
+  color: #1c052a6f;
+}
+.university_name:hover {
+  color: #1c052a;
+}
+.degree_name {
+  width: max-content;
+  text-align: justify;
+  font-size: 18px;
+  color: #1c052a6f;
+}
+.degree_name:hover {
+  color: #1c052a;
+}
+/* .table_row_educations { */
+/* width: 20px; */
+/* background-color: #a3aca288; */
+/* } */
+.table_row_educations:hover {
+  background-color: #47414167;
+}
+
 .div_important_results {
   width: 1000px;
   height: 400px;
@@ -188,6 +234,15 @@ h1:hover {
   object-fit: cover;
   margin: auto;
 }
+.res_query {
+  color: #1c052a6f;
+  text-decoration: dotted;
+  font-size: 18px;
+  font-style: italic;
+}
+.res_query:hover {
+  background-color: #47414167;
+}
 .dot {
   cursor: pointer;
   height: 15px;
@@ -215,9 +270,11 @@ h1:hover {
   }
 }
 .li_pubilication {
+  /* background-color: whitesmoke; */
 }
 .li_pubilication:hover {
   font-weight: bold;
+  background-color: #57420323;
 }
 
 /* -------------------------------------- */
@@ -237,8 +294,8 @@ h1:hover {
 }
 
 .div_dropdown_content {
-  display: none; 
-  position: absolute; 
+  display: none;
+  position: absolute;
   background-color: black;
   min-width: 8em;
   z-index: 1;
