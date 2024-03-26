@@ -1,2 +1,2 @@
 # myHomePage
-My Home Page
+This is the home page of mine. 
