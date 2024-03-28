@@ -1,3 +1,5 @@
+/** @format */
+
 html {
   box-sizing: border-box;
 }
@@ -15,9 +17,11 @@ body {
   width: 100%;
   height: auto;
   max-width: 1050px;
+  max-height: auto;
   background-color: #dec0e560;
   margin: auto;
 }
+
 .div_slide_show_background {
   width: 100%;
   height: 440px;
@@ -111,7 +115,14 @@ em:hover {
 .list_hover:hover {
   color: #ffffffd3;
   background-color: #47414167;
-  width: 45%;
+  width: 60%;
+}
+.hr_introduction {
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+  /* color: red; */
 }
 .div_introduction {
   width: auto;
@@ -187,103 +198,8 @@ h3 {
   background-color: #47414167;
 }
 
-.div_important_results {
-  width: auto;
-  height: auto;
-  margin-left: 25px;
-  margin-right: 25px;
-}
-.row {
-  width: 100%;
-  height: 210px;
-  margin: auto;
-}
-.column60 {
-  float: left;
-  height: 200px;
-  width: 55%;
-  text-align: center;
-  text-align: justify;
-  font-size: 20px;
-  padding: 5px;
-}
-.column40 {
-  float: right;
-  width: 45%;
-  height: 200px;
-  text-align: center;
-  text-align: justify;
-  font-size: 20px;
-  padding: 5px;
-}
-.result_images {
-  object-fit: cover;
-  border-radius: 5px;
-  transition: transform 1.5s;
-  margin: auto;
-}
-.result_images:hover {
-  transform: scale(1.5);
-}
-.div_resluts_container {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-  background-color: rgb(204, 242, 15);
-}
-.myResults {
-  display: none;
-  background-color: rgb(255, 17, 0);
-  object-fit: cover;
-}
-.img_center {
-  display: block;
-  width: 50%;
-}
-.div_results {
-  vertical-align: middle;
-  max-height: 400px;
-  max-width: 1000px;
-  object-fit: cover;
-  margin: auto;
-}
-.res_query {
-  color: #1c052a6f;
-  text-decoration: dotted;
-  font-size: 18px;
-  font-style: italic;
-}
-.res_query:hover {
-  background-color: #47414167;
-}
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #5079e979;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-.active,
-.dot:hover {
-  background-color: #781616;
-}
-.fade {
-  animation-name: fade;
-  animation-duration: 2.5s;
-}
-@keyframes fade {
-  from {
-    opacity: 0.1;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .li_pubilication {
-  /* background-color: whitesmoke; */
+  background-color: rgba(255, 255, 255, 0);
 }
 .li_pubilication:hover {
   font-weight: bold;
@@ -328,6 +244,108 @@ h3 {
 }
 
 .div_dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.532);
 }
 /*-------------------------------------*/
+/** @format */
+
+.div_important_results {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.div_results_container_up {
+  display: flex;
+  padding: 2.5px;
+  justify-content: center;
+}
+
+.myResults {
+  display: none;
+}
+
+.div_result_caption {
+  float: left;
+  width: 60%;
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.div_result_figure {
+  float: right;
+  display: flex;
+  justify-content: middle;
+  padding: 5px;
+}
+
+.result_images {
+  height: 180px;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  transition: transform 2.5s;
+  border-radius: 5px;
+}
+.result_images:hover {
+  transform: scale(1.25);
+}
+.result_images:active {
+  transform: scale(2);
+}
+
+.div_results_container_bottom {
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 18px;
+  padding: 15px;
+}
+
+.res_query {
+  color: #1c052a6f;
+  text-decoration: dotted;
+  font-size: 16px;
+  font-style: italic;
+}
+.res_query:hover {
+  background-color: #47414167;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #5079e979;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active,
+.dot:hover {
+  background-color: #781616;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 2.5s;
+}
+@keyframes fade {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
