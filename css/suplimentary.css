@@ -188,7 +188,8 @@ h3 {
 }
 
 .div_important_results {
-  width: 100%;
+  width: auto;
+  height: auto;
   margin-left: 25px;
   margin-right: 25px;
 }
