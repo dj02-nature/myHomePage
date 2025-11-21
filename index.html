@@ -10,121 +10,106 @@
     .scrollbar-thin::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
-    /* Compact card text */
-    .compact-card p { font-size: 0.95rem; line-height: 1.4rem; }
   </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
 
   <!-- Navbar -->
   <nav class="bg-white shadow fixed w-full z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-blue-700">Dr. Deepak Kumar</a>
-      <ul class="flex space-x-4 text-gray-700 font-medium text-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-700">Dr. Deepak Kumar</a>
+      <ul class="flex space-x-6 text-gray-700 font-medium">
         <li><a href="#about" class="hover:text-blue-700">About</a></li>
         <li><a href="#research" class="hover:text-blue-700">Research</a></li>
         <li><a href="#publications" class="hover:text-blue-700">Publications</a></li>
-        <li><a href="#links" class="hover:text-blue-700">Links</a></li>
         <li><a href="#contact" class="hover:text-blue-700">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-200 to-white text-center pt-16">
-    <h1 class="text-4xl md:text-5xl font-bold mb-3">Dr. Deepak Kumar</h1>
-    <p class="text-lg md:text-xl mb-4">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
-    <div class="space-x-3">
-      <a href="DeepakKumar_CV.pdf" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition text-sm md:text-base">Download CV</a>
-      <a href="mailto:deepak.kumar@example.com" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition text-sm md:text-base">Email Me</a>
+  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-200 to-white text-center pt-20">
+    <h1 class="text-5xl font-bold mb-4">Dr. Deepak Kumar</h1>
+    <p class="text-xl mb-6">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+    <div class="space-x-4">
+      <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+      <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
     </div>
   </section>
 
   <!-- About Me -->
-  <section id="about" class="py-12 container mx-auto max-w-4xl text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">About Me</h2>
-    <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-      I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. Other than research, I am a teaching assistant. I have gained one year of research experience since completing my Ph.D. My focus is on strongly interacting matter under extreme conditions, relevant to neutron/hybrid stars. I am interested in expanding to kilonovae, gravitational waves, merging of NSs, and dark matter trapped inside NSs. All my research codes are developed by myself from scratch.
+  <section id="about" class="py-20 container mx-auto max-w-5xl text-center">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. Other than my research work, I am a teaching assistant. I have gained one year of valuable research experience since completing my Ph.D. degree. My main research focus is on the study of strongly interacting matter under extreme conditions, with a special emphasis on its relevance to neutron/hybrid stars. I am very much interested to expand my research area towards kilonovae, gravitational waves, merging of NSs, dark matter trapped inside NSs. I have developed all the codes used in my research by myself from scratch to perform numerics.
     </p>
   </section>
 
   <!-- Research Interests -->
-  <section id="research" class="py-12 bg-gray-100">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Research Interests</h2>
-      <p class="text-sm md:text-base text-gray-700 mb-4 leading-relaxed">
-        The non-radial oscillation modes in neutron stars are highly sensitive to the matter inside. Quark-hadron phase transitions enhance mode frequencies. I study correlations between non-radial oscillations and neutron star properties: symmetric/asymmetric matter, mass, radius, tidal deformability, etc. Topics of research (in brief):
+  <section id="research" class="py-20 bg-gray-100">
+    <div class="container mx-auto max-w-5xl text-center">
+      <h2 class="text-3xl font-bold mb-6">Research Interests</h2>
+      
+      <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+        The non-radial oscillation modes in neutron stars are very much sensitive and directly related to the matter inside it. As if there is a quark-hadron phase transition, the frequency of the mode enhances. So there might be a possibility of a correlation between the non-radial oscillation modes and the neutron star matter properties, like symmetric matter properties, asymmetric matter properties, mass, radius, tidal deformability of the neutron star, etc. I would like to study the correlations of non-radial oscillation frequencies with neutron star matter properties, mass, radius, and tidal deformability of neutron stars. Topics of research (in brief):
       </p>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div class="bg-white p-4 rounded shadow compact-card hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-1">Compact Stars</h3>
-          <p>Neutron stars, hybrid stars, protoneutron star evolution using theoretical/computational methods.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Compact Stars</h3>
+          <p>Study of neutron stars, hybrid stars, and protoneutron star evolution using theoretical and computational methods.</p>
         </div>
-        <div class="bg-white p-4 rounded shadow compact-card hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-1">Dense Matter Physics</h3>
-          <p>Equation of state, CP violation effects, and QCD interactions under extreme conditions.</p>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Dense Matter Physics</h3>
+          <p>Equation of state of dense nuclear matter, CP violation effects, and the role of QCD interactions under extreme conditions.</p>
         </div>
-        <div class="bg-white p-4 rounded shadow compact-card hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-1">Astrophysical Connections</h3>
-          <p>Linking microscopic properties to observations: gravitational waves, supernovae, compact object measurements.</p>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Astrophysical Connections</h3>
+          <p>Connecting microscopic properties with observations: gravitational waves, supernovae, and compact object measurements.</p>
         </div>
-        <div class="bg-white p-4 rounded shadow compact-card hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg mb-1">Non-Radial Oscillations</h3>
-          <p>Oscillation modes, f-mode frequencies, and asteroseismology for constraining dense matter.</p>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Non-Radial Oscillations</h3>
+          <p>Analyzing oscillation modes, f-mode frequencies, and asteroseismology signatures to constrain dense matter properties.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Publications -->
-  <section id="publications" class="py-12 container mx-auto max-w-5xl text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Publications</h2>
-    <div class="bg-white p-4 rounded shadow max-h-[600px] overflow-y-auto scrollbar-thin">
+  <section id="publications" class="py-20 container mx-auto max-w-6xl text-center">
+    <h2 class="text-3xl font-bold mb-6">Publications</h2>
+    <div class="bg-white p-6 rounded-xl shadow-lg max-h-[700px] overflow-y-auto scrollbar-thin">
 
       <!-- Journal Articles -->
-      <h3 class="text-xl font-semibold mb-2">Journal Articles</h3>
-      <ul class="space-y-2 text-left text-sm">
-        <!-- Journal articles blocks (same collapsible style as before) -->
+      <h3 class="text-2xl font-semibold mb-4">Journal Articles</h3>
+      <ul class="space-y-4 text-left">
+        <!-- All journal articles with collapsible "Read more" buttons go here -->
       </ul>
 
       <!-- Conference Proceedings -->
-      <h3 class="text-xl font-semibold mt-4 mb-2">Conference Proceedings</h3>
-      <ul class="space-y-2 text-left text-sm">
-        <!-- Conference proceedings blocks -->
+      <h3 class="text-2xl font-semibold mt-6 mb-4">Conference Proceedings</h3>
+      <ul class="space-y-4 text-left">
+        <!-- All conference proceedings entries -->
       </ul>
 
-      <!-- Preprints -->
-      <h3 class="text-xl font-semibold mt-4 mb-2">Preprints / Submitted</h3>
-      <ul class="space-y-2 text-left text-sm">
-        <!-- Preprints blocks -->
+      <!-- Preprints / Submitted -->
+      <h3 class="text-2xl font-semibold mt-6 mb-4">Preprints / Submitted</h3>
+      <ul class="space-y-4 text-left">
+        <!-- All preprints / submitted entries -->
       </ul>
 
-    </div>
-  </section>
-
-  <!-- Important Links -->
-  <section id="links" class="py-12 bg-gray-50">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Important Links</h2>
-      <ul class="space-y-2 text-sm md:text-base">
-        <li><a href="https://inspirehep.net/" target="_blank" class="text-blue-700 hover:underline">InspireHEP – High Energy Physics Literature</a></li>
-        <li><a href="https://arxiv.org/archive/hep-ph" target="_blank" class="text-blue-700 hover:underline">arXiv – High Energy Physics (hep-ph)</a></li>
-        <li><a href="https://arxiv.org/archive/astro-ph" target="_blank" class="text-blue-700 hover:underline">arXiv – Astrophysics (astro-ph.HE)</a></li>
-        <li><a href="https://www.nucleartheory.net/" target="_blank" class="text-blue-700 hover:underline">Nuclear Theory Resources</a></li>
-        <li><a href="https://www.astro.physik.uni-goettingen.de/" target="_blank" class="text-blue-700 hover:underline">Astrophysics & Compact Objects</a></li>
-      </ul>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-12 container mx-auto max-w-4xl text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-2">Contact</h2>
-    <p class="text-sm md:text-base mb-2">Email: <a href="mailto:deepak.kumar@example.com" class="text-blue-700 hover:underline">deepak.kumar@example.com</a></p>
-    <p class="text-sm md:text-base">CV: <a href="DeepakKumar_CV.pdf" class="text-blue-700 hover:underline">Download PDF</a></p>
+  <section id="contact" class="py-20 container mx-auto max-w-5xl text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact</h2>
+    <p class="text-lg mb-4">Email: <a href="mailto:deepak.kumar@example.com" class="text-blue-700 hover:underline">deepak.kumar@example.com</a></p>
+    <p class="text-lg">CV: <a href="DeepakKumar_CV.pdf" class="text-blue-700 hover:underline">Download PDF</a></p>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white py-4 text-center text-gray-600 text-sm">
+  <footer class="bg-white py-6 text-center text-gray-600">
     © 2025 Dr. Deepak Kumar. All rights reserved.
   </footer>
 
