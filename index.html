@@ -42,13 +42,27 @@
       height: 100vh;
       overflow: hidden;
     }
+
+    /* Compact card styling */
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 5xl;
+      margin: auto;
+      margin-bottom: 2rem;
+      padding: 1.5rem 1.5rem; /* reduced padding */
+    }
+    .card h2 { margin-bottom: 0.8rem; }
+    .card p { margin-bottom: 0.5rem; }
+    .card .grid > div { min-height: auto; }
   </style>
 </head>
 <body class="text-gray-800">
 
   <!-- Navbar -->
   <nav class="bg-white shadow fixed w-full z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
       <a href="#" class="text-2xl font-bold text-blue-700">Dr. Deepak Kumar</a>
       <ul class="flex space-x-6 text-gray-700 font-medium">
         <li><a href="#about" class="hover:text-blue-700">About</a></li>
@@ -65,13 +79,13 @@
     <section id="hero" class="relative w-full flex items-center justify-center text-center">
       <div id="hero-bg"></div>
       <div class="z-10">
-        <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
-        <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
-          <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
-          <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
-          <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+        <h1 class="text-5xl font-bold mb-3 text-gray-800">Dr. Deepak Kumar</h1>
+        <p class="text-xl mb-4 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="DeepakKumar_CV.pdf" class="px-5 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+          <a href="mailto:deepak.kumar@example.com" class="px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
+          <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
+          <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
         </div>
       </div>
     </section>
@@ -87,9 +101,9 @@
   </script>
 
   <!-- About Me Card -->
-  <section id="about" class="py-12">
-    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">About Me</h2>
+  <section id="about" class="py-8">
+    <div class="card text-center">
+      <h2 class="text-3xl font-bold">About Me</h2>
       <p class="text-lg text-gray-700 leading-relaxed">
         I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. Other than my research work, I am a teaching assistant. I have gained one year of valuable research experience since completing my Ph.D. degree. My main research focus is on the study of strongly interacting matter under extreme conditions, with a special emphasis on its relevance to neutron/hybrid stars. I am very much interested to expand my research area towards kilonovae, gravitational waves, merging of NSs, dark matter trapped inside NSs. I have developed all the codes used in my research by myself from scratch to perform numerics.
       </p>
@@ -97,27 +111,27 @@
   </section>
 
   <!-- Research Interests Card -->
-  <section id="research" class="py-12">
-    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Research Interests</h2>
-      <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+  <section id="research" class="py-8">
+    <div class="card text-center">
+      <h2 class="text-3xl font-bold">Research Interests</h2>
+      <p class="text-lg text-gray-700 mb-4 leading-relaxed">
         The non-radial oscillation modes in neutron stars are very much sensitive and directly related to the matter inside it. As if there is a quark-hadron phase transition, the frequency of the mode enhances. So there might be a possibility of a correlation between the non-radial oscillation modes and the neutron star matter properties, like symmetric matter properties, asymmetric matter properties, mass, radius, tidal deformability of the neutron star, etc. I would like to study the correlations of non-radial oscillation frequencies with neutron star matter properties, mass, radius, and tidal deformability of neutron stars.
       </p>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition min-h-[150px]">
-          <h3 class="font-semibold text-xl mb-2">Compact Stars</h3>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="bg-gray-100 p-3 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-1">Compact Stars</h3>
           <p>Study of neutron stars, hybrid stars, and protoneutron star evolution using theoretical and computational methods.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition min-h-[150px]">
-          <h3 class="font-semibold text-xl mb-2">Dense Matter Physics</h3>
+        <div class="bg-gray-100 p-3 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-1">Dense Matter Physics</h3>
           <p>Equation of state of dense nuclear matter, CP violation effects, and the role of QCD interactions under extreme conditions.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition min-h-[150px]">
-          <h3 class="font-semibold text-xl mb-2">Astrophysical Connections</h3>
+        <div class="bg-gray-100 p-3 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-1">Astrophysical Connections</h3>
           <p>Connecting microscopic properties with observations: gravitational waves, supernovae, and compact object measurements.</p>
         </div>
-        <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition min-h-[150px]">
-          <h3 class="font-semibold text-xl mb-2">Non-Radial Oscillations</h3>
+        <div class="bg-gray-100 p-3 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-1">Non-Radial Oscillations</h3>
           <p>Analyzing oscillation modes, f-mode frequencies, and asteroseismology signatures to constrain dense matter properties.</p>
         </div>
       </div>
@@ -125,28 +139,28 @@
   </section>
 
   <!-- Publications Card -->
-  <section id="publications" class="py-12">
-    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl mx-auto min-h-[450px] text-left flex flex-col">
-      <h2 class="text-3xl font-bold mb-4 text-center">Publications</h2>
-      <div class="overflow-y-auto flex-1 scrollbar-thin pr-2">
-        <ul class="list-decimal list-inside space-y-3 text-lg">
+  <section id="publications" class="py-8">
+    <div class="card flex flex-col">
+      <h2 class="text-3xl font-bold mb-2 text-center">Publications</h2>
+      <div class="overflow-y-auto flex-1 scrollbar-thin max-h-[400px] pr-2">
+        <ul class="list-decimal list-inside space-y-2 text-lg">
           <li><strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-blue-700 hover:underline">arXiv:2411.17828</a>, 2024.</li>
           <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">arXiv:2505.02618</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, and C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", <a href="https://doi.org/10.1103/zy4h-6wj2" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 112, 063042</a>, 2025.</li>
           <li>S. Tewari, S. Chatterjee, <strong>D. Kumar</strong>, R. Mallick, "Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347", <a href="https://doi.org/10.1103/PhysRevD.111.103009" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 111, 103009</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, A. Karan, A. Verma, H. Mishra, R. Mallick, "Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars", <a href="https://doi.org/10.1103/PhysRevC.111.055805" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. C 111, 055805</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, "The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach", <a href="https://doi.org/10.1088/1475-7516/2025/03/033" target="_blank" class="text-blue-700 hover:underline">JCAP 03, 033</a>, 2025.</li>
-          <!-- Add remaining entries similarly -->
+          <!-- Add remaining publications here similarly -->
         </ul>
       </div>
     </div>
   </section>
 
   <!-- Important Research Links Card -->
-  <section id="links" class="py-12">
-    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Important Research Links</h2>
-      <ul class="list-disc list-inside text-left space-y-3 text-lg">
+  <section id="links" class="py-8">
+    <div class="card text-left">
+      <h2 class="text-3xl font-bold mb-2 text-center">Important Research Links</h2>
+      <ul class="list-disc list-inside space-y-2 text-lg">
         <li><a href="https://www.ligo.org/" target="_blank" class="text-blue-700 hover:underline">LIGO – Gravitational Wave Observatory</a></li>
         <li><a href="https://www.nasa.gov/nicer" target="_blank" class="text-blue-700 hover:underline">NICER – Neutron star Interior Composition Explorer</a></li>
         <li><a href="https://www.pharos-astrophysics.org/" target="_blank" class="text-blue-700 hover:underline">PHAROSH – Physics of Neutron Stars</a></li>
@@ -157,15 +171,12 @@
     </div>
   </section>
 
-  <!-- Contact Card -->
-  <section id="contact" class="py-12">
-    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Contact</h2>
-      <p class="text-lg text-gray-700 mb-4">Email: <a href="mailto:deepak.kumar@example.com" class="text-blue-700 hover:underline">deepak.kumar@example.com</a></p>
-      <p class="text-lg text-gray-700">Download CV: <a href="DeepakKumar_CV.pdf" class="text-blue-700 hover:underline">DeepakKumar_CV.pdf</a></p>
-      <p class="text-lg mt-4">ORCID: <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="text-green-700 hover:underline">0000-0000-0000-0000</a></p>
-      <p class="text-lg mt-2">INSPIRE-HEP: <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="text-purple-700 hover:underline">Deepak Kumar</a></p>
-    </div>
+  <!-- Contact Information (No Card) -->
+  <section id="contact" class="py-6 text-center">
+    <p class="text-lg text-gray-700 mb-2">Email: <a href="mailto:deepak.kumar@example.com" class="text-blue-700 hover:underline">deepak.kumar@example.com</a></p>
+    <p class="text-lg text-gray-700 mb-2">Download CV: <a href="DeepakKumar_CV.pdf" class="text-blue-700 hover:underline">DeepakKumar_CV.pdf</a></p>
+    <p class="text-lg text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="text-green-700 hover:underline">0000-0000-0000-0000</a></p>
+    <p class="text-lg text-gray-700 mb-2">INSPIRE-HEP: <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="text-purple-700 hover:underline">Deepak Kumar</a></p>
   </section>
 
 </body>
