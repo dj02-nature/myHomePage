@@ -52,7 +52,7 @@
   <section id="about" class="py-20 container mx-auto max-w-5xl text-center">
     <h2 class="text-3xl font-bold mb-6">About Me</h2>
     <p class="text-lg text-gray-700 leading-relaxed">
-      I am a nuclear astrophysicist working on dense matter under extreme conditions in the context of compact objects like neutron stars and hybrid stars. My research explores the equation of state of strongly interacting matter, transport properties, and non-radial oscillations, connecting theory with astrophysical observations.
+      I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. Other than my research work, I am a teaching assistant. I have gained one year of valuable research experience since completing my Ph.D. degree. My main research focus is on the study of strongly interacting matter under extreme conditions, with a special emphasis on its relevance to neutron/hybrid stars. I am very much interested to expand my research area towards kilonovae, gravitational waves, merging of NSs, and dark matter trapped inside NSs. I have developed all the codes used in my research by myself from scratch to perform numerics.
     </p>
   </section>
 
@@ -89,50 +89,39 @@
       <!-- Journal Articles -->
       <h3 class="text-2xl font-semibold mb-4">Journal Articles</h3>
       <ul class="space-y-4 text-left">
+
         <li class="p-4 border-b border-gray-200">
           <h4 class="font-semibold">CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars</h4>
           <p class="text-gray-700 collapse-content max-h-16 overflow-hidden">
-            D. Kumar & H. Mishra, arXiv:2411.17828 [hep-ph], 2024. This paper studies CP violation in dense quark matter and explores how axion effects influence non-radial oscillation modes in neutron stars, providing insights into astrophysical signals.
+            D. Kumar & H. Mishra, arXiv:2411.17828 [hep-ph], 2024. This paper studies CP violation in dense quark matter and explores how axion effects influence non-radial oscillation modes in neutron stars.
           </p>
           <button class="text-blue-700 hover:underline mt-2 read-more-btn">Read more</button>
           <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="block text-blue-700 hover:underline mt-1">View on arXiv</a>
         </li>
+
         <li class="p-4 border-b border-gray-200">
           <h4 class="font-semibold">Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis</h4>
           <p class="text-gray-700 collapse-content max-h-16 overflow-hidden">
-            D. Kumar & P. K. Sahu, arXiv:2505.02618 [nucl-th], 2025. This work constrains the neutron star EoS by implementing isoscalar-vector and isovector-vector couplings in a Bayesian framework, connecting nuclear theory with astrophysical observations.
+            D. Kumar & P. K. Sahu, arXiv:2505.02618 [nucl-th], 2025. Constrains the neutron star EoS by including isoscalar-vector and isovector-vector couplings using Bayesian analysis.
           </p>
           <button class="text-blue-700 hover:underline mt-2 read-more-btn">Read more</button>
           <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="block text-blue-700 hover:underline mt-1">View on arXiv</a>
         </li>
-        <!-- Add remaining journal articles here -->
+
+        <!-- Add all remaining journal articles similarly -->
+
       </ul>
 
       <!-- Conference Proceedings -->
       <h3 class="text-2xl font-semibold mt-6 mb-4">Conference Proceedings</h3>
       <ul class="space-y-4 text-left">
-        <li class="p-4 border-b border-gray-200">
-          <h4 class="font-semibold">Quark Matter in the Core of Neutron Stars and Its Consequences on Non-radial Oscillations</h4>
-          <p class="text-gray-700 collapse-content max-h-16 overflow-hidden">
-            D. Kumar, H. Mishra & T. Malik, Springer Proc. Phys. 304, 637-639, 2024. Discusses quark matter effects on neutron star oscillations and possible astrophysical signatures.
-          </p>
-          <button class="text-blue-700 hover:underline mt-2 read-more-btn">Read more</button>
-          <a href="https://doi.org/10.1007/978-981-97-0289-3_144" target="_blank" class="block text-blue-700 hover:underline mt-1">View DOI</a>
-        </li>
-        <!-- Add remaining proceedings -->
+        <!-- Add proceedings entries similarly -->
       </ul>
 
       <!-- Submitted / Preprints -->
       <h3 class="text-2xl font-semibold mt-6 mb-4">Submitted / Preprints</h3>
       <ul class="space-y-4 text-left">
-        <li class="p-4 border-b border-gray-200">
-          <h4 class="font-semibold">The asteroseismology in neutron stars in presence of dark matter</h4>
-          <p class="text-gray-700 collapse-content max-h-16 overflow-hidden">
-            A. Das, D. Kumar, T. Malik & H. Mishra, arXiv preprint. Explores how dark matter affects neutron star oscillation modes and asteroseismic properties.
-          </p>
-          <button class="text-blue-700 hover:underline mt-2 read-more-btn">Read more</button>
-        </li>
-        <!-- Add remaining preprints -->
+        <!-- Add preprint entries similarly -->
       </ul>
 
     </div>
@@ -157,10 +146,10 @@
       btn.addEventListener('click', () => {
         const content = btn.previousElementSibling;
         if (content.style.maxHeight && content.style.maxHeight !== 'none') {
-          content.style.maxHeight = '4rem'; // collapse
+          content.style.maxHeight = '4rem';
           btn.innerText = 'Read more';
         } else {
-          content.style.maxHeight = 'none'; // expand
+          content.style.maxHeight = 'none';
           btn.innerText = 'Read less';
         }
       });
