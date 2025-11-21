@@ -103,5 +103,35 @@
   <footer>
     © 2025 Deepak Kumar — Personal Academic Webpage
   </footer>
+  <script>
+    async function loadBibtex() {
+      const response = await fetch('refs.bib');
+      const bibtex = await response.text();
+
+      const entries = bibtex.split(/@/).slice(1);
+      const pubList = document.getElementById('pub-list');
+
+      entries.forEach(entry => {
+        const title = entry.match(/title *= *\{([^}]*)\}/i)?.[1] || "Untitled";
+        const author = entry.match(/author *= *\{([^}]*)\}/i)?.[1] || "Unknown";
+        const journal = entry.match(/journal *= *\{([^}]*)\}/i)?.[1] || "";
+        const year = entry.match(/year *= *\{([^}]*)\}/i)?.[1] || "";
+        const doi = entry.match(/doi *= *\{([^}]*)\}/i)?.[1] || "";
+        const arxiv = entry.match(/eprint *= *\{([^}]*)\}/i)?.[1] || "";
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <strong>${title}</strong><br>
+          ${author}<br>
+          <em>${journal}</em> (${year})<br>
+          ${arxiv ? `<a href="https://arxiv.org/abs/${arxiv}">arXiv:${arxiv}</a>` : ''}
+          ${doi ? ` | <a href="https://doi.org/${doi}">DOI</a>` : ''}
+        `;
+        pubList.appendChild(li);
+      });
+    }
+
+    loadBibtex();
+  </script>
 </body>
 </html>
