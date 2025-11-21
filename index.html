@@ -19,19 +19,23 @@
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
 
-    /* Compact card styling */
+    /* Card styling */
     .card {
       background: white;
       border-radius: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 5xl;
-      margin: auto;
-      margin-bottom: 2rem;
+      width: 90%;
+      max-width: 900px;
+      margin: 1rem auto;
       padding: 1.5rem 1.5rem;
     }
+
     .card h2 { margin-bottom: 0.8rem; }
     .card p { margin-bottom: 0.5rem; }
-    .card .grid > div { min-height: auto; }
+    .card ul li { margin-bottom: 0.5rem; }
+
+    /* Publications scrollable */
+    .publications-list { max-height: 500px; overflow-y: auto; padding-right: 1rem; }
   </style>
 </head>
 <body class="text-gray-800">
@@ -63,7 +67,7 @@
   </section>
 
   <!-- About Me Card -->
-  <section id="about" class="py-6">
+  <section id="about">
     <div class="card text-center">
       <h2 class="text-3xl font-bold">About Me</h2>
       <p class="text-lg text-gray-700 leading-relaxed">
@@ -72,8 +76,8 @@
     </div>
   </section>
 
-  <!-- Research Interests Card -->
-  <section id="research" class="py-6">
+  <!-- Research Card -->
+  <section id="research">
     <div class="card text-center">
       <h2 class="text-3xl font-bold">Research Interests</h2>
       <p class="text-lg text-gray-700 mb-4 leading-relaxed">
@@ -101,11 +105,12 @@
   </section>
 
   <!-- Publications Card -->
-  <section id="publications" class="py-6">
+  <section id="publications">
     <div class="card flex flex-col">
       <h2 class="text-3xl font-bold mb-2 text-center">Publications</h2>
-      <div class="overflow-y-auto flex-1 scrollbar-thin max-h-[500px] pr-2">
+      <div class="publications-list scrollbar-thin">
         <ul class="list-decimal list-inside space-y-2 text-lg">
+          <!-- All BibTeX entries converted to list items -->
           <li><strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-blue-700 hover:underline">arXiv:2411.17828</a>, 2024.</li>
           <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">arXiv:2505.02618</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", <a href="https://doi.org/10.1103/zy4h-6wj2" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 112, 063042</a>, 2025.</li>
@@ -132,7 +137,7 @@
   </section>
 
   <!-- Important Research Links Card -->
-  <section id="links" class="py-6">
+  <section id="links">
     <div class="card text-left">
       <h2 class="text-3xl font-bold mb-2 text-center">Important Research Links</h2>
       <ul class="list-disc list-inside space-y-2 text-lg">
