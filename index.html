@@ -83,20 +83,49 @@
 
     .icon-circle { width:40px; height:40px; display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(31,111,59,0.08) }
 
-    /* Modal */
-    .modal-backdrop { position:fixed; inset:0; background:rgba(3,7,3,0.55); display:flex; align-items:center; justify-content:center; z-index:60; padding:1rem; }
-    .modal { width:100%; max-width:900px; background:var(--card); border-radius:12px; box-shadow:var(--shadow); overflow:auto; max-height:90vh; }
-    .modal-header { display:flex; align-items:center; justify-content:space-between; padding:0.8rem 1rem; border-bottom:1px solid rgba(15,23,42,0.04); }
-    .modal-body { padding:1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; font-size:0.95rem; color:#0b1220; white-space:pre-wrap; word-break:break-word; }
-    .modal-actions { padding:0.8rem 1rem; border-top:1px solid rgba(15,23,42,0.04); display:flex; gap:0.6rem; justify-content:flex-end; }
-
-    .icon-btn { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; padding:.25rem .5rem; border-radius:8px; background:transparent; border:1px solid rgba(15,23,42,0.05); cursor:pointer; }
-    .icon-btn:hover { background: rgba(31,111,59,0.04); }
-
     /* small helpers */
-    .pub-item { display:flex; align-items:flex-start; gap:0.6rem; }
-    .pub-item .pub-meta { flex:1; }
+    .pub-item { display:flex; align-items:flex-start; gap:0.6rem; padding: .35rem 0; }
+    .pub-item .pub-meta { flex:1; min-width:0; } /* allow truncation on small screens */
     .pub-actions { display:flex; gap:0.4rem; align-items:center; margin-left:0.4rem; }
+
+    /* BibTeX toggle (Style 3: green/blue accent) */
+    .bib-toggle {
+      background: linear-gradient(180deg, #33a06a, #1f6f3b);
+      color: white;
+      padding: .35rem .6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.83rem;
+      border: none;
+      cursor: pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+    }
+    .bib-toggle:focus { outline: 3px solid rgba(31,111,59,0.18); outline-offset: 2px; }
+
+    .bib-block {
+      margin-top: .5rem;
+      background: #f8fffb;
+      border: 1px solid rgba(31,111,59,0.06);
+      padding: .65rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(12,40,20,0.03);
+      display: none;
+      transition: all .22s ease;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      font-size: .9rem;
+      white-space: pre-wrap;
+      overflow:auto;
+      max-height: 240px;
+    }
+    .bib-block.open { display:block; }
+
+    .bib-actions { margin-top:.5rem; display:flex; gap:.5rem; justify-content:flex-end; }
+    .small-btn { padding:.35rem .6rem; border-radius:8px; border:1px solid rgba(15,23,42,0.06); background:white; cursor:pointer; font-weight:600; }
+    .small-btn:active { transform: translateY(1px); }
+    .small-btn.ghost { background: transparent; }
+
     .sr-only { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
   </style>
 </head>
@@ -215,7 +244,6 @@
       <h2 class="mb-3">Publications</h2>
 
       <div class="pub-scroll" id="pub-list">
-        <!-- Each item includes view/download icons (Option B style) -->
         <ol class="list-decimal ml-5 space-y-3 text-sm text-gray-700">
 
           <li class="pub-item">
@@ -223,6 +251,7 @@
               <strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-[var(--fg-500)] hover:underline">arXiv:2411.17828</a>, 2024.
             </div>
             <div class="pub-actions" data-key="Kumar:2024abb"></div>
+            <!-- collapsible container (inserted by JS) -->
           </li>
 
           <li class="pub-item">
@@ -372,346 +401,343 @@
     </div>
   </footer>
 
-  <!-- Modal (hidden initially) -->
-  <div id="bib-modal" class="modal-backdrop" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="bib-title">
-    <div class="modal" role="document">
-      <div class="modal-header">
-        <div>
-          <div id="bib-title" class="text-sm font-semibold text-[var(--fg-700)]">BibTeX</div>
-          <div id="bib-key" class="text-xs text-gray-500">key</div>
-        </div>
-        <div>
-          <button id="bib-copy" class="icon-btn" title="Copy BibTeX"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12H5a2 2 0 0 1-2-2V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/></svg> Copy</button>
-          <button id="bib-download" class="icon-btn" title="Download .bib"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Download</button>
-          <button id="bib-close" class="icon-btn" title="Close">Close</button>
-        </div>
-      </div>
-      <div class="modal-body" id="bib-body" tabindex="0" aria-live="polite" aria-atomic="true">
-        <!-- BibTeX content injected here -->
-      </div>
-      <div class="modal-actions">
-        <button id="bib-download-2" class="btn-primary">Download .bib</button>
-        <button id="bib-copy-2" class="btn-ghost">Copy</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Place your BibTeX entries exactly as provided (raw strings).
-    const BIB_ENTRIES = {
-`Kumar:2024abb`: `@carticle{Kumar:2024abb,
-    author = \"\\\\textbf{D. Kumar} and Mishra, Hiranmaya\",
-    title = \"{CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars}\",
-    eprint = \"2411.17828\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"hep-ph\",
-    month = \"11\",
-    year = \"2024\"
-}`,
-`Kumar:2025efd`: `@carticle{Kumar:2025efd,
-    author = \"\\\\textbf{D. Kumar} and Sahu, Pradip Kumar\",
-    title = \"{Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian analysis}\",
-    eprint = \"2505.02618\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"nucl-th\",
-    month = \"5\",
-    year = \"2025\"
-}`,
-`Kumar:2025dlc`: `@particle{Kumar:2025dlc,
-    author = \"\\\\textbf{D. Kumar} and Malik, Tuhin and Mishra, Hiranmaya and Provid{\\^e}ncia, Constan{\\c{c}}a\",
-    title = \"{Constraints on maximum neutron star mass from protoneutron star evolution}\",
-    eprint = \"2505.18888\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"nucl-th\",
-    doi = \"10.1103/zy4h-6wj2\",
-    journal = \"Phys. Rev. D\",
-    volume = \"112\",
-    number = \"6\",
-    pages = \"063042\",
-    year = \"2025\"
-}`,
-`Tewari:2024qit`: `@particle{Tewari:2024qit,
-    author = \"Tewari, Skund and Chatterjee, Sagnik and \\\\textbf{D. Kumar} and Mallick, Ritam\",
-    title = \"{Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347}\",
-    eprint = \"2410.20355\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"astro-ph.HE\",
-    doi = \"10.1103/PhysRevD.111.103009\",
-    journal = \"Phys. Rev. D\",
-    volume = \"111\",
-    number = \"10\",
-    pages = \"103009\",
-    year = \"2025\"
-}`,
-`Kumar:2024bvd`: `@particle{Kumar:2024bvd,
-    author = \"\\\\textbf{D. Kumar} and Karan, Asit and Verma, Anshuman and Mishra, Hiranmaya and Mallick, Ritam\",
-    title = \"{Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars}\",
-    eprint = \"2409.01785\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"astro-ph.HE\",
-    doi = \"10.1103/PhysRevC.111.055805\",
-    journal = \"Phys. Rev. C\",
-    volume = \"111\",
-    number = \"5\",
-    pages = \"055805\",
-    year = \"2025\"
-}`,
-`Kumar:2024fui`: `@particle{Kumar:2024fui,
-    author = \"\\\\textbf{D. Kumar} and Malik, Tuhin and Mishra, Hiranmaya\",
-    title = \"{The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach}\",
-    eprint = \"2402.03054\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"nucl-th\",
-    doi = \"10.1088/1475-7516/2025/03/033\",
-    journal = \"JCAP\",
-    volume = \"03\",
-    pages = \"033\",
-    year = \"2025\"
-}`,
-`Kumar:2023rut`: `@particle{Kumar:2023rut,
-    author = \"\\\\textbf{D. Kumar} and Malik, Tuhin and Mishra, Hiranmaya and Providencia, Constanca\",
-    title = \"{Robust universal relations in neutron star asteroseismology}\",
-    eprint = \"2306.09277\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"nucl-th\",
-    doi = \"10.1103/PhysRevD.108.083008\",
-    journal = \"Phys. Rev. D\",
-    volume = \"108\",
-    number = \"8\",
-    pages = \"083008\",
-    year = \"2023\"
-}`,
-`Kumar:2021hzo`: `@particle{Kumar:2021hzo,
-    author = \"\\\\textbf{D. Kumar} and Mishra, Hiranmaya and Malik, Tuhin\",
-    title = \"{Non-radial oscillation modes in hybrid stars: consequences of a mixed phase}\",
-    eprint = \"2110.00324\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"hep-ph\",
-    doi = \"10.1088/1475-7516/2023/02/015\",
-    journal = \"JCAP\",
-    volume = \"02\",
-    pages = \"015\",
-    year = \"2023\"
-}`,
-`Abhishek:2020wjm`: `@particle{Abhishek:2020wjm,
-    author = \"Abhishek, Aman and Das, Arpan and \\\\textbf{D. Kumar} and Mishra, Hiranmaya\",
-    title = \"{Thermoelectric transport coefficients of quark matter}\",
-    eprint = \"2007.14757\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"hep-ph\",
-    doi = \"10.1140/epjc/s10052-022-09999-z\",
-    journal = \"Eur. Phys. J. C\",
-    volume = \"82\",
-    number = \"1\",
-    pages = \"71\",
-    year = \"2022\"
-}`,
-`Das:2019crc`: `@particle{Das:2019crc,
-    author = \"Das, Arpan and \\\\textbf{D. Kumar} and Mishra, Hiranmaya\",
-    title = \"{Chiral susceptibility in the Nambu\\\\textendash{}Jona-Lasinio model: A Wigner function approach}\",
-    eprint = \"1907.12332\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"hep-ph\",
-    doi = \"10.1103/PhysRevD.100.094030\",
-    journal = \"Phys. Rev. D\",
-    volume = \"100\",
-    number = \"9\",
-    pages = \"094030\",
-    year = \"2019\"
-}`,
-`Kumar:2024lfo`: `@INPROCEEDINGS{Kumar:2024lfo,
-    author = \"\\\\textbf{D. Kumar} and Mishra, Hiranmaya and Malik, Tuhin\",
-    title = \"{Quark Matter in~the~Core of~Neutron Stars and~Its Consequences on~Non-radial Oscillations}\",
-    doi = \"10.1007/978-981-97-0289-3_144\",
-    journal = \"Springer Proc. Phys.\",
-    volume = \"304\",
-    pages = \"637--639\",
-    year = \"2024\"
-}`,
-`Jaiswal:2020hvk`: `@INPROCEEDINGS{Jaiswal:2020hvk,
-    author = \"Jaiswal, Amaresh and others\",
-    title = \"{Dynamics of QCD matter \\textemdash{} current status}\",
-    eprint = \"2007.14959\",
-    archivePrefix = \"arXiv\",
-    primaryClass = \"hep-ph\",
-    doi = \"10.1142/S0218301321300010\",
-    journal = \"Int. J. Mod. Phys. E\",
-    volume = \"30\",
-    number = \"02\",
-    pages = \"2130001\",
-    year = \"2021\"
-}`,
-`Kumar:2024a`: `@INPROCEEDINGS{Kumar:2024a,
-    author = \"\\\\textbf{D. Kumar} and Sahu, Pradip K\",
-    title = \"{Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian approach}\",
-    eprint = \"(XXVI DAE-BRNS High Energy Physics Symposium 2024)\",
-    archivePrefix = \"Submitted\",
-}`,
-`Kumar:2024b`: `@INPROCEEDINGS{Kumar:2024b,
-    author = \"\\\\textbf{D. Kumar} and Mishra, Hiranmaya\",
-    title = \"{Axion effects on the non-radial oscillations of neutron stars}\",
-    eprint = \"(XXVI DAE-BRNS High Energy Physics Symposium 2024)\",
-    archivePrefix = \"Submitted\",
-}`,
-`Kumar:2024c`: `@INPROCEEDINGS{Kumar:2024c,
-    author = \"\\\\textbf{D. Kumar} and Mishra, Hiranmaya\",
-    title = \"{Axion effects on the non-radial oscillations of neutron stars}\",
-    eprint = \"(Journal of Subatomic Particles and Cosmology: ATHIC 2025)\",
-    archivePrefix = \"Submitted\",
-}`
-    };
+  /* ===================== BIB DATABASE (your provided bibDB) ===================== */
+  const bibDB = {
+"Kumar:2024abb": `
+@carticle{Kumar:2024abb,
+  author = "{\\textbf{D. Kumar}} and Mishra, Hiranmaya",
+  title = "{CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars}",
+  eprint = "2411.17828",
+  archivePrefix = "arXiv",
+  primaryClass = "hep-ph",
+  month = "11",
+  year = "2024"
+}
+`,
 
-    // Utility: safe filename from key
-    function filenameFromKey(key){ return key.replace(/[^a-zA-Z0-9-_]/g,'_') + '.bib'; }
+"Kumar:2025efd": `
+@carticle{Kumar:2025efd,
+  author = "{\\textbf{D. Kumar}} and Sahu, Pradip Kumar",
+  title = "{Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian analysis}",
+  eprint = "2505.02618",
+  archivePrefix = "arXiv",
+  primaryClass = "nucl-th",
+  month = "5",
+  year = "2025"
+}
+`,
 
-    // Render small icon buttons in each pub-actions container
-    function renderPubActions() {
-      const containers = document.querySelectorAll('.pub-actions');
-      containers.forEach(c => {
-        const key = c.getAttribute('data-key');
-        if(!key || !BIB_ENTRIES.hasOwnProperty(key)) {
-          // empty placeholder if not found
-          c.innerHTML = '';
-          return;
+"Kumar:2025dlc": `
+@article{Kumar:2025dlc,
+  author = "{\\textbf{D. Kumar}} and Malik, Tuhin and Mishra, Hiranmaya and Provid{\\^e}ncia, Constan{\\c{c}}a",
+  title = "{Constraints on maximum neutron star mass from protoneutron star evolution}",
+  eprint = "2505.18888",
+  archivePrefix = "arXiv",
+  primaryClass = "nucl-th",
+  doi = "10.1103/zy4h-6wj2",
+  journal = "Phys. Rev. D",
+  volume = "112",
+  number = "6",
+  pages = "063042",
+  year = "2025"
+}
+`,
+
+"Tewari:2024qit": `
+@article{Tewari:2024qit,
+  author = "Tewari, Skund and Chatterjee, Sagnik and {\\textbf{D. Kumar}} and Mallick, Ritam",
+  title = "{Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347}",
+  eprint = "2410.20355",
+  archivePrefix = "arXiv",
+  primaryClass = "astro-ph.HE",
+  doi = "10.1103/PhysRevD.111.103009",
+  journal = "Phys. Rev. D",
+  volume = "111",
+  number = "10",
+  pages = "103009",
+  year = "2025"
+}
+`,
+
+"Kumar:2024bvd": `
+@article{Kumar:2024bvd,
+  author = "{\\textbf{D. Kumar}} and Karan, Asit and Verma, Anshuman and Mishra, Hiranmaya and Mallick, Ritam",
+  title = "{Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars}",
+  eprint = "2409.01785",
+  archivePrefix = "arXiv",
+  primaryClass = "astro-ph.HE",
+  doi = "10.1103/PhysRevC.111.055805",
+  journal = "Phys. Rev. C",
+  volume = "111",
+  number = "5",
+  pages = "055805",
+  year = "2025"
+}
+`,
+
+"Kumar:2024fui": `
+@article{Kumar:2024fui,
+  author = "{\\textbf{D. Kumar}} and Malik, Tuhin and Mishra, Hiranmaya",
+  title = "{The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach}",
+  eprint = "2402.03054",
+  archivePrefix = "arXiv",
+  primaryClass = "nucl-th",
+  doi = "10.1088/1475-7516/2025/03/033",
+  journal = "JCAP",
+  volume = "03",
+  pages = "033",
+  year = "2025"
+}
+`,
+
+"Kumar:2023rut": `
+@article{Kumar:2023rut,
+  author = "{\\textbf{D. Kumar}} and Malik, Tuhin and Mishra, Hiranmaya and Providencia, Constanca",
+  title = "{Robust universal relations in neutron star asteroseismology}",
+  eprint = "2306.09277",
+  archivePrefix = "arXiv",
+  primaryClass = "nucl-th",
+  doi = "10.1103/PhysRevD.108.083008",
+  journal = "Phys. Rev. D",
+  volume = "108",
+  number = "8",
+  pages = "083008",
+  year = "2023"
+}
+`,
+
+"Kumar:2021hzo": `
+@article{Kumar:2021hzo,
+  author = "{\\textbf{D. Kumar}} and Mishra, Hiranmaya and Malik, Tuhin",
+  title = "{Non-radial oscillation modes in hybrid stars: consequences of a mixed phase}",
+  eprint = "2110.00324",
+  archivePrefix = "arXiv",
+  primaryClass = "hep-ph",
+  doi = "10.1088/1475-7516/2023/02/015",
+  journal = "JCAP",
+  volume = "02",
+  pages = "015",
+  year = "2023"
+}
+`,
+
+"Abhishek:2020wjm": `
+@article{Abhishek:2020wjm,
+  author = "Abhishek, Aman and Das, Arpan and {\\textbf{D. Kumar}} and Mishra, Hiranmaya",
+  title = "{Thermoelectric transport coefficients of quark matter}",
+  eprint = "2007.14757",
+  archivePrefix = "arXiv",
+  primaryClass = "hep-ph",
+  doi = "10.1140/epjc/s10052-022-09999-z",
+  journal = "Eur. Phys. J. C",
+  volume = "82",
+  number = "1",
+  pages = "71",
+  year = "2022"
+}
+`,
+
+"Das:2019crc": `
+@article{Das:2019crc,
+  author = "Das, Arpan and {\\textbf{D. Kumar}} and Mishra, Hiranmaya",
+  title = "{Chiral susceptibility in the Nambu--Jona-Lasinio model: A Wigner function approach}",
+  eprint = "1907.12332",
+  archivePrefix = "arXiv",
+  primaryClass = "hep-ph",
+  doi = "10.1103/PhysRevD.100.094030",
+  journal = "Phys. Rev. D",
+  volume = "100",
+  number = "9",
+  pages = "094030",
+  year = "2019"
+}
+`,
+
+"Kumar:2024lfo": `
+@inproceedings{Kumar:2024lfo,
+  author = "{\\textbf{D. Kumar}} and Mishra, Hiranmaya and Malik, Tuhin",
+  title = "{Quark Matter in the Core of Neutron Stars and Its Consequences on Non-radial Oscillations}",
+  doi = "10.1007/978-981-97-0289-3_144",
+  journal = "Springer Proc. Phys.",
+  volume = "304",
+  pages = "637--639",
+  year = "2024"
+}
+`,
+
+"Jaiswal:2020hvk": `
+@inproceedings{Jaiswal:2020hvk,
+  author = "Jaiswal, Amaresh and others",
+  title = "{Dynamics of QCD matter — current status}",
+  eprint = "2007.14959",
+  archivePrefix = "arXiv",
+  primaryClass = "hep-ph",
+  doi = "10.1142/S0218301321300010",
+  journal = "Int. J. Mod. Phys. E",
+  volume = "30",
+  number = "02",
+  pages = "2130001",
+  year = "2021"
+}
+`,
+
+"Kumar:2024a": `
+@inproceedings{Kumar:2024a,
+  author = "{\\textbf{D. Kumar}} and Sahu, Pradip K",
+  title = "{Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian approach}",
+  eprint = "(XXVI DAE-BRNS High Energy Physics Symposium 2024)",
+  archivePrefix = "Submitted"
+}
+`,
+
+"Kumar:2024b": `
+@inproceedings{Kumar:2024b,
+  author = "{\\textbf{D. Kumar}} and Mishra, Hiranmaya",
+  title = "{Axion effects on the non-radial oscillations of neutron stars}",
+  eprint = "(XXVI DAE-BRNS High Energy Physics Symposium 2024)",
+  archivePrefix = "Submitted"
+}
+`,
+
+"Kumar:2024c": `
+@inproceedings{Kumar:2024c,
+  author = "{\\textbf{D. Kumar}} and Mishra, Hiranmaya",
+  title = "{Axion effects on the non-radial oscillations of neutron stars}",
+  eprint = "(Journal of Subatomic Particles and Cosmology: ATHIC 2025)",
+  archivePrefix = "Submitted"
+}
+`
+  };
+
+  /* ===================== UTILITIES ===================== */
+  function filenameFromKey(key){ return key.replace(/[^a-zA-Z0-9-_]/g,'_') + '.bib'; }
+
+  /* ===================== RENDER ACTIONS: toggle, copy, download ===================== */
+  function renderPubActions(){
+    const containers = document.querySelectorAll('.pub-actions');
+    containers.forEach((c, i) => {
+      const key = c.getAttribute('data-key');
+      if(!key || !bibDB.hasOwnProperty(key)){ c.innerHTML = ''; return; }
+
+      // create toggle button
+      const btn = document.createElement('button');
+      btn.className = 'bib-toggle';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', `bib-block-${i}`);
+      btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 5v14M5 12h14" stroke="rgba(255,255,255,0.95)" stroke-width="1.6" stroke-linecap="round"/></svg><span>Show BibTeX</span>`;
+
+      // create collapsible block
+      const block = document.createElement('div');
+      block.className = 'bib-block';
+      block.id = `bib-block-${i}`;
+      block.setAttribute('aria-hidden', 'true');
+
+      // content pre
+      const pre = document.createElement('div');
+      pre.className = 'bib-content';
+      pre.textContent = bibDB[key] || 'BibTeX not available.';
+      block.appendChild(pre);
+
+      // actions inside block: copy + download
+      const actions = document.createElement('div');
+      actions.className = 'bib-actions';
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'small-btn';
+      copyBtn.innerText = 'Copy';
+      copyBtn.title = 'Copy BibTeX to clipboard';
+
+      const dlBtn = document.createElement('button');
+      dlBtn.className = 'small-btn';
+      dlBtn.innerText = 'Download .bib';
+      dlBtn.title = 'Download as .bib file';
+
+      actions.appendChild(copyBtn);
+      actions.appendChild(dlBtn);
+      block.appendChild(actions);
+
+      // attach to DOM: insert block after the pub-actions container (so it's directly under item)
+      c.appendChild(btn);
+      c.parentNode.insertBefore(block, c.nextSibling);
+
+      // Toggle handler
+      btn.addEventListener('click', (ev) => {
+        const open = block.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        block.setAttribute('aria-hidden', open ? 'false' : 'true');
+        // update button text/icon
+        btn.querySelector('span').textContent = open ? 'Hide BibTeX' : 'Show BibTeX';
+        // small animation: scroll into view if opened on small screens
+        if(open){
+          setTimeout(()=> block.scrollIntoView({behavior:'smooth', block:'nearest'}), 120);
         }
-        c.innerHTML = `
-          <button class="icon-btn view-btn" data-key="${key}" title="View BibTeX" aria-label="View BibTeX ${key}">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12H5a2 2 0 0 1-2-2V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/></svg>
-          </button>
-          <button class="icon-btn download-btn" data-key="${key}" title="Download .bib" aria-label="Download BibTeX ${key}">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        `;
       });
-      // attach handlers
-      document.querySelectorAll('.view-btn').forEach(btn => btn.addEventListener('click', onViewBib));
-      document.querySelectorAll('.download-btn').forEach(btn => btn.addEventListener('click', onDownloadBib));
-    }
 
-    // View handler: opens modal and injects content
-    const modal = document.getElementById('bib-modal');
-    const bibBody = document.getElementById('bib-body');
-    const bibTitle = document.getElementById('bib-title');
-    const bibKeyLabel = document.getElementById('bib-key');
-    const bibDownloadBtn = document.getElementById('bib-download');
-    const bibDownload2 = document.getElementById('bib-download-2');
-    const bibCopyBtn = document.getElementById('bib-copy');
-    const bibCopy2 = document.getElementById('bib-copy-2');
-    const bibClose = document.getElementById('bib-close');
-
-    function onViewBib(e){
-      const key = e.currentTarget.getAttribute('data-key');
-      const txt = BIB_ENTRIES[key] || '';
-      bibBody.textContent = txt;
-      bibTitle.textContent = 'BibTeX — ' + key;
-      bibKeyLabel.textContent = key;
-      modal.style.display = 'flex';
-      // set download buttons data
-      bibDownloadBtn.setAttribute('data-key', key);
-      bibDownload2.setAttribute('data-key', key);
-      bibCopyBtn.setAttribute('data-key', key);
-      bibCopy2.setAttribute('data-key', key);
-      // focus for keyboard accessibility
-      bibBody.focus();
-    }
-
-    // download single bib
-    function onDownloadBib(e){
-      const key = e.currentTarget.getAttribute('data-key');
-      downloadBibKey(key);
-    }
-    function downloadBibKey(key){
-      if(!BIB_ENTRIES[key]) return;
-      const blob = new Blob([BIB_ENTRIES[key]], {type: 'text/plain;charset=utf-8'});
-      const fname = filenameFromKey(key);
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fname;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    }
-
-    // copy to clipboard
-    async function copyBibKey(key){
-      if(!BIB_ENTRIES[key]) return;
-      try {
-        await navigator.clipboard.writeText(BIB_ENTRIES[key]);
-        // small feedback
-        const old = bibCopyBtn.innerHTML;
-        bibCopyBtn.innerHTML = 'Copied';
-        setTimeout(()=> bibCopyBtn.innerHTML = old, 1200);
-      } catch (err) {
-        alert('Unable to copy to clipboard. You can select the BibTeX and copy manually.');
-      }
-    }
-
-    // modal button wiring
-    bibDownloadBtn.addEventListener('click', (e)=> {
-      const key = e.currentTarget.getAttribute('data-key');
-      downloadBibKey(key);
-    });
-    bibDownload2.addEventListener('click', (e)=> {
-      const key = e.currentTarget.getAttribute('data-key');
-      downloadBibKey(key);
-    });
-    bibCopyBtn.addEventListener('click', (e)=> {
-      const key = e.currentTarget.getAttribute('data-key');
-      copyBibKey(key);
-    });
-    bibCopy2.addEventListener('click', (e)=> {
-      const key = e.currentTarget.getAttribute('data-key');
-      copyBibKey(key);
-    });
-    bibClose.addEventListener('click', ()=> modal.style.display = 'none');
-
-    // close modal on backdrop click or Esc
-    modal.addEventListener('click', (ev)=> {
-      if(ev.target === modal) modal.style.display = 'none';
-    });
-    window.addEventListener('keydown', (ev)=> {
-      if(ev.key === 'Escape') modal.style.display = 'none';
-    });
-
-    // Initialize UI and reveal animations
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function(){
-      const cards = Array.from(document.querySelectorAll('.card'));
-      const obs = new IntersectionObserver((entries, o) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            o.unobserve(e.target);
-          }
-        });
-      }, {threshold: 0.12});
-      cards.forEach(c => obs.observe(c));
-    })();
-
-    // slideshow
-    (function(){
-      const container = document.getElementById('slideshow');
-      if(!container) return;
-      const slides = Array.from(container.querySelectorAll('.slide'));
-      if(slides.length <= 1) return;
-      let idx = 0;
-      const next = () => {
-        slides[idx].classList.remove('active');
-        idx = (idx+1) % slides.length;
-        slides[idx].classList.add('active');
-      };
-      let running = setInterval(next, 4200);
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) clearInterval(running);
-        else running = setInterval(next, 4200);
+      // copy handler
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(pre.textContent);
+          const old = copyBtn.innerText;
+          copyBtn.innerText = 'Copied';
+          setTimeout(()=> copyBtn.innerText = old, 1100);
+        } catch (err) {
+          alert('Could not copy automatically. Select the text and copy manually.');
+        }
       });
-    })();
 
-    // finally render the action buttons
-    renderPubActions();
+      // download handler
+      dlBtn.addEventListener('click', () => {
+        const blob = new Blob([pre.textContent], {type: 'text/plain;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filenameFromKey(key);
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      });
 
+      // keyboard: open with Enter on the toggle
+      btn.addEventListener('keydown', (ev) => {
+        if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); btn.click(); }
+      });
+    });
+  }
+
+  /* ===================== INITIALIZE UI ===================== */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function initAnimations(){
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){ e.target.classList.add('visible'); o.unobserve(e.target); }
+      });
+    }, {threshold: 0.12});
+    cards.forEach(c => obs.observe(c));
+  })();
+
+  (function initSlideshow(){
+    const container = document.getElementById('slideshow');
+    if(!container) return;
+    const slides = Array.from(container.querySelectorAll('.slide'));
+    if(slides.length <= 1) return;
+    let idx = 0;
+    const next = () => {
+      slides[idx].classList.remove('active');
+      idx = (idx+1) % slides.length;
+      slides[idx].classList.add('active');
+    };
+    let running = setInterval(next, 4200);
+    document.addEventListener('visibilitychange', () => {
+      if(document.hidden) clearInterval(running);
+      else running = setInterval(next, 4200);
+    });
+  })();
+
+  // Render the bib toggle buttons and collapsible sections
+  renderPubActions();
   </script>
 </body>
 </html>
