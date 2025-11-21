@@ -68,12 +68,64 @@
     section {
       margin-bottom: 1rem;
     }
+
+    /* --- Welcome Screen Styles --- */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0b3d91, #182848, #1e5799);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+#welcome-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.welcome-content h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.welcome-content p {
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+
+/* fade in animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 </style>
 
 
 
 </head>
 <body class="text-gray-800">
+  <!-- Welcome Screen -->
+  <div id="welcome-screen">
+      <div class="welcome-content">
+          <h1>Welcome to My Research Page</h1>
+          <p>Nuclear Astrophysics • Neutron Stars • Dense Matter</p>
+      </div>
+  </div>
 
   <!-- Navbar -->
   <nav class="bg-white shadow fixed w-full z-50">
@@ -221,6 +273,16 @@
 
   cards.forEach(card => observer.observe(card));
 </script>
+
+  <script>
+  // Welcome screen auto fade-out
+  window.addEventListener("load", () => {
+      setTimeout(() => {
+          document.getElementById("welcome-screen").classList.add("fade-out");
+      }, 1800); // Duration before fading out
+  });
+</script>
+
 
 </body>
 </html>
