@@ -1,86 +1,148 @@
-<!doctype html>
-<h2 class="text-2xl font-semibold">Publications</h2>
-<div class="flex items-center gap-2">
-<label class="text-sm opacity-70">Sort:</label>
-<select id="sortSelect" class="bg-slate-700 text-slate-100 rounded px-2 py-1 text-sm">
-<option value="year-desc">Year (new → old)</option>
-<option value="year-asc">Year (old → new)</option>
-<option value="title">Title (A → Z)</option>
-</select>
-</div>
-</div>
+<!DOCTYPE html>
 
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepak Kumar — Nuclear Astrophysics</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0d0d0d;
+      color: #e5e5e5;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: #111827;
+      border-bottom: 1px solid #333;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid #555;
+      margin-bottom: 1rem;
+    }
+    nav a {
+      color: #9ca3af;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    nav a:hover { color: white; }
+    .section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #111;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+    h2 { color: #fff; margin-top: 0; }
+    .pub-item {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #1a1a1a;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
 
-<div id="pubList" class="mt-4 grid grid-cols-1 gap-4"></div>
+<header>
+  <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60" alt="star">
+  <h1>Deepak Kumar</h1>
+  <p>Nuclear Astrophysicist — Dense QCD • Neutron Stars • Hybrid Stars</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#outreach">Outreach</a>
+    <a href="cv.pdf" target="_blank">CV</a>
+  </nav>
+</header>
+
+<section class="section" id="about">
+  <h2>About Me</h2>
+  <p>I am a nuclear astrophysicist studying dense QCD matter under extreme conditions in compact stars such as neutron stars and hybrid stars. My research focuses on equation of state modeling, transport properties, and connecting dense-matter microphysics to multi-messenger astrophysics.</p>
 </section>
 
-
-<!-- CV -->
-<section id="cv" class="bg-slate-800 p-6 rounded-lg shadow">
-<h2 class="text-2xl font-semibold mb-2">Curriculum Vitae</h2>
-<p class="opacity-90">Download or view my CV (replace `cv.pdf` in the site root with your actual CV).</p>
-<div class="mt-3 flex gap-3">
-<a href="cv.pdf" download class="px-4 py-2 bg-indigo-600 rounded text-white">Download CV</a>
-<button id="viewCvBtn" class="px-4 py-2 bg-indigo-200 text-indigo-900 rounded">View Online</button>
-</div>
-
-
-<div id="cvModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-50">
-<div class="bg-slate-900 w-full max-w-4xl h-[80vh] rounded-lg overflow-hidden">
-<div class="flex justify-between items-center p-3 border-b border-white/5">
-<h3 class="text-lg">CV — Deepak Kumar</h3>
-<button id="closeCv" class="px-3 py-1 bg-white/5 rounded">Close</button>
-</div>
-<iframe src="cv.pdf" class="w-full h-full" title="CV"></iframe>
-</div>
-</div>
+<section class="section" id="research">
+  <h2>Research Interests</h2>
+  <ul>
+    <li>Equation of state of dense nuclear and quark matter</li>
+    <li>Transport coefficients and thermal evolution of neutron stars</li>
+    <li>Hybrid stars and phase transitions at high density</li>
+    <li>Gravitational-wave constraints on dense matter</li>
+    <li>Connections between heavy-ion collisions and astrophysical matter</li>
+  </ul>
 </section>
 
-
-<!-- Teaching -->
-<section id="teaching" class="bg-slate-800 p-6 rounded-lg shadow">
-<h2 class="text-2xl font-semibold mb-2">Teaching</h2>
-<div class="grid md:grid-cols-2 gap-4">
-<div class="p-4 bg-slate-900 rounded-lg">
-<h4 class="font-semibold">Graduate Courses</h4>
-<ul class="list-disc pl-5 mt-2 opacity-90">
-<li>Autumn 2025 — Nuclear Astrophysics (Graduate)</li>
-</ul>
-</div>
-<div class="p-4 bg-slate-900 rounded-lg">
-<h4 class="font-semibold">Supervision</h4>
-<p class="mt-2 opacity-90">Currently supervising graduate students on topics in dense-matter theory and neutron-star modeling.</p>
-</div>
-</div>
+<section class="section" id="publications">
+  <h2>Publications</h2>
+  <div id="pubs">Loading publications...</div>
 </section>
 
-
-<!-- Outreach -->
-<section id="outreach" class="bg-slate-800 p-6 rounded-lg shadow">
-<h2 class="text-2xl font-semibold mb-2">Outreach</h2>
-<div class="p-4 bg-slate-900 rounded-lg">
-<ul class="list-disc pl-5 opacity-90">
-<li>2025 — Public lecture: "Neutron Stars and the Extreme Universe"</li>
-</ul>
-</div>
+<section class="section" id="teaching">
+  <h2>Teaching</h2>
+  <ul>
+    <li>Autumn 2025 — Nuclear Astrophysics (Graduate Course)</li>
+  </ul>
 </section>
 
-
-<!-- Contact / Footer area inside main -->
-<section id="contact" class="bg-slate-800 p-6 rounded-lg shadow">
-<h2 class="text-2xl font-semibold mb-2">Contact</h2>
-<p class="opacity-90">Email: <a href="mailto:your.email@example.com" class="text-indigo-300">your.email@example.com</a></p>
-<p class="opacity-70 text-sm mt-2">Affiliation: Your Institute / University</p>
+<section class="section" id="outreach">
+  <h2>Outreach</h2>
+  <ul>
+    <li>2025 — Public Lecture: "Neutron Stars and the Extreme Universe"</li>
+  </ul>
 </section>
 
-
-</main>
-
-
-<footer class="max-w-5xl mx-auto p-6 text-center text-sm opacity-60">© 2025 Deepak Kumar</footer>
-
+<footer>
+  Designed by Deepak Kumar — 2025
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js/dist/bibtexParse.min.js"></script>
-<script src="assets/script.js"></script>
+
+<script>
+  async function loadBib() {
+    try {
+      const response = await fetch('refs.txt'); // renamed from .bib for GitHub Pages
+      const text = await response.text();
+      const bib = bibtexParse.toJSON(text);
+
+      const container = document.getElementById('pubs');
+      container.innerHTML = '';
+
+      bib.forEach(entry => {
+        const e = entry.entryTags;
+        const div = document.createElement('div');
+        div.className = 'pub-item';
+        div.innerHTML = `
+          <strong>${e.title || ''}</strong><br>
+          ${e.author || ''}<br>
+          <em>${e.journal || e.booktitle || ''}</em> (${e.year || ''})<br>
+          ${e.doi ? `DOI: ${e.doi}` : ''}
+        `;
+        container.appendChild(div);
+      });
+    } catch (err) {
+      document.getElementById('pubs').innerHTML = 'Failed to load publications.';
+    }
+  }
+
+  loadBib();
+</script>
+
 </body>
 </html>
