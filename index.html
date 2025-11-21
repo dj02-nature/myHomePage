@@ -3,135 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deepak Kumar - Personal Webpage</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Deepak Kumar — Home</title>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f8f9fb;
-      color: #222;
+      background: #f4f4f7;
     }
     header {
-      background: #1a3c6e;
-      color: #fff;
-      padding: 3rem 2rem;
+      background: #1a237e;
+      color: white;
+      padding: 2rem;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-    .section {
+    .container {
       max-width: 900px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      margin: auto;
+      padding: 1.5rem;
+    }
+    .card {
+      background: white;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #1a3c6e;
+      margin-top: 0;
+      color: #1a237e;
+    }
+    a {
+      color: #0d47a1;
+      text-decoration: none;
     }
     ul {
-      line-height: 1.7;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Deepak Kumar</h1>
-    <p>Nuclear Astrophysicist | High-Density Matter | Neutron Stars & Hybrid Stars</p>
-  </header>
+<header>
+  <h1>Deepak Kumar</h1>
+  <p>Nuclear Astrophysicist — Dense Matter | Neutron Stars | QCD EOS</p>
+</header>
 
-  <div class="section">
+<div class="container">
+  <!-- About Me Card -->
+  <div class="card">
     <h2>About Me</h2>
     <p>
-      I am a nuclear astrophysicist working on the behaviour of strongly interacting matter under extreme 
-      conditions in compact astrophysical objects such as neutron stars and hybrid stars. My research 
-      explores dense nuclear matter, QCD thermodynamics, transport properties, and connections to 
-      gravitational-wave observations.
+      I am a researcher in nuclear astrophysics, focusing on strongly interacting matter under extreme conditions, such as those found inside neutron stars, hybrid stars, and in heavy-ion collisions.
     </p>
   </div>
 
-  <div class="section">
+  <!-- Research Interests Card -->
+  <div class="card">
     <h2>Research Interests</h2>
     <ul>
-      <li>Equation of State (EOS) of dense nuclear and quark matter</li>
-      <li>Non-radial oscillations and pulsations of neutron stars</li>
-      <li>Transport coefficients in hot and dense QCD matter</li>
-      <li>Hybrid star structure and stability analysis</li>
-      <li>Gravitational-wave constraints on dense matter physics</li>
+      <li>Dense nuclear and quark matter</li>
+      <li>Equation of State of QCD at high density</li>
+      <li>Neutron stars & gravitational-wave constraints</li>
+      <li>Transport properties in extreme matter</li>
+      <li>Protoneutron star evolution</li>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>Publications</h2>
-    <ul>
-      <li>
-        <strong>Constraints on maximum neutron star mass from protoneutron star evolution</strong><br/>
-        Deepak Kumar, Tuhin Malik, Hiranmaya Mishra, Constança Providência<br/>
-        <em>Phys. Rev. D</em> 112 (2025) 063042<br/>
-        <a href="https://arxiv.org/abs/2505.18888">arXiv:2505.18888</a>
-      </li>
-    </ul>
+  <!-- Links Card -->
+  <div class="card">
+    <h2>Links</h2>
+    <p>
+      <a href="cv.pdf" target="_blank">Download CV</a><br>
+      <a href="https://orcid.org/0000-0002-XXXX-XXXX" target="_blank">ORCID Profile</a>
+    </p>
   </div>
 
-  <div class="section">
+  <!-- Contact Card -->
+  <div class="card">
     <h2>Contact</h2>
-    <p>Email: your-email@example.com</p>
-    <p>LinkedIn | Google Scholar | GitHub (Add your links)</p>
+    <p>
+      Email: <a href="mailto:deepak@example.com">deepak@example.com</a><br>
+      ORCID: <a href="https://orcid.org/0000-0002-XXXX-XXXX" target="_blank">0000-0002-XXXX-XXXX</a>
+    </p>
   </div>
 
-  <footer>
-    © 2025 Deepak Kumar — Personal Academic Webpage
-  </footer>
-  <script>
-    async function loadBibtex() {
-      const response = await fetch('refs.bib');
-      const bibtex = await response.text();
+  <!-- Publications Card -->
+  <div class="card">
+    <h2>Selected Publications</h2>
+    <ul id="pub-list"></ul>
+  </div>
+</div>
 
-      const entries = bibtex.split(/@/).slice(1);
-      const pubList = document.getElementById('pub-list');
-
-      entries.forEach(entry => {
-        const title = entry.match(/title *= *\{([^}]*)\}/i)?.[1] || "Untitled";
-        const author = entry.match(/author *= *\{([^}]*)\}/i)?.[1] || "Unknown";
-        const journal = entry.match(/journal *= *\{([^}]*)\}/i)?.[1] || "";
-        const year = entry.match(/year *= *\{([^}]*)\}/i)?.[1] || "";
-        const doi = entry.match(/doi *= *\{([^}]*)\}/i)?.[1] || "";
-        const arxiv = entry.match(/eprint *= *\{([^}]*)\}/i)?.[1] || "";
-
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <strong>${title}</strong><br>
-          ${author}<br>
-          <em>${journal}</em> (${year})<br>
-          ${arxiv ? `<a href="https://arxiv.org/abs/${arxiv}">arXiv:${arxiv}</a>` : ''}
-          ${doi ? ` | <a href="https://doi.org/${doi}">DOI</a>` : ''}
-        `;
-        pubList.appendChild(li);
-      });
+<script>
+  const publications = [
+    {
+      title: "Constraints on maximum neutron star mass from protoneutron star evolution",
+      authors: "Kumar, Deepak; Malik, Tuhin; Mishra, Hiranmaya; Providência, Constança",
+      journal: "Phys. Rev. D (2025)",
+      link: "https://arxiv.org/abs/2505.18888"
+    },
+    {
+      title: "Study of strongly interacting matter in heavy ion collisions (example placeholder)",
+      authors: "Deepak Kumar et al.",
+      journal: "Journal Name (Year)",
+      link: "#"
+    },
+    {
+      title: "Transport properties of dense baryonic matter (example placeholder)",
+      authors: "Deepak Kumar et al.",
+      journal: "Journal Name (Year)",
+      link: "#"
+    },
+    {
+      title: "Hybrid star structure with QCD-inspired models (example placeholder)",
+      authors: "Deepak Kumar et al.",
+      journal: "Journal Name (Year)",
+      link: "#"
     }
+  ];
 
-    loadBibtex();
-  </script>
+  const list = document.getElementById('pub-list');
+  publications.forEach(pub => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${pub.title}</strong><br>${pub.authors}<br><em>${pub.journal}</em><br><a href="${pub.link}" target="_blank">Link</a>`;
+    list.appendChild(li);
+  });
+</script>
+
 </body>
 </html>
