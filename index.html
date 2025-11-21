@@ -1,160 +1,140 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-// Personal academic website - React single-file component
-// TailwindCSS utility classes used for styling (no import needed in the canvas preview).
+/**
+ * Personal website component with automatic refs.bib import.
+ * - Place refs.bib in public/refs.bib
+ * - Simple BibTeX parser handles common field forms: {..} or "..."
+ * - Builds a publications list (title, authors, journal, year, link)
+ */
 
-const publications = [
-  {
-    title: "Title of Publication 1: Dense QCD effects in neutron stars",
-    authors: "D. Kumar, A. Researcher",
-    journal: "Phys. Rev. C",
-    year: 2024,
-    link: "#"
-  },
-  {
-    title: "Title of Publication 2: Transport coefficients of high-density matter",
-    authors: "D. Kumar, B. Scientist",
-    journal: "Astrophys. J.",
-    year: 2023,
-    link: "#"
-  },
-  {
-    title: "Title of Publication 3: Multi-messenger constraints on hybrid stars",
-    authors: "D. Kumar et al.",
-    journal: "J. Cosmology Astropart. Phys.",
-    year: 2022,
-    link: "#"
+function parseBibtex(bibtexText) {
+  // Lightweight parser:
+  const entries = [];
+  const entryRegex = /@([a-zA-Z]+)\s*\{\s*([^,]+),([\s\S]*?)\}\s*(?=@|$)/g;
+  let m;
+  while ((m = entryRegex.exec(bibtexText)) !== null) {
+    const [, entryType, entryKey, body] = m;
+    const fields = {};
+    const fieldRegex = /([a-zA-Z0-9_\-]+)\s*=\s*(?:\{([\s\S]*?)\}|"([\s\S]*?)"|([^,\n]+))\s*,?/g;
+    let f;
+    while ((f = fieldRegex.exec(body)) !== null) {
+      const name = f[1].toLowerCase();
+      const value = (f[2] ?? f[3] ?? f[4] ?? "").trim();
+      // normalize whitespace and TeX braces roughly
+      fields[name] = value.replace(/\s+/g, " ").replace(/^\{|\}$/g, "");
+    }
+    entries.push({ id: entryKey.trim(), type: entryType.toLowerCase(), fields });
   }
-];
-
-const news = [
-  {date: '2025-11-01', title: 'Invited talk at XYZ workshop', link: '#'},
-  {date: '2025-07-15', title: 'New preprint on arXiv about dense-matter transport', link: '#'}
-];
-
-const teaching = [
-  {term: 'Autumn 2025', course: 'Nuclear Astrophysics (Graduate)'}
-];
-
-const outreach = [
-  {year: 2025, event: 'Public lecture: "Neutron Stars and the Extreme Universe"'}
-];
+  return entries;
+}
 
 export default function PersonalWebsite() {
+  const [publications, setPublications] = useState([]);
+  const [bibError, setBibError] = useState(null);
+
+  useEffect(() => {
+    // Fetch the refs.bib from public folder
+    fetch("/refs.bib")
+      .then((res) => {
+        if (!res.ok) throw new Error("Could not fetch refs.bib (place it in public/refs.bib)");
+        return res.text();
+      })
+      .then((text) => {
+        const parsed = parseBibtex(text);
+        const pubs = parsed.map((e) => {
+          const f = e.fields;
+          return {
+            id: e.id,
+            title: f.title || "(no title)",
+            authors: f.author || f.editor || "(no authors)",
+            journal: f.journal || f.booktitle || "",
+            year: f.year ? parseInt(f.year, 10) : null,
+            doi: f.doi || null,
+            eprint: f.eprint || null,
+            link: f.doi ? `https://doi.org/${f.doi}` : (f.eprint ? `https://arxiv.org/abs/${f.eprint}` : "#"),
+          };
+        });
+        pubs.sort((a, b) => (b.year || 0) - (a.year || 0));
+        setPublications(pubs);
+      })
+      .catch((err) => {
+        console.error(err);
+        setBibError(err.message);
+      });
+  }, []);
+
+  // fallback if no publications were parsed
+  const localPublications =
+    publications.length === 0
+      ? [
+          {
+            id: "Kumar:2025dlc",
+            title: "Constraints on maximum neutron star mass from protoneutron star evolution",
+            authors: "D. Kumar, T. Malik, H. Mishra, C. Providência",
+            journal: "Phys. Rev. D",
+            year: 2025,
+            link: "https://arxiv.org/abs/2505.18888",
+          },
+        ]
+      : publications;
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
-      <header className="bg-gradient-to-r from-blue-900 to-indigo-700 text-white py-8 shadow-lg">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-          <div className="w-32 h-32 rounded-xl overflow-hidden flex-shrink-0 shadow-lg bg-black">
-            {/* Dummy photograph of a star - replace with your image */}
+    <div style={{ fontFamily: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" }}>
+      <header style={{ background: "linear-gradient(90deg,#0b3b76,#5b2fbf)", color: "white", padding: 28 }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", display: "flex", gap: 20, alignItems: "center" }}>
+          <div style={{ width: 120, height: 120, borderRadius: 16, overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}>
             <img
               src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60"
-              alt="Star image"
-              className="w-full h-full object-cover"
+              alt="Star"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
-
           <div>
-            <h1 className="text-3xl font-extrabold">Deepak Kumar</h1>
-            <p className="mt-1 text-sm opacity-90">Nuclear Astrophysicist — Dense QCD | Neutron Stars | Multi-messenger Astrophysics</p>
-            <div className="mt-3 flex flex-wrap gap-3">
-              <a href="#research" className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">Research</a>
-              <a href="#publications" className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">Publications</a>
-              <a href="#cv" className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm">CV</a>
-            </div>
+            <h1 style={{ margin: 0, fontSize: 28 }}>Deepak Kumar</h1>
+            <p style={{ margin: "6px 0 0", opacity: 0.9 }}>Nuclear Astrophysicist — Dense QCD | Neutron Stars | Multi-messenger</p>
           </div>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <section className="md:col-span-2 bg-white rounded-2xl p-6 shadow">
-          <h2 className="text-2xl font-semibold mb-3">About</h2>
-          <p className="leading-relaxed">I am a nuclear astrophysicist studying the properties of strongly interacting matter under extreme conditions in compact stars (neutron stars, hybrid stars). My work focuses on modeling the equation of state, transport properties, and phase structure of dense QCD matter and connecting these microphysical models to observational data from gravitational waves, pulsars, and heavy-ion collisions.</p>
-
-          <h2 className="text-2xl font-semibold mt-6 mb-3">Research Interests</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Equation of state of dense matter and phase transitions</li>
-            <li>Transport coefficients and thermal evolution of compact stars</li>
-            <li>Multi-messenger constraints: gravitational waves, pulsars, X-rays</li>
-            <li>Connections between heavy-ion physics and astrophysical dense matter</li>
-          </ul>
-
-          <h2 id="publications" className="text-2xl font-semibold mt-6 mb-3">Selected Publications</h2>
-          <div className="space-y-4">
-            {publications.map((p, i) => (
-              <article key={i} className="p-4 border rounded-lg bg-slate-50">
-                <h3 className="font-semibold">{p.title}</h3>
-                <p className="text-sm opacity-80">{p.authors} — <em>{p.journal}</em>, {p.year}</p>
-                <a href={p.link} className="text-sm mt-2 inline-block">View</a>
+      <main style={{ maxWidth: 1000, margin: "28px auto", padding: "0 16px" }}>
+        <section style={{ background: "white", padding: 18, borderRadius: 12, boxShadow: "0 6px 18px rgba(0,0,0,0.06)" }}>
+          <h2>Selected Publications</h2>
+          {bibError && (
+            <div style={{ color: "crimson", marginBottom: 10 }}>
+              Could not load <code>refs.bib</code>: {bibError}. Showing the sample entry below.
+            </div>
+          )}
+          <div style={{ display: "grid", gap: 12 }}>
+            {localPublications.map((p) => (
+              <article key={p.id} style={{ padding: 12, borderRadius: 8, background: "#fbfbff", border: "1px solid #eee" }}>
+                <h3 style={{ margin: "0 0 6px", fontSize: 16 }}>{p.title}</h3>
+                <div style={{ fontSize: 13, color: "#333" }}>
+                  {p.authors} — <em>{p.journal}</em>
+                  {p.year ? `, ${p.year}` : ""}
+                </div>
+                <div style={{ marginTop: 8 }}>
+                  <a href={p.link || "#"} target="_blank" rel="noopener noreferrer">
+                    View
+                  </a>
+                </div>
               </article>
             ))}
           </div>
-
         </section>
 
-        <aside className="bg-white rounded-2xl p-6 shadow space-y-6">
-          <div id="cv">
-            <h3 className="text-xl font-semibold">Curriculum Vitae</h3>
-            <p className="text-sm opacity-80 mt-2">Download a PDF version of my CV.</p>
-            {/* Dummy CV download link - replace 'cv.pdf' with your real file path */}
-            <a href="/cv.pdf" className="mt-3 inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg">Download CV (PDF)</a>
-          </div>
-
-          <div id="news">
-            <h3 className="text-xl font-semibold">News</h3>
-            <ul className="mt-2 space-y-2 text-sm">
-              {news.map((n, idx) => (
-                <li key={idx} className="">
-                  <span className="font-medium">{n.date}</span> — <a href={n.link} className="underline">{n.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div id="contact">
-            <h3 className="text-xl font-semibold">Contact</h3>
-            <p className="text-sm mt-2">Email: <a href="mailto:your.email@example.com" className="underline">your.email@example.com</a></p>
-            <p className="text-sm">Affiliation: Your Institute / University</p>
-          </div>
-        </aside>
-
-        <section className="md:col-span-3 bg-white rounded-2xl p-6 shadow">
-          <div id="teaching">
-            <h2 className="text-2xl font-semibold mb-3">Teaching</h2>
-            <ul className="list-disc pl-5">
-              {teaching.map((t, i) => (
-                <li key={i}>{t.term} — {t.course}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div id="outreach" className="mt-6">
-            <h2 className="text-2xl font-semibold mb-3">Outreach</h2>
-            <ul className="list-disc pl-5">
-              {outreach.map((o, i) => (
-                <li key={i}>{o.year} — {o.event}</li>
-              ))}
-            </ul>
-          </div>
+        <section style={{ marginTop: 18 }}>
+          <h2>Instructions</h2>
+          <ol>
+            <li>Place your full BibTeX file at <code>public/refs.bib</code> in your React project.</li>
+            <li>The site will automatically fetch and parse the file on load and show your publications.</li>
+            <li>If you want a more feature-rich parser (BibTeX edge cases, BibLaTeX, CSL output), I can integrate <code>citation-js</code> or another parser.</li>
+          </ol>
         </section>
-
       </main>
 
-      <footer className="bg-slate-900 text-slate-200 py-6 mt-10">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-sm">Designed with ❤️ — Deepak Kumar • <span className="opacity-80">2025</span></p>
-        </div>
+      <footer style={{ textAlign: "center", padding: 24, color: "#666" }}>
+        © 2025 Deepak Kumar
       </footer>
-
     </div>
   );
 }
-
-/*
-  NEXT STEPS / INSTRUCTIONS
-  - Replace dummy publications array with your actual BibTeX or JSON export.
-  - To auto-load publications from a BibTeX file: fetch and parse the file in useEffect and set state.
-  - Replace the dummy star image src with your own photo (hosted URL). If you want me to generate a non-photorealistic illustration instead, tell me and I can add an SVG.
-  - For a downloadable CV: upload a real cv.pdf to your hosting and update the link.
-  - If you want this split into multiple React files or integrated into a Next.js or CRA project, I can scaffold that next.
-*/
