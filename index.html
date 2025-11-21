@@ -23,12 +23,24 @@
     #hero-bg {
       position: absolute;
       width: 100%;
-      height: 120%;
+      height: 150%;
       top: 0;
       left: 0;
       background: linear-gradient(135deg, #a2d9ff, #ffffff, #c3f0ff);
       z-index: -1;
       transition: transform 0.1s ease-out;
+    }
+
+    /* Sticky hero container */
+    #hero-container {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -48,22 +60,25 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Parallax Background -->
-  <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-    <div id="hero-bg"></div>
-    <div class="z-10">
-      <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
-      <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
-        <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
-        <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
-        <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+  <!-- Hero Section with Sticky + Parallax -->
+  <div id="hero-container">
+    <section id="hero" class="relative w-full flex items-center justify-center text-center">
+      <div id="hero-bg"></div>
+      <div class="z-10">
+        <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
+        <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+          <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
+          <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
+          <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <script>
+    // Hero parallax effect
     window.addEventListener('scroll', function() {
       const scrolled = window.scrollY;
       const heroBg = document.getElementById('hero-bg');
@@ -86,7 +101,7 @@
     <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6">Research Interests</h2>
       <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-        The non-radial oscillation modes in neutron stars are very much sensitive and directly related to the matter inside it. As if there is a quark-hadron phase transition, the frequency of the mode enhances. So there might be a possibility of a correlation between the non-radial oscillation modes and the neutron star matter properties, like symmetric matter properties, asymmetric matter properties, mass, radius, tidal deformability of the neutron star, etc. I would like to study the correlations of non-radial oscillation frequencies with neutron star matter properties, mass, radius, and tidal deformability of neutron stars. Topics of research (in brief):
+        The non-radial oscillation modes in neutron stars are very much sensitive and directly related to the matter inside it. As if there is a quark-hadron phase transition, the frequency of the mode enhances. So there might be a possibility of a correlation between the non-radial oscillation modes and the neutron star matter properties, like symmetric matter properties, asymmetric matter properties, mass, radius, tidal deformability of the neutron star, etc. I would like to study the correlations of non-radial oscillation frequencies with neutron star matter properties, mass, radius, and tidal deformability of neutron stars.
       </p>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition min-h-[150px]">
@@ -109,7 +124,7 @@
     </div>
   </section>
 
-  <!-- Publications Card with Fixed Height and Scrollable List -->
+  <!-- Publications Card -->
   <section id="publications" class="py-12">
     <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl mx-auto min-h-[450px] text-left flex flex-col">
       <h2 class="text-3xl font-bold mb-4 text-center">Publications</h2>
@@ -121,10 +136,6 @@
           <li>S. Tewari, S. Chatterjee, <strong>D. Kumar</strong>, R. Mallick, "Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347", <a href="https://doi.org/10.1103/PhysRevD.111.103009" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 111, 103009</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, A. Karan, A. Verma, H. Mishra, R. Mallick, "Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars", <a href="https://doi.org/10.1103/PhysRevC.111.055805" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. C 111, 055805</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, "The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach", <a href="https://doi.org/10.1088/1475-7516/2025/03/033" target="_blank" class="text-blue-700 hover:underline">JCAP 03, 033</a>, 2025.</li>
-          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providencia, "Robust universal relations in neutron star asteroseismology", <a href="https://doi.org/10.1103/PhysRevD.108.083008" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 108, 083008</a>, 2023.</li>
-          <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Non-radial oscillation modes in hybrid stars: consequences of a mixed phase", <a href="https://doi.org/10.1088/1475-7516/2023/02/015" target="_blank" class="text-blue-700 hover:underline">JCAP 02, 015</a>, 2023.</li>
-          <li>A. Abhishek, A. Das, <strong>D. Kumar</strong>, H. Mishra, "Thermoelectric transport coefficients of quark matter", <a href="https://doi.org/10.1140/epjc/s10052-022-09999-z" target="_blank" class="text-blue-700 hover:underline">Eur. Phys. J. C 82, 71</a>, 2022.</li>
-          <li>A. Das, <strong>D. Kumar</strong>, H. Mishra, "Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach", <a href="https://doi.org/10.1103/PhysRevD.100.094030" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 100, 094030</a>, 2019.</li>
           <!-- Add remaining entries similarly -->
         </ul>
       </div>
