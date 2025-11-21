@@ -13,36 +13,37 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f6fa;
-      color: #2f3640;
+      font-family: 'Georgia', serif;
+      background: #f9f8f6; /* warm light beige */
+      color: #3b3a32; /* dark gray-brown */
       line-height: 1.6;
     }
 
     a {
-      color: #40739e;
+      color: #38755b; /* earthy green */
       text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
+      color: #2a4d3b;
     }
 
     h1, h2, h3 {
-      color: #192a56;
+      color: #2e4d3d; /* dark natural green */
     }
 
     hr {
       border: none;
       height: 1px;
-      background: #dcdde1;
+      background: #dcd8d2; /* soft beige-gray */
       margin: 2rem 0;
     }
 
     /* --- Header --- */
     header {
-      background: #40739e;
-      color: white;
+      background: #a3b18a; /* soft green */
+      color: #f9f8f6;
       padding: 2rem 1rem;
       text-align: center;
     }
@@ -54,11 +55,12 @@
 
     header p {
       font-size: 1.2rem;
+      font-style: italic;
     }
 
     /* --- Navigation --- */
     nav {
-      background: #2f3640;
+      background: #6b8e23; /* olive green */
     }
 
     nav ul {
@@ -74,14 +76,14 @@
     }
 
     nav ul li a {
-      color: white;
+      color: #f9f8f6;
       font-weight: bold;
       padding: 0.5rem 1rem;
       display: block;
     }
 
     nav ul li:hover > a {
-      background: #40739e;
+      background: #a3b18a;
       border-radius: 5px;
     }
 
@@ -90,7 +92,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background: #40739e;
+      background: #9ebc9f;
       min-width: 200px;
       border-radius: 5px;
       overflow: hidden;
@@ -101,12 +103,9 @@
       display: block;
     }
 
-    nav ul li ul li {
-      margin: 0;
-    }
-
     nav ul li ul li a {
       padding: 0.5rem 1rem;
+      color: #f9f8f6;
     }
 
     /* --- Container --- */
@@ -118,17 +117,17 @@
 
     /* --- Card Style --- */
     .card {
-      background: white;
+      background: #ffffff;
       border-radius: 12px;
       padding: 2rem;
       margin: 2rem 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       transition: transform 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
     }
 
     /* --- Slideshow --- */
@@ -150,25 +149,23 @@
       cursor: pointer;
       position: absolute;
       top: 50%;
-      width: auto;
       padding: 1rem;
       margin-top: -22px;
-      color: white;
+      color: #f9f8f6;
       font-weight: bold;
       font-size: 1.5rem;
       transition: 0.3s;
-      border-radius: 0 3px 3px 0;
       user-select: none;
-      background: rgba(0,0,0,0.3);
+      background: rgba(46,77,61,0.6);
+      border-radius: 3px;
     }
 
     .next {
       right: 0;
-      border-radius: 3px 0 0 3px;
     }
 
     .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(46,77,61,0.9);
     }
 
     .dot-container {
@@ -181,14 +178,14 @@
       height: 15px;
       width: 15px;
       margin: 0 5px;
-      background-color: #dcdde1;
+      background-color: #dcd8d2;
       border-radius: 50%;
       display: inline-block;
       transition: background-color 0.3s;
     }
 
     .active, .dot:hover {
-      background-color: #40739e;
+      background-color: #38755b;
     }
 
     /* --- Lists --- */
@@ -204,8 +201,8 @@
     footer {
       text-align: center;
       padding: 1rem;
-      background: #2f3640;
-      color: white;
+      background: #6b8e23;
+      color: #f9f8f6;
       margin-top: 2rem;
     }
 
@@ -218,7 +215,6 @@
         margin: 0.3rem 0;
       }
     }
-
   </style>
 </head>
 
@@ -282,7 +278,7 @@
     <div class="card">
       <h2>About Me</h2>
       <p>
-        I am a theoretical physicist working at IISER Bhopal. My research focuses on strongly interacting matter under extreme conditions, particularly dense matter in neutron/hybrid stars. I also assist in teaching and have developed all my research codes from scratch.
+        I am a theoretical physicist at IISER Bhopal, focusing on dense matter in neutron/hybrid stars. I also assist in teaching and develop all my research codes from scratch.
       </p>
     </div>
 
@@ -299,9 +295,6 @@
     <!-- Research Plan Card -->
     <div class="card">
       <h2>Research Plan</h2>
-      <p>
-        My research focuses on dense matter physics, neutron stars, quark-gluon plasma, gravitational waves, and multi-messenger astronomy.
-      </p>
       <ul>
         <li>Quark-Gluon Plasma & Quantum Chromodynamics</li>
         <li>Strongly interacting matter in Neutron stars</li>
@@ -313,7 +306,7 @@
     <div class="card">
       <h2>Selected Publications</h2>
       <ol>
-        <li>The footprint of nuclear saturation properties on the neutron star f-mode oscillation frequencies: a machine learning approach — Kumar, Deepak et al.</li>
+        <li>The footprint of nuclear saturation properties on the neutron star f-mode oscillation frequencies — Kumar, Deepak et al.</li>
         <li>Robust universal relations in neutron star asteroseismology — Kumar, Deepak et al.</li>
         <li>Non-radial oscillation modes in hybrid stars: consequences of a mixed phase — Kumar, Deepak et al.</li>
         <li>Thermoelectric transport coefficients of quark matter — Abhishek, Aman et al.</li>
@@ -354,26 +347,17 @@
     let slideIndex = 1;
     showSlides(slideIndex);
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+    function plusSlides(n) { showSlides(slideIndex += n); }
+    function currentSlide(n) { showSlides(slideIndex = n); }
 
     function showSlides(n) {
       let i;
       let slides = document.getElementsByClassName("slides");
       let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+      for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+      for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active",""); }
       slides[slideIndex-1].style.display = "block";
       if(dots[slideIndex-1]) dots[slideIndex-1].className += " active";
     }
@@ -382,13 +366,8 @@
     let resultIndex = 1;
     showResults(resultIndex);
 
-    function plusSlidesResult(n) {
-      showResults(resultIndex += n);
-    }
-
-    function currentResult(n) {
-      showResults(resultIndex = n);
-    }
+    function plusSlidesResult(n) { showResults(resultIndex += n); }
+    function currentResult(n) { showResults(resultIndex = n); }
 
     function showResults(n) {
       let i;
@@ -400,9 +379,7 @@
     }
 
     // --- Date Time ---
-    function updateDateTime() {
-      document.getElementById("datetime").textContent = new Date().toLocaleString();
-    }
+    function updateDateTime() { document.getElementById("datetime").textContent = new Date().toLocaleString(); }
     setInterval(updateDateTime, 1000);
   </script>
 
