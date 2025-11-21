@@ -1,134 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deepak Kumar — Home</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* Reset */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #f4f4f7;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f7;
+      color: #333;
+    }
+
     header {
       background: #1a237e;
       color: white;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 1.5rem;
+
+    header h1 {
+      margin-bottom: 0.3rem;
+      font-size: 2rem;
     }
-    .card {
-      background: white;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    header p {
+      font-size: 1.1rem;
     }
-    h2 {
-      margin-top: 0;
-      color: #1a237e;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #303f9f;
     }
-    a {
-      color: #0d47a1;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.5rem 0;
+      margin: 0;
+    }
+
+    nav li {
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    nav a {
+      color: #fff;
       text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      transition: 0.3s;
     }
-    ul {
-      line-height: 1.6;
+
+    nav a:hover {
+      color: #ffca28;
     }
+
+    nav li .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #3949ab;
+      min-width: 180px;
+      z-index: 1;
+      top: 2.5rem;
+      left: 0;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    nav li:hover .dropdown-content {
+      display: block;
+    }
+
+    nav li .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      color: #1a237e;
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td, th {
+      padding: 0.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .publications ol {
+      padding-left: 1.2rem;
+    }
+
+    .publications li {
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #1a237e;
+      color: #fff;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* Slide show thumbnails */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    .mySlides {
+      width: 100%;
+      display: none;
+      border-radius: 12px;
+    }
+
+    .thumbnail-container {
+      display: flex;
+      overflow-x: auto;
+      margin-top: 0.5rem;
+    }
+
+    .thumbnail-container img {
+      width: 120px;
+      margin-right: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+
+    .thumbnail-container img:hover {
+      opacity: 1;
+    }
+
+    .result_images {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .list_hover:hover {
+      color: #1a237e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
-<header>
-  <h1>Deepak Kumar</h1>
-  <p>Nuclear Astrophysicist — Dense Matter | Neutron Stars | QCD EOS</p>
-</header>
+  <header>
+    <h1>Deepak Kumar (Dr. D)</h1>
+    <p>Theoretical Nuclear Astrophysicist — Neutron Stars, Dense Matter & QCD EOS</p>
+  </header>
 
-<div class="container">
-  <!-- About Me Card -->
-  <div class="card">
-    <h2>About Me</h2>
-    <p>
-      I am a researcher in nuclear astrophysics, focusing on strongly interacting matter under extreme conditions, such as those found inside neutron stars, hybrid stars, and in heavy-ion collisions.
-    </p>
-  </div>
-
-  <!-- Research Interests Card -->
-  <div class="card">
-    <h2>Research Interests</h2>
+  <nav>
     <ul>
-      <li>Dense nuclear and quark matter</li>
-      <li>Equation of State of QCD at high density</li>
-      <li>Neutron stars & gravitational-wave constraints</li>
-      <li>Transport properties in extreme matter</li>
-      <li>Protoneutron star evolution</li>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Posters & Talks</a>
+        <div class="dropdown-content">
+          <a href="#">Talk 1</a>
+          <a href="#">Talk 2</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">EOS Data</a>
+        <div class="dropdown-content">
+          <a href="#">Data 1</a>
+          <a href="#">Data 2</a>
+        </div>
+      </li>
+      <li><a href="#">Workshops</a></li>
+      <li><a href="#">Notes</a></li>
+      <li><a href="mailto:dpqraja02@gmail.com">Query</a></li>
+      <li>
+        <a href="#">Important Links</a>
+        <div class="dropdown-content">
+          <a href="#">INSPIREHEP</a>
+          <a href="#">ORCiD</a>
+          <a href="#">GitHub</a>
+        </div>
+      </li>
     </ul>
-  </div>
+  </nav>
 
-  <!-- Links Card -->
-  <div class="card">
-    <h2>Links</h2>
-    <p>
-      <a href="cv.pdf" target="_blank">Download CV</a><br>
-      <a href="https://orcid.org/0000-0002-XXXX-XXXX" target="_blank">ORCID Profile</a>
-    </p>
-  </div>
+  <main>
+    <!-- About Me -->
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        I am a theoretical physicist working as a research associate at IISER Bhopal. My main research focus is
+        the study of strongly interacting matter under extreme conditions, particularly inside neutron/hybrid stars.
+        I develop numerical codes from scratch and explore connections to kilonovae, gravitational waves, and dark matter in NSs.
+      </p>
+    </div>
 
-  <!-- Contact Card -->
-  <div class="card">
-    <h2>Contact</h2>
-    <p>
-      Email: <a href="mailto:deepak@example.com">deepak@example.com</a><br>
-      ORCID: <a href="https://orcid.org/0000-0002-XXXX-XXXX" target="_blank">0000-0002-XXXX-XXXX</a>
-    </p>
-  </div>
+    <!-- Education -->
+    <div class="card">
+      <h2>Education</h2>
+      <table>
+        <tr>
+          <td>PhD (Physics):</td>
+          <td>Indian Institute of Technology, Gandhinagar</td>
+        </tr>
+        <tr>
+          <td>MSc (Physics):</td>
+          <td>Banaras Hindu University, Varanasi</td>
+        </tr>
+        <tr>
+          <td>BSc (Physics):</td>
+          <td>Banaras Hindu University, Varanasi</td>
+        </tr>
+      </table>
+    </div>
 
-  <!-- Publications Card -->
-  <div class="card">
-    <h2>Selected Publications</h2>
-    <ul id="pub-list"></ul>
-  </div>
-</div>
+    <!-- Future Research -->
+    <div class="card">
+      <h2>Future Research Plan</h2>
+      <p>
+        I am studying non-radial oscillation modes in neutron stars to understand correlations with NS matter properties like mass, radius, and tidal deformability.
+      </p>
+      <ul>
+        <li class="list_hover">Quark-Gluon Plasma, Quantum Chromodynamics</li>
+        <li class="list_hover">Strongly interacting matter in neutron stars</li>
+        <li class="list_hover">Gravitational waves & multimessenger astronomy</li>
+        <li class="list_hover">…</li>
+      </ul>
+    </div>
 
-<script>
-  const publications = [
-    {
-      title: "Constraints on maximum neutron star mass from protoneutron star evolution",
-      authors: "Kumar, Deepak; Malik, Tuhin; Mishra, Hiranmaya; Providência, Constança",
-      journal: "Phys. Rev. D (2025)",
-      link: "https://arxiv.org/abs/2505.18888"
-    },
-    {
-      title: "Study of strongly interacting matter in heavy ion collisions (example placeholder)",
-      authors: "Deepak Kumar et al.",
-      journal: "Journal Name (Year)",
-      link: "#"
-    },
-    {
-      title: "Transport properties of dense baryonic matter (example placeholder)",
-      authors: "Deepak Kumar et al.",
-      journal: "Journal Name (Year)",
-      link: "#"
-    },
-    {
-      title: "Hybrid star structure with QCD-inspired models (example placeholder)",
-      authors: "Deepak Kumar et al.",
-      journal: "Journal Name (Year)",
-      link: "#"
+    <!-- Publications -->
+    <div class="card">
+      <h2>Selected Publications</h2>
+      <ol>
+        <li>The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach, <br /><em>Kumar, Deepak</em> and Malik, Tuhin and Mishra, Hiranmaya</li>
+        <li>Robust universal relations in neutron star asteroseismology, <br /><em>Kumar, Deepak</em> and Malik, Tuhin and Mishra, Hiranmaya and Providencia, Constanca</li>
+        <li>Non-radial oscillation modes in hybrid stars: consequences of a mixed phase, <br /><em>Kumar, Deepak</em> and Mishra, Hiranmaya and Malik, Tuhin</li>
+        <li>Thermoelectric transport coefficients of quark matter, <br />Abhishek, Aman and Das, Arpan and <em>Kumar, Deepak</em> and Mishra, Hiranmaya</li>
+        <li>Chiral susceptibility in the Nambu--Jona-Lasinio model: A Wigner function approach, <br />Das, Arpan and <em>Kumar, Deepak</em> and Mishra, Hiranmaya</li>
+        <li><a href="#">Full list of publications</a></li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Deepak Kumar — <span id="datetime"></span></p>
+  </footer>
+
+  <script>
+    // live datetime
+    function updateDateTime() {
+      const now = new Date();
+      document.querySelector("#datetime").textContent = now.toLocaleString();
     }
-  ];
-
-  const list = document.getElementById('pub-list');
-  publications.forEach(pub => {
-    const li = document.createElement('li');
-    li.innerHTML = `<strong>${pub.title}</strong><br>${pub.authors}<br><em>${pub.journal}</em><br><a href="${pub.link}" target="_blank">Link</a>`;
-    list.appendChild(li);
-  });
-</script>
-
+    setInterval(updateDateTime, 1000);
+  </script>
 </body>
 </html>
