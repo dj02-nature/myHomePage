@@ -3,111 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Deepak Kumar | Nuclear Astrophysics</title>
-
-  <!-- Tailwind CSS via Play CDN -->
+  <title>Dr. Deepak Kumar – Nuclear Astrophysics</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Alpine.js -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Custom scrollbar for publications card */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gray-50 font-sans text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
-    <div class="container mx-auto text-center">
-      <img src="your-photo.jpg" alt="Dr. Deepak Kumar" class="mx-auto w-32 h-32 rounded-full border-4 border-white mb-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-2 animate__animated animate__fadeInDown">Dr. Deepak Kumar</h1>
-      <p class="text-xl md:text-2xl mb-6 animate__animated animate__fadeInUp">Nuclear Astrophysicist | Compact Stars | Dense Matter | Heavy-Ion Collisions</p>
-      <div class="flex justify-center space-x-4">
-        <a href="#contact" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">Contact Me</a>
-        <a href="DeepakKumar_CV.pdf" download class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">Download CV</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-  <nav class="bg-white shadow sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center py-3 px-4">
-      <span class="font-bold text-xl text-blue-700">Deepak Kumar</span>
-      <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-700 transition">About</a></li>
-        <li><a href="#research" class="hover:text-blue-700 transition">Research</a></li>
-        <li><a href="#publications" class="hover:text-blue-700 transition">Publications</a></li>
-        <li><a href="#projects" class="hover:text-blue-700 transition">Projects</a></li>
-        <li><a href="#contact" class="hover:text-blue-700 transition">Contact</a></li>
+  <!-- Navbar -->
+  <nav class="bg-white shadow fixed w-full z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-700">Dr. Deepak Kumar</a>
+      <ul class="flex space-x-6 text-gray-700 font-medium">
+        <li><a href="#about" class="hover:text-blue-700">About</a></li>
+        <li><a href="#research" class="hover:text-blue-700">Research</a></li>
+        <li><a href="#publications" class="hover:text-blue-700">Publications</a></li>
+        <li><a href="#gallery" class="hover:text-blue-700">Gallery</a></li>
+        <li><a href="#contact" class="hover:text-blue-700">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-gray-100">
-    <div class="container mx-auto text-center max-w-4xl">
-      <h2 class="text-3xl font-bold mb-6">About Me</h2>
-      <p class="text-lg leading-relaxed mb-4">
-        I am a nuclear astrophysicist working on the physics of dense matter in compact objects such as neutron stars and hybrid stars. 
-        My research explores the phases of strongly interacting matter under extreme conditions, transport properties, and connections with gravitational-wave observations.
-      </p>
-      <p class="text-lg leading-relaxed">
-        I am passionate about theoretical modeling, simulations, and contributing to the understanding of nuclear matter at extreme densities.
-      </p>
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-200 to-white text-center pt-20">
+    <h1 class="text-5xl font-bold mb-4">Dr. Deepak Kumar</h1>
+    <p class="text-xl mb-6">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+    <div class="space-x-4">
+      <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+      <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
     </div>
   </section>
 
-  <!-- Research Section -->
-  <section id="research" class="py-20">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">Research Areas</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-          <div class="text-blue-700 mb-4 text-4xl">🪐</div>
-          <h3 class="font-semibold text-xl mb-2">Compact Stars & Dense Matter</h3>
-          <p>Study of neutron stars, hybrid stars, and the equation of state of nuclear matter at high densities.</p>
+  <!-- About Me -->
+  <section id="about" class="py-20 container mx-auto max-w-5xl text-center">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      I am a nuclear astrophysicist working on dense matter under extreme conditions in the context of compact objects like neutron stars and hybrid stars. My research explores the equation of state of strongly interacting matter, transport properties, and non-radial oscillations, connecting theory with astrophysical observations.
+    </p>
+  </section>
+
+  <!-- Research Interests -->
+  <section id="research" class="py-20 bg-gray-100">
+    <div class="container mx-auto max-w-5xl text-center">
+      <h2 class="text-3xl font-bold mb-6">Research Interests</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Compact Stars</h3>
+          <p>Study of neutron stars, hybrid stars, and protoneutron star evolution using theoretical and computational methods.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-          <div class="text-blue-700 mb-4 text-4xl">⚛️</div>
-          <h3 class="font-semibold text-xl mb-2">Heavy-Ion Collisions</h3>
-          <p>Exploration of QCD phases under extreme conditions, transport coefficients, and thermal properties of matter.</p>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Dense Matter Physics</h3>
+          <p>Equation of state of dense nuclear matter, CP violation effects, and the role of QCD interactions under extreme conditions.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-          <div class="text-blue-700 mb-4 text-4xl">🌌</div>
-          <h3 class="font-semibold text-xl mb-2">Astrophysical Observations</h3>
-          <p>Connections of microphysics with gravitational waves, electromagnetic observations, and multi-messenger astrophysics.</p>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Astrophysical Connections</h3>
+          <p>Connecting microscopic properties with observations: gravitational waves, supernovae, and compact object measurements.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-xl mb-2">Non-Radial Oscillations</h3>
+          <p>Analyzing oscillation modes, f-mode frequencies, and asteroseismology signatures to constrain dense matter properties.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Slideshow Section -->
-  <section id="results" class="py-20 bg-gray-50">
-    <div class="container mx-auto text-center max-w-5xl">
-      <h2 class="text-3xl font-bold mb-12">Key Results & Simulations</h2>
-
-      <!-- Alpine.js Carousel -->
-      <div x-data="{ current: 0, images: ['slide1.jpg','slide2.jpg','slide3.jpg'] }" class="relative">
-        <div class="overflow-hidden rounded-xl shadow-lg">
-          <template x-for="(img, index) in images" :key="index">
-            <div x-show="current === index" class="transition duration-700">
-              <img :src="img" alt="" class="w-full h-96 object-cover">
-            </div>
-          </template>
-        </div>
-        <!-- Controls -->
-        <button @click="current = (current === 0 ? images.length - 1 : current - 1)" class="absolute top-1/2 left-0 -translate-y-1/2 bg-blue-700 text-white px-3 py-2 rounded-full hover:bg-blue-900 transition">◀</button>
-        <button @click="current = (current === images.length - 1 ? 0 : current + 1)" class="absolute top-1/2 right-0 -translate-y-1/2 bg-blue-700 text-white px-3 py-2 rounded-full hover:bg-blue-900 transition">▶</button>
-      </div>
-      <p class="mt-6 text-gray-700">Click arrows to browse through results and simulation snapshots.</p>
-    </div>
-  </section>
-
-<!-- Publications Section -->
-<section id="publications" class="py-20 bg-gray-100">
-  <div class="container mx-auto max-w-5xl text-center">
+  <!-- Publications -->
+  <section id="publications" class="py-20 container mx-auto max-w-6xl text-center">
     <h2 class="text-3xl font-bold mb-6">Publications</h2>
-
-    <!-- Scrollable Publications Card -->
-    <div class="bg-white p-6 rounded-xl shadow-lg max-h-[700px] overflow-y-auto">
+    <div class="bg-white p-6 rounded-xl shadow-lg max-h-[700px] overflow-y-auto scrollbar-thin">
       
       <!-- Journal Articles -->
       <h3 class="text-2xl font-semibold mb-4">Journal Articles</h3>
@@ -122,7 +100,7 @@
           <p>D. Kumar & P. K. Sahu, arXiv:2505.02618 [nucl-th], 2025</p>
           <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">View on arXiv</a>
         </li>
-        <!-- Add remaining journal articles similarly -->
+        <!-- Add all remaining journal articles here -->
       </ul>
 
       <!-- Conference Proceedings -->
@@ -133,7 +111,7 @@
           <p>D. Kumar, H. Mishra & T. Malik, Springer Proc. Phys. 304, 637-639, 2024</p>
           <a href="https://doi.org/10.1007/978-981-97-0289-3_144" target="_blank" class="text-blue-700 hover:underline">View DOI</a>
         </li>
-        <!-- Add remaining conference proceedings similarly -->
+        <!-- Add remaining proceedings -->
       </ul>
 
       <!-- Submitted / Preprints -->
@@ -143,51 +121,36 @@
           <h4 class="font-semibold">The asteroseismology in neutron stars in presence of dark matter</h4>
           <p>A. Das, D. Kumar, T. Malik & H. Mishra, arXiv preprint</p>
         </li>
-        <!-- Add remaining preprints similarly -->
+        <!-- Add remaining preprints -->
       </ul>
-      
+
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">Projects & Simulations</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-          <h3 class="font-semibold text-xl mb-2">Neutron Star Equation of State</h3>
-          <p>Simulation and modeling of dense nuclear matter to predict mass-radius relations and tidal deformabilities.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-          <h3 class="font-semibold text-xl mb-2">Transport Properties in QCD Matter</h3>
-          <p>Calculation of electrical and thermal conductivities, Seebeck coefficient in heavy-ion collision matter.</p>
+  <!-- Gallery / Slideshow -->
+  <section id="gallery" class="py-20 bg-gray-100">
+    <div class="container mx-auto max-w-5xl text-center">
+      <h2 class="text-3xl font-bold mb-6">Gallery / Results</h2>
+      <div class="relative w-full overflow-hidden rounded-xl shadow-lg">
+        <div class="carousel flex transition-transform duration-500">
+          <img src="image1.png" alt="Result 1" class="w-full object-cover rounded-xl">
+          <img src="image2.png" alt="Result 2" class="w-full object-cover rounded-xl">
+          <img src="image3.png" alt="Result 3" class="w-full object-cover rounded-xl">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-blue-700 text-white">
-    <div class="container mx-auto text-center max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
-      <p class="mb-6">For collaborations, inquiries, or questions, feel free to reach out via email or social media.</p>
-      <p class="mb-4 font-semibold">Email: <a href="mailto:your.email@example.com" class="underline">your.email@example.com</a></p>
-      <p class="mb-6 font-semibold"><a href="DeepakKumar_CV.pdf" download class="underline">Download My CV</a></p>
-      <div class="flex justify-center space-x-6 text-2xl">
-        <a href="#" title="ORCID">🔗</a>
-        <a href="#" title="Google Scholar">📄</a>
-        <a href="#" title="ResearchGate">🔬</a>
-        <a href="#" title="LinkedIn">💼</a>
-      </div>
-    </div>
+  <!-- Contact -->
+  <section id="contact" class="py-20 container mx-auto max-w-5xl text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact</h2>
+    <p class="text-lg mb-4">Email: <a href="mailto:deepak.kumar@example.com" class="text-blue-700 hover:underline">deepak.kumar@example.com</a></p>
+    <p class="text-lg">CV: <a href="DeepakKumar_CV.pdf" class="text-blue-700 hover:underline">Download PDF</a></p>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-6 text-center">
-    <p>© 2025 Dr. Deepak Kumar. All rights reserved.</p>
+  <footer class="bg-white py-6 text-center text-gray-600">
+    © 2025 Dr. Deepak Kumar. All rights reserved.
   </footer>
 
 </body>
