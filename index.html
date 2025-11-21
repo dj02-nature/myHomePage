@@ -22,29 +22,29 @@
 
     body { font-family: 'Inter', sans-serif; background: var(--page-bg); color: #0f1724; scroll-behavior: smooth; }
     h1,h2,h3 { color: var(--primary-dark); margin:0; }
-    h1 { font-size: 1.8rem; font-weight:700; }
-    h2 { font-size: 1.2rem; font-weight:600; margin-bottom:.5rem; }
-    h3 { font-size: 1rem; font-weight:500; }
+    h1 { font-size: 2rem; font-weight:700; }
+    h2 { font-size: 1.3rem; font-weight:600; margin-bottom:.5rem; }
+    h3 { font-size: 1.05rem; font-weight:500; }
     p, li { color: #334155; font-size:0.95rem; line-height:1.5; }
 
-    .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding:1rem; margin:1rem auto; max-width:1180px; transition: transform .3s ease, opacity .3s ease; opacity:0; transform: translateY(12px); }
+    .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding:1.2rem; margin:1rem auto; max-width:1180px; transition: transform .3s ease, opacity .3s ease; opacity:0; transform: translateY(12px); }
     .card.visible { opacity:1; transform: translateY(0); }
 
     nav { position: fixed; width:100%; top:0; z-index:50; backdrop-filter: blur(6px); background: var(--glass); border-bottom:1px solid rgba(15,23,42,0.05); }
     .nav-link { color: var(--primary-dark); font-weight:600; margin:0 .5rem; transition: color .2s; }
     .nav-link:hover { color: var(--primary); }
 
-    .btn-primary { background: linear-gradient(180deg,var(--primary),var(--primary-dark)); color:white; font-weight:600; padding:.5rem .9rem; border-radius:10px; box-shadow:0 6px 12px rgba(31,111,59,0.14); transition:transform .2s; }
+    .btn-primary { background: linear-gradient(180deg,var(--primary),var(--primary-dark)); color:white; font-weight:600; padding:.5rem 1rem; border-radius:10px; box-shadow:0 6px 12px rgba(31,111,59,0.14); transition:transform .2s; }
     .btn-primary:hover { transform: translateY(-2px); }
 
-    .btn-ghost { background:transparent; border:1px solid rgba(31,111,59,0.2); padding:.45rem .9rem; border-radius:10px; transition:transform .2s; }
+    .btn-ghost { background:transparent; border:1px solid rgba(31,111,59,0.2); padding:.45rem 1rem; border-radius:10px; transition:transform .2s; }
     .btn-ghost:hover { transform: translateY(-2px); }
 
     .grid-2 { display:grid; grid-template-columns:1fr; gap:1rem; }
     .grid-3 { display:grid; grid-template-columns:1fr; gap:1rem; }
     @media(min-width:768px){ .grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);} }
 
-    .slideshow { position:relative; border-radius:10px; overflow:hidden; min-height:180px; }
+    .slideshow { position:relative; border-radius:10px; overflow:hidden; min-height:220px; }
     .slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transform: scale(1.02); transition: opacity .6s ease, transform .6s ease; }
     .slide.active { opacity:1; transform: scale(1); }
     .slide-overlay { position:absolute; inset:0; background: linear-gradient(180deg, rgba(7,28,13,0.12), rgba(7,28,13,0.28)); }
@@ -62,12 +62,12 @@
   </style>
 </head>
 
-<body class="pt-20">
+<body class="pt-24">
 
   <!-- NAVBAR -->
   <nav class="px-4 py-3 flex justify-between items-center max-w-[1200px] mx-auto">
     <a href="#" class="flex items-center gap-3">
-      <img src="images/me2.jpg" alt="Deepak Kumar" class="w-9 h-9 rounded-full object-cover">
+      <img src="images/me2.jpg" alt="Deepak Kumar" class="w-10 h-10 rounded-full object-cover">
       <div>
         <div class="font-semibold text-sm text-gray-700">Dr. Deepak Kumar</div>
         <div class="text-xs text-gray-500 -mt-0.5">Nuclear Astrophysics • Compact Objects</div>
@@ -92,7 +92,9 @@
     <section class="card grid-2 items-center gap-6">
       <div>
         <h1>Dr. Deepak Kumar</h1>
-        <p class="mt-2 text-gray-600 text-sm">Theoretical physicist working on strongly interacting matter under extreme conditions — neutron stars, hybrid stars, equations of state, non-radial oscillations and gravitational-wave connections.</p>
+        <p class="mt-2 text-gray-600 text-sm">
+          I am a nuclear astrophysicist working on high-density matter under extreme conditions in the context of compact objects like neutron stars and hybrid stars. My work focuses on equations of state of strongly interacting matter, non-radial oscillations of neutron stars, transport properties, and gravitational-wave implications.
+        </p>
         <div class="mt-4 flex flex-wrap gap-3">
           <a href="cv_deepak.pdf" class="btn-primary px-5 py-2">Download CV</a>
           <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="btn-ghost px-4 py-2">ORCID</a>
@@ -110,19 +112,23 @@
     <!-- ABOUT -->
     <section id="about" class="card">
       <h2>About Me</h2>
-      <p class="text-gray-700 text-sm mt-2 mb-4">I am a theoretical physicist at IOP Bhubaneswar, India. My research focuses on dense nuclear and quark matter under extreme conditions and their astrophysical implications: neutron stars, hybrid stars, oscillation modes, and gravitational-wave signatures. I build numerical codes for simulations and analysis.</p>
+      <p class="text-gray-700 text-sm mt-2 mb-4">
+        I am a theoretical physicist at Institute of Physics, Bhubaneswar, India. My research focuses on strongly interacting matter under extreme conditions, including neutron stars, hybrid stars, and the connection between microphysics and observable astrophysical phenomena. I develop numerical codes for simulations and analysis of dense matter, transport coefficients, and non-radial oscillation modes.
+      </p>
       <div class="grid-2 gap-4">
         <div class="bg-gray-50 p-3 rounded-lg">
           <h3>Education</h3>
           <p class="mt-1 text-gray-600 text-sm">
-            <strong>Ph.D.</strong> IIT Gandhinagar (2017 – 2022)<br>
-            Thesis: <em>Properties of strongly interacting matter under extreme conditions</em><br>
-            Supervisor: Prof. Hiranmaya Mishra
+            2017 – 2022: Ph.D., Indian Institute of Technology Gandhinagar, India (Physical Research Laboratory Ahmedabad, India)<br>
+            <strong>Thesis title:</strong> Properties of strongly interacting matter under extreme conditions<br>
+            <strong>Supervisor:</strong> Prof. Hiranmaya Mishra
           </p>
         </div>
         <div class="bg-gray-50 p-3 rounded-lg">
-          <h3>Employment</h3>
-          <p class="mt-1 text-gray-600 text-sm">Post-doctoral Fellow, IOP Bhubaneswar — Oct 2024 – Present</p>
+          <h3>Employment History</h3>
+          <p class="mt-1 text-gray-600 text-sm">
+            Post-doctoral Fellow, Institute of Physics, Bhubaneswar, India — 2024–Present
+          </p>
         </div>
       </div>
     </section>
@@ -130,12 +136,14 @@
     <!-- RESEARCH -->
     <section id="research" class="card">
       <h2>Research Interests</h2>
-      <p class="text-gray-700 text-sm mt-1 mb-4">I study how microphysics affects macroscopic observables of compact objects: mass, radius, tidal deformability, and oscillation spectra.</p>
+      <p class="text-gray-700 text-sm mt-1 mb-4">
+        My work aims to explore properties of strongly interacting matter under extreme conditions. I investigate the different phases of dense nuclear and quark matter, their transport coefficients, thermodynamics, and the impact on compact astrophysical objects, including the study of oscillation modes and gravitational-wave signals.
+      </p>
       <div class="grid-2 md:grid-3 gap-3">
-        <div class="bg-gray-50 p-3 rounded-lg"><h3>Compact Stars</h3><p class="mt-1 text-gray-600 text-sm">Neutron & hybrid stars, protoneutron star evolution.</p></div>
-        <div class="bg-gray-50 p-3 rounded-lg"><h3>Dense Matter</h3><p class="mt-1 text-gray-600 text-sm">Equation of state, QCD effects, axions.</p></div>
-        <div class="bg-gray-50 p-3 rounded-lg"><h3>Asteroseismology</h3><p class="mt-1 text-gray-600 text-sm">f-modes, non-radial oscillations, GW signatures.</p></div>
-        <div class="bg-gray-50 p-3 rounded-lg"><h3>Machine Learning</h3><p class="mt-1 text-gray-600 text-sm">ML for EOS inference and universal relations.</p></div>
+        <div class="bg-gray-50 p-3 rounded-lg"><h3>Compact Stars</h3><p class="mt-1 text-gray-600 text-sm">Neutron stars, hybrid stars, mass-radius relations, stability analysis.</p></div>
+        <div class="bg-gray-50 p-3 rounded-lg"><h3>Dense Matter</h3><p class="mt-1 text-gray-600 text-sm">Equation of state, QCD phases, electrical & thermal transport properties, Seebeck coefficient.</p></div>
+        <div class="bg-gray-50 p-3 rounded-lg"><h3>Oscillations & Asteroseismology</h3><p class="mt-1 text-gray-600 text-sm">Non-radial oscillations, f-modes, gravitational-wave observables, universal relations.</p></div>
+        <div class="bg-gray-50 p-3 rounded-lg"><h3>Heavy-Ion Collisions</h3><p class="mt-1 text-gray-600 text-sm">RHIC/LHC physics, quark-gluon plasma, transport coefficients of hot dense matter.</p></div>
       </div>
     </section>
 
@@ -171,7 +179,9 @@
     <!-- CONTACT -->
     <section id="contact" class="card text-center">
       <h2>Contact</h2>
-      <p class="text-gray-700 text-sm mt-2">Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--primary)] hover:underline">dpqraja02@gmail.com</a></p>
+      <p class="text-gray-700 text-sm mt-2">
+        Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--primary)] hover:underline">dpqraja02@gmail.com</a>
+      </p>
       <div class="mt-3 flex justify-center gap-3">
         <a href="cv_deepak.pdf" class="btn-ghost">Download CV</a>
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
