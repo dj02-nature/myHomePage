@@ -20,40 +20,56 @@
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
 
-    /* Card styling — WIDER + more spacing between cards */
+    /* CARD DESIGN — wider + more spacing + animations */
     .card {
       background: white;
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-      width: 95%;                  /* wide layout */
-      max-width: 1150px;
-      margin: 2.2rem auto;          /* ⬆ increased spacing between cards */
-      padding: 1.2rem 1.4rem;       /* compact internal padding */
+      box-shadow: 0 4px 14px rgba(0,0,0,0.14);
+      width: 95%;
+      max-width: 1180px;
+      margin: 3.2rem auto;              /* ⬆ increased spacing between all cards */
+      padding: 1.4rem 1.5rem;
+      
+      /* --- Animation initial state --- */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
-    /* Heading and text spacing tuned */
+    /* When visible */
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Extra spacing before About Me card */
+    #about {
+      margin-top: 4.2rem !important;   /* ⬆ Increased spacing BELOW top section */
+    }
+
+    /* Headings and text spacing */
     .card h2 { 
       margin-bottom: 0.7rem;
     }
-    .card p { 
-      margin-bottom: 0.5rem;
-    }
+    .card p,
     .card ul li { 
       margin-bottom: 0.5rem;
+      line-height: 1.55;
     }
 
-    /* Publications scrollable area */
+    /* Publications scrollable box */
     .publications-list { 
       max-height: 500px; 
       overflow-y: auto; 
       padding-right: 0.7rem; 
     }
 
-    /* Section spacing (kept slightly compact) */
+    /* Section spacing */
     section {
       margin-bottom: 1rem;
     }
 </style>
+
 
 
 </head>
@@ -191,6 +207,20 @@
     <p class="text-lg text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-green-700 hover:underline">0000-0001-9292-3598</a></p>
     <p class="text-lg text-gray-700 mb-2">INSPIRE-HEP: <a href="https://inspirehep.net/authors/1750571" target="_blank" class="text-purple-700 hover:underline">Deepak Kumar</a></p>
   </section>
-  
+
+  <script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  }, { threshold: 0.15 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
+
 </body>
 </html>
