@@ -14,7 +14,9 @@
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
   </style>
 </head>
-<body class="font-sans text-gray-800">
+<!-- <body class="font-sans text-gray-800"> -->
+<body class="font-sans text-gray-800 h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+
 
   <!-- Navbar -->
   <nav class="bg-white shadow fixed w-full z-50">
@@ -31,7 +33,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center text-center pt-20">
+  <!-- <section class="h-screen flex flex-col justify-center items-center text-center pt-20">
     <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
     <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
     <div class="flex flex-wrap justify-center gap-4">
@@ -40,7 +42,19 @@
       <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
       <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
     </div>
-  </section>
+  </section> -->
+
+  <!-- Hero Section -->
+<section class="h-screen flex flex-col justify-center items-center text-center pt-20 snap-start">
+  <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
+  <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+  <div class="flex flex-wrap justify-center gap-4">
+    <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+    <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
+    <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
+    <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+  </div>
+</section>
 
   <!-- About Me Card -->
   <section id="about" class="py-12">
