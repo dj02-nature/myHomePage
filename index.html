@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dr. Deepak Kumar — Nuclear Astrophysics</title>
+
+  <!-- Tailwind CDN (development build; for production you can compile) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Theme tokens (Forest Green) and small overrides -->
+  <style>
+    :root{
+      --fg-500:#1f6f3b;   /* primary forest green */
+      --fg-700:#164f2a;
+      --muted:#666f6a;
+      --card:#ffffff;
+      --bg:#f6fbf7;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 18px rgba(15,23,42,0.08);
+      --radius: 12px;
+      --max-width:1180px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg), #ecf6ee 60%);
+      color: #0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Compact card style */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      margin: 1rem auto;
+      width: 94%;
+      max-width: var(--max-width);
+      transition: transform .32s cubic-bezier(.2,.9,.3,1), opacity .32s ease;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    .card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Smaller headings & spacing for compact look */
+    h1,h2,h3 { color: var(--fg-700); margin:0; }
+    h1 { font-size: 1.65rem; font-weight: 700; }
+    h2 { font-size: 1.125rem; font-weight: 700; }
+    h3 { font-size: 0.98rem; font-weight: 600; }
+
+    p, li { color: #334155; font-size: 0.98rem; line-height: 1.45; margin:0; }
+
+    /* Scrollbar for publications (thin) */
+    .pub-scroll { max-height: 380px; overflow:auto; padding-right:8px; }
+    .pub-scroll::-webkit-scrollbar{ width:7px; height:7px }
+    .pub-scroll::-webkit-scrollbar-thumb{ background: rgba(20,60,30,0.22); border-radius:8px }
+
+    /* Slim navbar */
+    nav { backdrop-filter: blur(6px); background: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(15,23,42,0.04); }
+    .nav-link { color: var(--fg-700); font-weight:600; font-size:0.95rem; }
+    .nav-link:hover { color: var(--fg-500); }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(180deg, var(--fg-500), var(--fg-700));
+      color:white; font-weight:600;
+      padding: .5rem .9rem; border-radius:10px;
+      box-shadow: 0 6px 12px rgba(31,111,59,0.14);
+    }
+    .btn-ghost {
+      background: transparent; border:1px solid rgba(20,60,30,0.06); padding:.45rem .8rem; border-radius:10px;
+    }
+
+    /* Slideshow */
+    .slideshow { border-radius: 10px; overflow: hidden; position: relative; min-height: 160px; }
+    .slide { position: absolute; inset:0; display:flex; align-items:center; justify-content:center; background-size:cover; background-position:center; opacity:0; transform: scale(1.02); transition: opacity .6s ease, transform .6s ease; }
+    .slide.active { opacity:1; transform: scale(1); }
+    .slide-overlay { position:absolute; inset:0; background: linear-gradient(180deg, rgba(7,28,13,0.12), rgba(7,28,13,0.28)); }
+
+    /* Responsive grid tweaks*/
+    @media (min-width:768px){
+      .grid-2 { display:grid; grid-template-columns: repeat(2,1fr); gap: .75rem; }
+      .grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap: .75rem; }
+    }
+    @media (min-width:1024px){
+      h1 { font-size:2rem; }
+      .card { padding: 1.25rem; }
+    }
+
+    /* Utility for icon circles */
+    .icon-circle { width:40px; height:40px; display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(31,111,59,0.08) }
+
+    /* Footer */
+    footer { padding:1rem 0; text-align:center; color:var(--muted); font-size:0.92rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full z-40 top-0">
+    <div class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-3">
+          <!-- simple leaf icon -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4 20c6-1 8-5 12-9 4-4 4-8 4-8s-4 0-8 4c-4 4-8 6-9 12z" fill="var(--fg-500)"/></svg>
+          <div>
+            <div class="text-sm text-gray-700 font-semibold">Dr. Deepak Kumar</div>
+            <div class="text-xs text-gray-500 -mt-0.5">Nuclear Astrophysics • Compact Objects</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#research">Research</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#links">Links</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="cv_deepak.pdf" class="btn-ghost" aria-label="Download CV">CV</a>
+        <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-20 pb-10">
+
+    <!-- HERO / TOP -->
+    <section class="card" style="margin-top:1.25rem;">
+      <div class="grid-2 items-center gap-4">
+        <div>
+          <h1 class="mb-1">Dr. Deepak Kumar</h1>
+          <p class="text-sm text-gray-600 mb-3 max-w-2xl">
+            Theoretical physicist working on strongly interacting matter under extreme conditions — neutron stars, hybrid stars, equations of state, non-radial oscillations and gravitational-wave connections.
+          </p>
+
+          <div class="flex gap-2 flex-wrap items-center">
+            <a href="cv_deepak.pdf" class="btn-primary" aria-label="Download CV">Download CV</a>
+            <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="btn-ghost">ORCID</a>
+            <a href="https://inspirehep.net/authors/1750571" target="_blank" class="btn-ghost">INSPIRE-HEP</a>
+          </div>
+
+          <div class="mt-3 flex items-center gap-3 text-sm text-gray-600">
+            <div class="icon-circle" title="Location" aria-hidden>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.5 7 13 7 13s7-7.5 7-13c0-3.9-3.1-7-7-7z" fill="var(--fg-500)"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-sm">Institute of Physics, Bhubaneswar</div>
+              <div class="text-xs text-gray-500">Post-doctoral fellow / Research Associate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slideshow (place your images in ./images/slide1.jpg etc.) -->
+        <div>
+          <div class="slideshow" id="slideshow" aria-hidden="true">
+            <div class="slide active" style="background-image:url('images/slide1.jpg');">
+              <div class="slide-overlay"></div>
+            </div>
+            <div class="slide" style="background-image:url('images/slide2.jpg');">
+              <div class="slide-overlay"></div>
+            </div>
+            <div class="slide" style="background-image:url('images/slide3.jpg');">
+              <div class="slide-overlay"></div>
+            </div>
+            <!-- Fallback if no images exist -->
+            <div class="slide" style="background-color:rgba(31,111,59,0.06); display:flex; gap:0.75rem; align-items:center; justify-content:center;">
+              <div class="text-center px-4">
+                <div class="text-sm text-gray-600">Research snapshots</div>
+                <div class="mt-2 text-xs text-gray-500">Add slideshow images in <code>./images/slide1.jpg</code></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <h2 class="mb-3">About</h2>
+      <p class="text-sm text-gray-700 mb-3">
+        I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. My research centres on dense nuclear and quark matter under extreme conditions and their astrophysical implications: neutron stars, hybrid stars, oscillation modes and gravitational-wave signatures. I build and maintain my own numerical codes for simulations and analysis.
+      </p>
+
+      <div class="grid-2 mt-3">
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <h3>Education</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            <strong>Ph.D.</strong> Indian Institute of Technology Gandhinagar (2017 – 2023)<br>
+            Thesis: <em>Properties of strongly interacting matter under extreme conditions</em><br>
+            Defense: 15 May 2023<br>
+            Supervisor: Prof. Hiranmaya Mishra (hiranmaya@niser.ac.in)
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <h3>Employment</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            <strong>Post-doctoral fellow</strong> Institute of Physics, Bhubaneswar — Oct 2024 – Present<br>
+            Research Associate / Teaching duties
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="card">
+      <h2 class="mb-3">Research Interests</h2>
+      <p class="text-sm text-gray-700 mb-3">
+        I investigate how microphysics (equation of state, phase transitions, nuclear saturation properties) affects macroscopic observables of compact objects: mass, radius, tidal deformability and oscillation spectra. Current projects include correlations of f-mode frequencies with dense matter properties, impacts of quark-hadron transitions on modes, and machine-learning assisted EOS inference.
+      </p>
+
+      <div class="grid-2 mt-3">
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <h3>Compact Stars</h3>
+          <p class="mt-1 text-sm text-gray-600">Neutron & hybrid stars, protoneutron star evolution and maximum mass constraints.</p>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <h3>Dense Matter Physics</h3>
+          <p class="mt-1 text-sm text-gray-600">Equation of state, QCD effects, axions and CP-violation in dense matter.</p>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <h3>Asteroseismology</h3>
+          <p class="mt-1 text-sm text-gray-600">f-modes, non-radial oscillations and gravitational-wave signatures.</p>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-lg">
+          <h3>Machine Learning</h3>
+          <p class="mt-1 text-sm text-gray-600">ML approaches for EOS inference and universal relations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="card">
+      <h2 class="mb-3">Publications</h2>
+      <div class="pub-scroll">
+        <ol class="list-decimal ml-5 space-y-2 text-sm text-gray-700">
+          <li><strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-[var(--fg-500)] hover:underline">arXiv:2411.17828</a>, 2024.</li>
+          <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-[var(--fg-500)] hover:underline">arXiv:2505.02618</a>, 2025.</li>
+          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", Phys. Rev. D 112, 063042, 2025.</li>
+          <li>S. Tewari, S. Chatterjee, <strong>D. Kumar</strong>, R. Mallick, "Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347", Phys. Rev. D 111, 103009, 2025.</li>
+          <li><strong>D. Kumar</strong>, A. Karan, A. Verma, H. Mishra, R. Mallick, "Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars", Phys. Rev. C 111, 055805, 2025.</li>
+          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, "The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach", JCAP 03, 033, 2025.</li>
+          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência, "Robust universal relations in neutron star asteroseismology", Phys. Rev. D 108, 083008, 2023.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Non-radial oscillation modes in hybrid stars: consequences of a mixed phase", JCAP 02, 015, 2023.</li>
+          <li>A. Abhishek, A. Das, <strong>D. Kumar</strong>, H. Mishra, "Thermoelectric transport coefficients of quark matter", Eur. Phys. J. C 82, 71, 2022.</li>
+          <li>A. Das, <strong>D. Kumar</strong>, H. Mishra, "Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach", Phys. Rev. D 100, 094030, 2019.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Quark Matter in the Core of Neutron Stars and Its Consequences on Non-radial Oscillations", Springer Proc. Phys. 304, 637-639, 2024.</li>
+          <li>A. Jaiswal et al., "Dynamics of QCD matter — current status", Int. J. Mod. Phys. E 30, 2130001, 2021.</li>
+          <li><strong>D. Kumar</strong>, P. K. Sahu, "Constraining the neutron star equation of state ...", XXVI DAE-BRNS High Energy Physics Symposium, 2024.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, "Axion effects on the non-radial oscillations of neutron stars", XXVI DAE-BRNS HEP Symposium, 2024.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, "Axion effects on the non-radial oscillations of neutron stars", Journal of Subatomic Particles and Cosmology: ATHIC, 2025.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links" class="card">
+      <h2 class="mb-3">Important Research Links</h2>
+      <div class="grid-3 mt-3">
+        <a href="https://www.ligo.org/" target="_blank" class="bg-gray-50 p-3 rounded-lg hover:shadow transition text-sm">
+          <div class="flex items-center gap-3"><div class="icon-circle" aria-hidden>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2v20" stroke="var(--fg-500)" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div><div><div class="font-semibold">LIGO</div><div class="text-xs text-gray-500">Gravitational Wave Observatory</div></div></div>
+        </a>
+
+        <a href="https://www.nasa.gov/nicer" target="_blank" class="bg-gray-50 p-3 rounded-lg hover:shadow transition text-sm">
+          <div class="flex items-center gap-3"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="var(--fg-500)"/></svg></div><div><div class="font-semibold">NICER</div><div class="text-xs text-gray-500">Neutron star Interior Explorer</div></div></div>
+        </a>
+
+        <a href="https://arxiv.org/" target="_blank" class="bg-gray-50 p-3 rounded-lg hover:shadow transition text-sm">
+          <div class="flex items-center gap-3"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 12h16" stroke="var(--fg-500)" stroke-width="1.7" stroke-linecap="round"/></svg></div><div><div class="font-semibold">arXiv</div><div class="text-xs text-gray-500">Preprint Repository</div></div></div>
+        </a>
+
+        <a href="https://inspirehep.net/" target="_blank" class="bg-gray-50 p-3 rounded-lg hover:shadow transition text-sm">
+          <div class="flex items-center gap-3"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24"><rect width="14" height="10" x="5" y="7" rx="2" fill="var(--fg-500)" /></svg></div><div><div class="font-semibold">INSPIRE-HEP</div><div class="text-xs text-gray-500">HEP Database</div></div></div>
+        </a>
+
+        <a href="https://www.pharos-astrophysics.org/" target="_blank" class="bg-gray-50 p-3 rounded-lg hover:shadow transition text-sm">
+          <div class="flex items-center gap-3"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M2 12h20" stroke="var(--fg-500)" stroke-width="1.7" stroke-linecap="round"/></svg></div><div><div class="font-semibold">PHAROSH</div><div class="text-xs text-gray-500">Physics of Neutron Stars</div></div></div>
+        </a>
+
+        <a href="https://hyperspace.uni-frankfurt.de/tag/neutron-stars/" target="_blank" class="bg-gray-50 p-3 rounded-lg hover:shadow transition text-sm">
+          <div class="flex items-center gap-3"><div class="icon-circle"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3 9h-6l3-9z" fill="var(--fg-500)"/></svg></div><div><div class="font-semibold">Hyperspace</div><div class="text-xs text-gray-500">Neutron Stars</div></div></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card text-center">
+      <h2 class="mb-2">Contact</h2>
+      <p class="text-sm text-gray-700 mb-2">Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--fg-500)] hover:underline">dpqraja02@gmail.com</a></p>
+      <p class="text-sm text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-[var(--fg-500)] hover:underline">0000-0001-9292-3598</a></p>
+      <div class="mt-2 flex items-center justify-center gap-3">
+        <a href="cv_deepak.pdf" class="btn-ghost">Download CV</a>
+        <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="max-w-[1180px] mx-auto px-4">
+      © <span id="year"></span> Dr. Deepak Kumar — Institute of Physics, Bhubaneswar · Designed for compactness & clarity
+    </div>
+  </footer>
+
+  <!-- JS: Reveal on scroll + simple slideshow -->
+  <script>
+    // Make year dynamic
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // IntersectionObserver for reveal
+    (function(){
+      const cards = Array.from(document.querySelectorAll('.card'));
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            // optional: unobserve to reduce work
+            o.unobserve(e.target);
+          }
+        });
+      }, {threshold: 0.12});
+      cards.forEach(c => obs.observe(c));
+    })();
+
+    // Simple lightweight slideshow (cycles through slides)
+    (function(){
+      const container = document.getElementById('slideshow');
+      if(!container) return;
+      const slides = Array.from(container.querySelectorAll('.slide'));
+      if(slides.length <= 1) return;
+      let idx = 0;
+      const next = () => {
+        slides[idx].classList.remove('active');
+        idx = (idx+1) % slides.length;
+        slides[idx].classList.add('active');
+      };
+      // Try to set interval, but pause if window not focused (friendly)
+      let running = setInterval(next, 4200);
+      window.addEventListener('visibilitychange', () => {
+        if (document.hidden) clearInterval(running);
+        else running = setInterval(next, 4200);
+      });
+    })();
+
+    // Smooth mobile nav: create a compact nav toggle for small screens
+    (function(){
+      // add mobile nav only if small viewport
+      const smallNav = document.createElement('div');
+      smallNav.className = 'md:hidden fixed bottom-4 right-4 z-50';
+      smallNav.innerHTML = '<button id="openNav" aria-expanded="false" class="btn-primary">Menu</button>';
+      document.body.appendChild(smallNav);
+
+      const panel = document.createElement('div');
+      panel.className = 'fixed inset-0 bg-black bg-opacity-30 hidden z-50';
+      panel.innerHTML = '<div class="absolute right-4 bottom-16 bg-white p-3 rounded-lg shadow-lg w-56">'+
+        '<a href=\"#about\" class=\"block p-2 text-sm text-[var(--fg-700)]\">About</a>'+
+        '<a href=\"#research\" class=\"block p-2 text-sm text-[var(--fg-700)]\">Research</a>'+
+        '<a href=\"#publications\" class=\"block p-2 text-sm text-[var(--fg-700)]\">Publications</a>'+
+        '<a href=\"#links\" class=\"block p-2 text-sm text-[var(--fg-700)]\">Links</a>'+
+        '<a href=\"#contact\" class=\"block p-2 text-sm text-[var(--fg-700)]\">Contact</a>'+
+      '</div>';
+      document.body.appendChild(panel);
+
+      const openBtn = document.getElementById('openNav');
+      openBtn?.addEventListener('click', () => {
+        const visible = panel.classList.toggle('hidden');
+        openBtn.setAttribute('aria-expanded', String(!visible));
+      });
+      panel.addEventListener('click', (e)=> {
+        if (e.target === panel) panel.classList.add('hidden');
+      });
+    })();
+  </script>
+</body>
+</html>
