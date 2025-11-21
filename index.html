@@ -5,53 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deepak Kumar — Home</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* --- Basic Reset --- */
+    * {
       margin: 0;
       padding: 0;
-      background: #f7f7f9;
-      color: #333;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f6fa;
+      color: #2f3640;
       line-height: 1.6;
     }
 
-    header {
-      background: #1a237e;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header h1 {
-      margin: 0.2rem 0;
-    }
-
-    header p {
-      margin: 0.2rem 0;
-      font-style: italic;
-      font-size: 1rem;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-
-    .card {
-      background: white;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .card h2, .card h3 {
-      color: #1a237e;
-      margin-top: 0;
-    }
-
     a {
-      color: #0d47a1;
+      color: #40739e;
       text-decoration: none;
     }
 
@@ -59,55 +28,116 @@
       text-decoration: underline;
     }
 
-    ul {
-      padding-left: 1.5rem;
+    h1, h2, h3 {
+      color: #192a56;
     }
 
-    ol {
-      padding-left: 1.5rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    td {
-      padding: 0.5rem;
-      vertical-align: top;
-    }
-
-    .degree_name {
-      font-weight: bold;
-      width: 25%;
-    }
-
-    .list_hover:hover {
-      color: #1a237e;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .hr_introduction {
+    hr {
       border: none;
-      border-top: 1px solid #ddd;
+      height: 1px;
+      background: #dcdde1;
       margin: 2rem 0;
     }
 
-    /* Slideshow styles */
+    /* --- Header --- */
+    header {
+      background: #40739e;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    /* --- Navigation --- */
+    nav {
+      background: #2f3640;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0.5rem 1rem;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      display: block;
+    }
+
+    nav ul li:hover > a {
+      background: #40739e;
+      border-radius: 5px;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #40739e;
+      min-width: 200px;
+      border-radius: 5px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      margin: 0;
+    }
+
+    nav ul li ul li a {
+      padding: 0.5rem 1rem;
+    }
+
+    /* --- Container --- */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    /* --- Card Style --- */
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* --- Slideshow --- */
     .slideshow-container {
       position: relative;
       max-width: 100%;
       margin: auto;
-      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
     }
 
     .slides {
@@ -116,121 +146,166 @@
       border-radius: 12px;
     }
 
-    .slide-caption {
-      color: white;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
+    .prev, .next {
+      cursor: pointer;
       position: absolute;
-      bottom: 0;
-      background: rgba(0,0,0,0.5);
-      width: 100%;
-      box-sizing: border-box;
+      top: 50%;
+      width: auto;
+      padding: 1rem;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      transition: 0.3s;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.6);
     }
 
     .dot-container {
       text-align: center;
-      padding: 0.5rem 0;
+      margin-top: 1rem;
     }
 
     .dot {
-      height: 12px;
-      width: 12px;
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
       margin: 0 5px;
-      background-color: #bbb;
+      background-color: #dcdde1;
       border-radius: 50%;
       display: inline-block;
-      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
     .active, .dot:hover {
-      background-color: #1a237e;
+      background-color: #40739e;
     }
+
+    /* --- Lists --- */
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin: 0.5rem 0;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2f3640;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+      nav ul li {
+        margin: 0.3rem 0;
+      }
+    }
+
   </style>
 </head>
 
 <body>
+
+  <!-- Header -->
   <header>
     <h1>Deepak Kumar</h1>
-    <p>Postdoctoral Researcher | Dense Matter Physics | Neutron Stars | QCD EOS</p>
+    <p>Theoretical Nuclear Astrophysicist — Dense Matter & Neutron Stars</p>
   </header>
 
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Posters & Talks</a>
+        <ul>
+          <li><a href="#">Robust Universal Relations</a></li>
+          <li><a href="#">Non-Radial Oscillations</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">EOS Data</a>
+        <ul>
+          <li><a href="#">Data arXiv:2505.xxxx</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Workshops/Visits</a></li>
+      <li><a href="#">Notes</a></li>
+      <li><a href="mailto:dpqraja02@gmail.com">Query</a></li>
+      <li>
+        <a href="#">Important Links</a>
+        <ul>
+          <li><a href="https://inspirehep.net/authors/1750571">INSPIREHEP</a></li>
+          <li><a href="https://orcid.org/0000-0001-9292-3598">ORCID</a></li>
+          <li><a href="https://github.com/dj02-nature">GitHub</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Container -->
   <div class="container">
 
-    <!-- Top Image Slideshow -->
-    <div class="card">
-      <h2>Gallery</h2>
-      <div class="slideshow-container" id="topSlideshow">
-        <img class="slides" src="https://drive.google.com/thumbnail?id=1xy7FklEq9t0-mPpeqPP3hVCkYbR3UgC6&sz=w1500" alt="Image 1">
-        <img class="slides" src="https://drive.google.com/thumbnail?id=1Z57NcWT1q0CKp_YNmbWX9CEzZCVFzTuR&sz=w1500" alt="Image 2">
-        <img class="slides" src="https://drive.google.com/thumbnail?id=1EAqDxhl80UUnrfUbpmuxENdqiKmdTJig&sz=w1500" alt="Image 3">
-      </div>
-      <div class="dot-container">
-        <span class="dot" onclick="currentSlideTop(1)"></span>
-        <span class="dot" onclick="currentSlideTop(2)"></span>
-        <span class="dot" onclick="currentSlideTop(3)"></span>
-      </div>
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+      <img class="slides" src="https://via.placeholder.com/1000x400?text=Slide+1" alt="Slide1">
+      <img class="slides" src="https://via.placeholder.com/1000x400?text=Slide+2" alt="Slide2">
+      <img class="slides" src="https://via.placeholder.com/1000x400?text=Slide+3" alt="Slide3">
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="dot-container">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
     <!-- Introduction Card -->
     <div class="card">
       <h2>About Me</h2>
       <p>
-        I am a theoretical physicist working as a research associate at IISER Bhopal. My research focuses on strongly interacting matter under extreme conditions, with a particular emphasis on neutron/hybrid stars and dense QCD matter. I develop my own numerical codes and aim to connect microscopic nuclear physics with macroscopic astrophysical observations.
+        I am a theoretical physicist working at IISER Bhopal. My research focuses on strongly interacting matter under extreme conditions, particularly dense matter in neutron/hybrid stars. I also assist in teaching and have developed all my research codes from scratch.
       </p>
     </div>
 
     <!-- Education Card -->
     <div class="card">
       <h2>Education</h2>
-      <table>
-        <tr>
-          <td class="degree_name">PhD (Physics):</td>
-          <td>Indian Institute of Technology, Gandhinagar</td>
-        </tr>
-        <tr>
-          <td class="degree_name">MSc (Physics):</td>
-          <td>Banaras Hindu University, Varanasi</td>
-        </tr>
-        <tr>
-          <td class="degree_name">BSc (Physics):</td>
-          <td>Banaras Hindu University, Varanasi</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Contact Card -->
-    <div class="card">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:dpqraja02@gmail.com">dpqraja02@gmail.com</a><br>
-        ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank">0000-0001-9292-3598</a><br>
-        GitHub: <a href="https://github.com/dj02-nature" target="_blank">dj02-nature</a>
-      </p>
-    </div>
-
-    <!-- Research Interests Card -->
-    <div class="card">
-      <h2>Research Interests</h2>
       <ul>
-        <li class="list_hover">Quark-Gluon Plasma and Quantum Chromodynamics</li>
-        <li class="list_hover">Dense nuclear and quark matter in neutron stars</li>
-        <li class="list_hover">Gravitational-wave astrophysics</li>
-        <li class="list_hover">Multimessenger astronomy</li>
-        <li class="list_hover">Machine learning and Bayesian inference for EOS constraints</li>
+        <li><strong>PhD (Physics):</strong> Indian Institute of Technology, Gandhinagar</li>
+        <li><strong>MSc (Physics):</strong> Banaras Hindu University, Varanasi</li>
+        <li><strong>BSc (Physics):</strong> Banaras Hindu University, Varanasi</li>
       </ul>
     </div>
 
-    <!-- Future Research Card -->
+    <!-- Research Plan Card -->
     <div class="card">
-      <h2>Future Research Plan</h2>
+      <h2>Research Plan</h2>
       <p>
-        I aim to study the correlations between non-radial oscillation frequencies of neutron stars and their macroscopic properties, including mass, radius, and tidal deformability. My future directions include:
+        My research focuses on dense matter physics, neutron stars, quark-gluon plasma, gravitational waves, and multi-messenger astronomy.
       </p>
       <ul>
-        <li>Binary Neutron Star Mergers: Hadron–quark transitions and gravitational-wave signatures.</li>
-        <li>Non-Radial Oscillations: Diagnosing neutron star interior composition and exotic phases.</li>
-        <li>AI and Bayesian Frameworks: Constraining neutron star EOS using multi-messenger data.</li>
-        <li>Interdisciplinary Connections: Linking heavy-ion physics with dense star matter.</li>
+        <li>Quark-Gluon Plasma & Quantum Chromodynamics</li>
+        <li>Strongly interacting matter in Neutron stars</li>
+        <li>Gravitational Waves & Multi-messenger astronomy</li>
       </ul>
     </div>
 
@@ -238,109 +313,98 @@
     <div class="card">
       <h2>Selected Publications</h2>
       <ol>
-        <li>
-          The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach, <br>
-          <em>Kumar, Deepak</em> and Malik, Tuhin and Mishra, Hiranmaya
-        </li>
-        <li>
-          Robust universal relations in neutron star asteroseismology, <br>
-          <em>Kumar, Deepak</em> and Malik, Tuhin and Mishra, Hiranmaya and Providencia, Constanca
-        </li>
-        <li>
-          Non-radial oscillation modes in hybrid stars: consequences of a mixed phase, <br>
-          <em>Kumar, Deepak</em> and Mishra, Hiranmaya and Malik, Tuhin
-        </li>
-        <li>…</li>
+        <li>The footprint of nuclear saturation properties on the neutron star f-mode oscillation frequencies: a machine learning approach — Kumar, Deepak et al.</li>
+        <li>Robust universal relations in neutron star asteroseismology — Kumar, Deepak et al.</li>
+        <li>Non-radial oscillation modes in hybrid stars: consequences of a mixed phase — Kumar, Deepak et al.</li>
+        <li>Thermoelectric transport coefficients of quark matter — Abhishek, Aman et al.</li>
+        <li>Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach — Das, Arpan et al.</li>
         <li><a href="https://inspirehep.net/authors/1750571">Full list of publications</a></li>
       </ol>
     </div>
 
-    <!-- Important Results Slideshow Card -->
+    <!-- Important Results Slideshow -->
     <div class="card">
       <h2>Important Results</h2>
-      <div class="slideshow-container" id="resultSlideshow">
-        <div class="slides">
-          <img src="https://drive.google.com/thumbnail?id=1OYAw3zpibFzDmXoSHcYSpr_cxzn4cFr9&sz=w1500" alt="Result 1" style="width:100%; border-radius:12px;">
-          <div class="slide-caption">PCA variance of f-mode oscillations in neutron stars.</div>
-        </div>
-        <div class="slides">
-          <img src="https://drive.google.com/thumbnail?id=1Zp9-vQM0FXmMSVlgp7giVHlOpMSusUCw&sz=w1500" alt="Result 2" style="width:100%; border-radius:12px;">
-          <div class="slide-caption">Feature importance of scaled f-mode frequencies.</div>
-        </div>
-        <div class="slides">
-          <img src="https://drive.google.com/thumbnail?id=1cpAwGd2ipnA3Tlys7e0vVuBL_B4gSliv&sz=w1500" alt="Result 3" style="width:100%; border-radius:12px;">
-          <div class="slide-caption">Gibbs construction of mixed phase for HP and QP.</div>
-        </div>
+      <div class="slideshow-container" id="results-slideshow">
+        <img class="slides" src="https://via.placeholder.com/1000x400?text=Result+1" alt="Result1">
+        <img class="slides" src="https://via.placeholder.com/1000x400?text=Result+2" alt="Result2">
+        <img class="slides" src="https://via.placeholder.com/1000x400?text=Result+3" alt="Result3">
+        <a class="prev" onclick="plusSlidesResult(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlidesResult(1)">&#10095;</a>
       </div>
-      <div class="dot-container">
-        <span class="dot" onclick="currentSlideResult(1)"></span>
-        <span class="dot" onclick="currentSlideResult(2)"></span>
-        <span class="dot" onclick="currentSlideResult(3)"></span>
-      </div>
-      <p>Contact: <a href="mailto:dpqraja02@gmail.com"><b>Email Me</b></a></p>
+    </div>
+
+    <!-- Contact Card -->
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:deepak@example.com">deepak@example.com</a></p>
+      <p>ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank">0000-0001-9292-3598</a></p>
     </div>
 
   </div>
 
+  <!-- Footer -->
   <footer>
-    <hr class="hr_introduction">
-    <p>&copy; Deepak Kumar <span id="datetime"></span></p>
+    <p>© 2025 Deepak Kumar</p>
+    <p><span id="datetime"></span></p>
   </footer>
 
   <script>
-    // Date & Time
+    // --- Slideshow Top ---
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      if(dots[slideIndex-1]) dots[slideIndex-1].className += " active";
+    }
+
+    // --- Important Results Slideshow ---
+    let resultIndex = 1;
+    showResults(resultIndex);
+
+    function plusSlidesResult(n) {
+      showResults(resultIndex += n);
+    }
+
+    function currentResult(n) {
+      showResults(resultIndex = n);
+    }
+
+    function showResults(n) {
+      let i;
+      let slides = document.querySelectorAll("#results-slideshow .slides");
+      if(n > slides.length) resultIndex = 1;
+      if(n < 1) resultIndex = slides.length;
+      for(i = 0; i < slides.length; i++) slides[i].style.display = "none";
+      slides[resultIndex-1].style.display = "block";
+    }
+
+    // --- Date Time ---
     function updateDateTime() {
-      document.getElementById('datetime').textContent = new Date().toLocaleString();
+      document.getElementById("datetime").textContent = new Date().toLocaleString();
     }
     setInterval(updateDateTime, 1000);
-
-    // Top Slideshow
-    let slideIndexTop = 0;
-    showSlidesTop();
-    function showSlidesTop() {
-      let i;
-      let slides = document.querySelectorAll("#topSlideshow .slides");
-      let dots = document.querySelectorAll("#topSlideshow ~ .dot-container .dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndexTop++;
-      if (slideIndexTop > slides.length) {slideIndexTop = 1}
-      slides[slideIndexTop-1].style.display = "block";
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      dots[slideIndexTop-1].className += " active";
-      setTimeout(showSlidesTop, 4000); // Change image every 4 sec
-    }
-    function currentSlideTop(n) {
-      slideIndexTop = n-1;
-      showSlidesTop();
-    }
-
-    // Results Slideshow
-    let slideIndexResult = 0;
-    showSlidesResult();
-    function showSlidesResult() {
-      let i;
-      let slides = document.querySelectorAll("#resultSlideshow .slides");
-      let dots = document.querySelectorAll("#resultSlideshow ~ .dot-container .dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndexResult++;
-      if (slideIndexResult > slides.length) {slideIndexResult = 1}
-      slides[slideIndexResult-1].style.display = "block";
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      dots[slideIndexResult-1].className += " active";
-      setTimeout(showSlidesResult, 5000); // Change image every 5 sec
-    }
-    function currentSlideResult(n) {
-      slideIndexResult = n-1;
-      showSlidesResult();
-    }
   </script>
+
 </body>
 </html>
