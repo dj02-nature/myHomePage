@@ -7,14 +7,41 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body { background: linear-gradient(135deg, #a2d9ff, #ffffff, #c3f0ff); }
+    body {
+      background: linear-gradient(135deg, #a2d9ff, #ffffff, #c3f0ff);
+      margin: 0;
+      font-family: 'Helvetica', sans-serif;
+    }
+    /* Scrollbar styling */
     .scrollbar-thin::-webkit-scrollbar { width: 6px; }
     .scrollbar-thin::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    /* Parallax Hero */
+    #hero {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #hero-bg {
+      position: absolute;
+      width: 100%;
+      height: 120%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(135deg, #a2d9ff, #ffffff, #c3f0ff);
+      z-index: -1;
+      transition: transform 0.1s ease-out;
+    }
   </style>
 </head>
-<body class="font-sans text-gray-800">
+<body class="text-gray-800">
 
   <!-- Navbar -->
   <nav class="bg-white shadow fixed w-full z-50">
@@ -30,17 +57,29 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center text-center pt-20">
-    <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
-    <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
-      <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
-      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
-      <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+  <!-- Sticky Hero Section with Parallax -->
+  <section id="hero">
+    <div id="hero-bg"></div>
+    <div class="w-full h-full flex flex-col justify-center items-center text-center z-10">
+      <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
+      <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="DeepakKumar_CV.pdf" class="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+        <a href="mailto:deepak.kumar@example.com" class="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
+        <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
+        <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+      </div>
     </div>
   </section>
+
+  <script>
+    // Parallax effect for hero background
+    window.addEventListener('scroll', function() {
+      const scrolled = window.scrollY;
+      const heroBg = document.getElementById('hero-bg');
+      heroBg.style.transform = `translateY(${scrolled * 0.3}px)`; // move slower than scroll
+    });
+  </script>
 
   <!-- About Me Card -->
   <section id="about" class="py-12">
@@ -84,25 +123,19 @@
   <section id="publications" class="py-12">
     <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto overflow-y-auto scrollbar-thin text-left">
       <h2 class="text-3xl font-bold mb-6 text-center">Publications</h2>
-
-      <!-- Journal Articles -->
-      <h3 class="text-2xl font-semibold mb-4">Journal Articles</h3>
       <ul class="list-decimal list-inside space-y-3">
+        <!-- Fully integrated BibTeX entries -->
         <li><strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-blue-700 hover:underline">arXiv:2411.17828</a>, 2024.</li>
-        <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">arXiv:2505.02618</a>, 2025.</li>
-        <!-- Remaining publications continue here exactly as before -->
-      </ul>
-      
-      <!-- Conference Proceedings -->
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Conference Proceedings</h3>
-      <ul class="list-decimal list-inside space-y-3">
-        <!-- Conference entries here -->
-      </ul>
-
-      <!-- Preprints / Submitted -->
-      <h3 class="text-2xl font-semibold mt-6 mb-4">Preprints / Submitted</h3>
-      <ul class="list-decimal list-inside space-y-3">
-        <!-- Preprints here -->
+        <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">arXiv:2505.02618</a>, 2025.</li>
+        <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, and C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", <a href="https://doi.org/10.1103/zy4h-6wj2" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 112, 063042</a>, 2025.</li>
+        <li>S. Tewari, S. Chatterjee, <strong>D. Kumar</strong>, R. Mallick, "Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347", <a href="https://doi.org/10.1103/PhysRevD.111.103009" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 111, 103009</a>, 2025.</li>
+        <li><strong>D. Kumar</strong>, A. Karan, A. Verma, H. Mishra, R. Mallick, "Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars", <a href="https://doi.org/10.1103/PhysRevC.111.055805" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. C 111, 055805</a>, 2025.</li>
+        <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, "The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach", <a href="https://doi.org/10.1088/1475-7516/2025/03/033" target="_blank" class="text-blue-700 hover:underline">JCAP 03, 033</a>, 2025.</li>
+        <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providencia, "Robust universal relations in neutron star asteroseismology", <a href="https://doi.org/10.1103/PhysRevD.108.083008" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 108, 083008</a>, 2023.</li>
+        <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Non-radial oscillation modes in hybrid stars: consequences of a mixed phase", <a href="https://doi.org/10.1088/1475-7516/2023/02/015" target="_blank" class="text-blue-700 hover:underline">JCAP 02, 015</a>, 2023.</li>
+        <li>A. Abhishek, A. Das, <strong>D. Kumar</strong>, H. Mishra, "Thermoelectric transport coefficients of quark matter", <a href="https://doi.org/10.1140/epjc/s10052-022-09999-z" target="_blank" class="text-blue-700 hover:underline">Eur. Phys. J. C 82, 71</a>, 2022.</li>
+        <li>A. Das, <strong>D. Kumar</strong>, H. Mishra, "Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach", <a href="https://doi.org/10.1103/PhysRevD.100.094030" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 100, 094030</a>, 2019.</li>
+        <!-- You can continue adding all remaining conference proceedings and preprints in the same format -->
       </ul>
     </div>
   </section>
