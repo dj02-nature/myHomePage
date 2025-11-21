@@ -1,232 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nuclear Astrophysics – Deepak Kumar</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dr. Deepak Kumar — Nuclear Astrophysics</title>
+
+<!-- Tailwind (CDN) + AOS (animations) + FontAwesome -->
+<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 
 <style>
-body {
-  background: linear-gradient(to bottom right, #e8ecf3, #f6f8fc);
-  font-family: 'Inter', sans-serif;
-}
+  :root{
+    --card-width: 85%;
+    --card-max: 1200px;
+  }
 
-/* Welcome Screen */
-#welcome-screen {
-  position: fixed;
-  inset: 0;
-  background: #0f172a;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  flex-direction: column;
-  font-size: 2rem;
-  animation: fadeOut 1.4s ease forwards;
-  animation-delay: 2s;
-}
+  html { scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(135deg,#e9f3ff 0%, #f7fbff 100%);
+    color: #0f172a;
+  }
 
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
+  /* Welcome overlay */
+  #welcome-screen {
+    position: fixed; inset: 0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background: linear-gradient(135deg,#07203c 0%, #0f3b6b 100%);
+    color: #fff; z-index: 9999;
+    opacity: 1; transition: opacity 0.9s ease, visibility 0.9s ease;
+  }
+  #welcome-screen.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
 
-/* Card uniformity */
-.section-card {
-  width: 78%;
-  margin: auto;
-  background: white;
-  border-radius: 18px;
-  padding: 22px 26px;
-  margin-top: 65px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-}
+  /* Navbar */
+  nav { backdrop-filter: blur(4px); }
+  .nav-link{ color: #1f2937; font-weight:600; text-decoration:none; }
+  .nav-link:hover{ color:#2563eb; }
 
-/* Publications scroll box */
-.pub-box {
-  max-height: 320px;
-  overflow-y: auto;
-  padding-right: 10px;
-}
+  /* Section cards */
+  .section-card{
+    width: var(--card-width);
+    max-width: var(--card-max);
+    margin: 48px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 8px 26px rgba(12, 16, 29, 0.06);
+    overflow: hidden;
+  }
 
-.pub-box::-webkit-scrollbar {
-  width: 6px;
-}
-.pub-box::-webkit-scrollbar-thumb {
-  background: #9ca3af;
-  border-radius: 4px;
-}
+  /* compact subcards */
+  .subcard{
+    background:#f8fbff; border-radius:10px; padding: 14px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  }
 
-/* Reduce white space */
-h2 { margin-bottom: 12px; }
-p, li { margin-bottom: 6px; }
+  h2 { font-weight:700; margin-bottom:8px; color:#0f172a; }
+  h3 { font-weight:600; margin-bottom:6px; }
 
-/* Card animation */
-[data-aos] {
-  opacity: 0;
-  transition-property: transform, opacity;
-}
+  /* Publications scroll */
+  .pub-box{
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  .pub-box::-webkit-scrollbar{ width:8px; }
+  .pub-box::-webkit-scrollbar-thumb{ background:#cbd5e1; border-radius:8px; }
+
+  /* BibTeX style block for WIP */
+  pre.bib {
+    background:#0b1220; color:#d1efff; padding:12px; border-radius:8px;
+    overflow:auto; font-size:0.86rem; line-height:1.45;
+  }
+
+  /* small helpers */
+  .muted{ color:#475569; }
+  .pill{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#eef2ff; color:#1e40af; font-weight:600; }
+  a.inline-link{ color:#2563eb; text-decoration:underline; }
+
+  /* compactify list spacing */
+  ul.pub-list li{ margin-bottom:10px; }
+
+  /* Responsive tweaks */
+  @media (max-width:900px){
+    :root{ --card-width: 94%; }
+    .section-card{ padding:16px; margin:28px auto; }
+    .pub-box{ max-height: 300px; }
+  }
 </style>
 </head>
 
 <body>
 
-<!-- Welcome Screen -->
+<!-- WELCOME SCREEN -->
 <div id="welcome-screen">
-  <div class="animate-pulse">Welcome to My Research Page</div>
-  <div class="text-lg mt-4 opacity-75">Deepak Kumar</div>
+  <div class="text-3xl font-bold">Welcome to Dr. Deepak Kumar’s Research Page</div>
+  <div class="mt-3 muted">Nuclear Astrophysics • Neutron Stars • Dense Matter</div>
 </div>
 
-<!-- Navbar -->
-<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50 py-3">
-  <div class="w-11/12 mx-auto flex justify-between items-center">
-    <div class="font-bold text-xl text-gray-800">Deepak Kumar</div>
-    <div class="space-x-4 text-gray-700 font-medium">
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#research" class="hover:text-blue-600">Research</a>
-      <a href="#publications" class="hover:text-blue-600">Publications</a>
-      <a href="#links" class="hover:text-blue-600">Links</a>
-      <a href="#contact" class="hover:text-blue-600">Contact</a>
+<!-- NAVBAR -->
+<nav class="fixed w-full top-0 left-0 bg-white/70 backdrop-blur-sm shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex-shrink-0 text-xl font-bold text-slate-800">Dr. Deepak Kumar</div>
+      <div class="hidden md:flex items-center space-x-6">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#research">Research</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#links">Links</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
     </div>
   </div>
 </nav>
 
-<div class="pt-24"></div>
+<!-- spacer to account for fixed navbar -->
+<div style="height:72px"></div>
 
-<!-- ===============================
-      ABOUT ME SECTION
-================================ -->
+<!-- HERO / CONTACT quick -->
+<section class="section-card" data-aos="fade-down">
+  <div class="flex items-center justify-between flex-wrap gap-4">
+    <div>
+      <h2 class="text-3xl">Dr. Deepak Kumar</h2>
+      <div class="muted">Nuclear Astrophysicist — compact objects, dense QCD matter, neutron star asteroseismology</div>
+      <div class="mt-4 flex flex-wrap gap-3 items-center">
+        <a href="cv_deepak.pdf" class="pill"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+        <a href="mailto:dpqraja02@gmail.com" class="inline-link">dpqraja02@gmail.com</a>
+        <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="inline-link">ORCID</a>
+        <a href="https://inspirehep.net/authors/1750571" target="_blank" class="inline-link">INSPIRE-HEP</a>
+      </div>
+    </div>
+    <div class="hidden sm:block text-sm muted text-right">
+      <div><strong>Location:</strong> Institute of Physics, Bhubaneswar, India</div>
+      <div class="mt-1"><strong>Role:</strong> Research Associate / Teaching Assistant</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
 <section id="about" class="section-card" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-3">About Me</h2>
-  <p>
-    I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India.
-    Other than my research work, I am a teaching assistant. I have gained one year of
-    valuable research experience since completing my Ph.D. degree. My main research focus
-    is on the study of strongly interacting matter under extreme conditions, with a special
-    emphasis on its relevance to neutron/hybrid stars. I am very much interested to expand
-    my research area towards kilonovae, gravitational waves, merging of NSs, dark matter
-    trapped inside NSs. I have developed all the codes used in my research by myself from
-    scratch to perform numerics.
+  <h2>About Me</h2>
+  <p class="muted">
+    I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. Other than my research work, I am a teaching assistant.
+    I have gained one year of valuable research experience since completing my Ph.D. My main research focus is the study of strongly interacting
+    matter under extreme conditions, with emphasis on neutron/hybrid stars. I am interested in kilonovae, gravitational waves, NS mergers, and
+    dark-matter admixed compact stars. I develop the numerical codes used in my research from scratch.
   </p>
 
-  <!-- Subcards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-
-    <!-- Education -->
-    <div class="p-5 rounded-xl shadow-md bg-gray-50" data-aos="fade-right">
-      <h3 class="text-xl font-semibold mb-2"><i class="fa-solid fa-graduation-cap mr-2"></i>Education</h3>
-      <ul class="list-disc ml-5 text-sm">
-        <li><b>2017–2022:</b> Ph.D., IIT Gandhinagar (PRL Ahmedabad)  
-            Thesis: <i>Properties of strongly interacting matter under extreme conditions</i>  
-            Defense: 09 May 2023  
-            Supervisor: Prof. Hiranmaya Mishra</li>
-        <li><b>2014–2016:</b> M.Sc., Banaras Hindu University  
-            Thesis: <i>Field configuration in GEM Detector</i></li>
-        <li><b>2011–2014:</b> B.Sc., Banaras Hindu University</li>
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="subcard" data-aos="fade-right">
+      <h3><i class="fa-solid fa-graduation-cap mr-2"></i>Education</h3>
+      <ul class="muted ml-4 list-disc">
+        <li><strong>2017 – 2022</strong> Ph.D., Indian Institute of Technology Gandhinagar (Physical Research Laboratory, Ahmedabad).<br>
+            <em>Thesis:</em> Properties of strongly interacting matter under extreme conditions.<br>
+            Defense date: 09 May 2023.<br>
+            Supervisor: Prof. Hiranmaya Mishra (hiranmaya@niser.ac.in)
+        </li>
+        <li class="mt-2"><strong>2014 – 2016</strong> M.Sc., Banaras Hindu University, Varanasi — Physics.<br>
+            <em>Thesis:</em> The field configuration in the Gaseous Electron Multiplier (GEM) Detector.
+        </li>
+        <li class="mt-2"><strong>2011 – 2014</strong> B.Sc., Banaras Hindu University, Varanasi — Physics (Education).
+        </li>
       </ul>
     </div>
 
-    <!-- Employment -->
-    <div class="p-5 rounded-xl shadow-md bg-gray-50" data-aos="fade-left">
-      <h3 class="text-xl font-semibold mb-2"><i class="fa-solid fa-briefcase mr-2"></i>Employment History</h3>
-      <ul class="list-disc ml-5 text-sm">
-        <li><b>Oct 2024 – Present:</b> Post-doctoral fellow, IOP Bhubaneswar</li>
-        <li><b>Jun 2023 – Aug 2024:</b> Post-doctoral fellow, IISER Bhopal</li>
-        <li><b>Sep 2022 – May 2023:</b> Post-doctoral fellow, PRL Ahmedabad</li>
+    <div class="subcard" data-aos="fade-left">
+      <h3><i class="fa-solid fa-briefcase mr-2"></i>Employment History</h3>
+      <ul class="muted ml-4 list-disc">
+        <li><strong>Oct 2024 – Present</strong> Post-doctoral fellow, Institute of Physics Bhubaneswar, India.</li>
+        <li class="mt-2"><strong>Jun 2023 – Aug 2024</strong> Post-doctoral fellow, IISER Bhopal, India.</li>
+        <li class="mt-2"><strong>Sep 2022 – May 2023</strong> Post-doctoral fellow, Physical Research Laboratory, Ahmedabad, India.</li>
       </ul>
     </div>
-
   </div>
 </section>
 
-<!-- ===============================
-      RESEARCH SECTION
-================================ -->
+<!-- RESEARCH SECTION -->
 <section id="research" class="section-card" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold">Research</h2>
-  <p>
-    The non-radial oscillation modes in neutron stars are highly sensitive and directly
-    related to the matter inside them. If a quark–hadron phase transition occurs, the mode
-    frequency increases. Therefore, oscillation frequencies may correlate with neutron star
-    matter properties—symmetric/asymmetric matter behavior, mass, radius, tidal deformability, etc.
+  <h2>Research Interests</h2>
+  <p class="muted">
+    The non-radial oscillation modes in neutron stars are sensitive probes of the matter inside. A quark–hadron transition typically modifies mode frequencies.
+    I study correlations between non-radial oscillation frequencies and neutron star matter properties — symmetry energy, mass, radius, tidal deformability —
+    using theoretical modeling, Bayesian inference, and machine learning.
   </p>
 
-  <ul class="list-disc ml-6 mt-3">
-    <li>Dense QCD matter</li>
-    <li>Hybrid stars & quark–hadron transitions</li>
-    <li>Transport properties under extreme conditions</li>
-    <li>Neutron star oscillations and asteroseismology</li>
-    <li>Dark matter admixed neutron stars</li>
-  </ul>
+  <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="subcard" data-aos="fade-right">
+      <h3 class="text-lg font-semibold">Topics</h3>
+      <ul class="ml-4 list-disc muted">
+        <li>Dense QCD equation of state</li>
+        <li>Non-radial oscillations & asteroseismology</li>
+        <li>Proto-neutron star evolution</li>
+      </ul>
+    </div>
+    <div class="subcard" data-aos="fade-left">
+      <h3 class="text-lg font-semibold">Methods</h3>
+      <ul class="ml-4 list-disc muted">
+        <li>Bayesian parameter estimation</li>
+        <li>Numerical relativity / perturbation theory</li>
+        <li>Machine learning for EOS–observable mapping</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- ===============================
-      PUBLICATIONS
-================================ -->
+<!-- PUBLICATIONS SECTION -->
 <section id="publications" class="section-card" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-3">Publications</h2>
+  <h2>Publications</h2>
 
-  <div class="pub-box text-sm leading-relaxed">
-    <!-- You said: FULLY POPULATED from all BibTeX entries -->
-    <!-- I include placeholders; please paste your BibTeX list and I will auto-format them -->
-    
-    <h3 class="text-xl font-semibold mt-3 mb-2">Journal Articles</h3>
-    <ul class="list-disc ml-6">
-      <li>All your journal publications appear here…</li>
+  <div class="pub-box mt-3 text-sm leading-relaxed">
+    <!-- JOURNAL ARTICLES -->
+    <h3 class="text-base font-semibold mt-2">Journal Articles</h3>
+    <ul class="pub-list ml-6">
+      <li>
+        <strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência — <em>Constraints on maximum neutron star mass from protoneutron star evolution</em>.
+        Phys. Rev. D 112, 063042 (2025). DOI: <a class="inline-link" href="https://doi.org/10.1103/zy4h-6wj2" target="_blank">10.1103/zy4h-6wj2</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2505.18888" target="_blank">2505.18888</a>.
+      </li>
+
+      <li>
+        Tewari, S., Chatterjee, S., <strong>D. Kumar</strong>, Mallick, R. — <em>Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347</em>.
+        Phys. Rev. D 111, 103009 (2025). DOI: <a class="inline-link" href="https://doi.org/10.1103/PhysRevD.111.103009" target="_blank">10.1103/PhysRevD.111.103009</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2410.20355" target="_blank">2410.20355</a>.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, A. Karan, A. Verma, H. Mishra, R. Mallick — <em>Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars</em>.
+        Phys. Rev. C 111, 055805 (2025). DOI: <a class="inline-link" href="https://doi.org/10.1103/PhysRevC.111.055805" target="_blank">10.1103/PhysRevC.111.055805</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2409.01785" target="_blank">2409.01785</a>.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, T. Malik, H. Mishra — <em>The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach</em>.
+        JCAP 03, 033 (2025). DOI: <a class="inline-link" href="https://doi.org/10.1088/1475-7516/2025/03/033" target="_blank">10.1088/1475-7516/2025/03/033</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2402.03054" target="_blank">2402.03054</a>.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência — <em>Robust universal relations in neutron star asteroseismology</em>.
+        Phys. Rev. D 108, 083008 (2023). DOI: <a class="inline-link" href="https://doi.org/10.1103/PhysRevD.108.083008" target="_blank">10.1103/PhysRevD.108.083008</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2306.09277" target="_blank">2306.09277</a>.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, H. Mishra, T. Malik — <em>Non-radial oscillation modes in hybrid stars: consequences of a mixed phase</em>.
+        JCAP 02, 015 (2023). DOI: <a class="inline-link" href="https://doi.org/10.1088/1475-7516/2023/02/015" target="_blank">10.1088/1475-7516/2023/02/015</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2110.00324" target="_blank">2110.00324</a>.
+      </li>
+
+      <li>
+        Abhishek, A., Das, A., <strong>D. Kumar</strong>, H. Mishra — <em>Thermoelectric transport coefficients of quark matter</em>.
+        Eur. Phys. J. C 82, 71 (2022). DOI: <a class="inline-link" href="https://doi.org/10.1140/epjc/s10052-022-09999-z" target="_blank">10.1140/epjc/s10052-022-09999-z</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2007.14757" target="_blank">2007.14757</a>.
+      </li>
+
+      <li>
+        Das, A., <strong>D. Kumar</strong>, H. Mishra — <em>Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach</em>.
+        Phys. Rev. D 100, 094030 (2019). DOI: <a class="inline-link" href="https://doi.org/10.1103/PhysRevD.100.094030" target="_blank">10.1103/PhysRevD.100.094030</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/1907.12332" target="_blank">1907.12332</a>.
+      </li>
     </ul>
 
-    <h3 class="text-xl font-semibold mt-3 mb-2">Conference Proceedings</h3>
-    <ul class="list-disc ml-6">
-      <li>All conference papers appear here…</li>
+    <!-- CONFERENCE PROCEEDINGS -->
+    <h3 class="text-base font-semibold mt-4">Conference Proceedings</h3>
+    <ul class="pub-list ml-6">
+      <li>
+        <strong>D. Kumar</strong>, H. Mishra, T. Malik — <em>Quark Matter in the Core of Neutron Stars and Its Consequences on Non-radial Oscillations</em>.
+        Springer Proc. Phys., vol. 304, pp. 637–639 (2024). DOI: <a class="inline-link" href="https://doi.org/10.1007/978-981-97-0289-3_144" target="_blank">10.1007/978-981-97-0289-3_144</a>.
+      </li>
+
+      <li>
+        Jaiswal, A. et al. — <em>Dynamics of QCD matter — current status</em>. Int. J. Mod. Phys. E 30, 2130001 (2021). DOI: <a class="inline-link" href="https://doi.org/10.1142/S0218301321300010" target="_blank">10.1142/S0218301321300010</a>. arXiv: <a class="inline-link" href="https://arxiv.org/abs/2007.14959" target="_blank">2007.14959</a>.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, P. K. Sahu — <em>Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian approach</em>.
+        (XXVI DAE-BRNS High Energy Physics Symposium 2024) — Submitted.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, H. Mishra — <em>Axion effects on the non-radial oscillations of neutron stars</em>. (XXVI DAE-BRNS High Energy Physics Symposium 2024) — Submitted.
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, H. Mishra — <em>Axion effects on the non-radial oscillations of neutron stars</em>. (Journal of Subatomic Particles and Cosmology: ATHIC 2025) — Submitted.
+      </li>
     </ul>
 
-    <h3 class="text-xl font-semibold mt-3 mb-2">Preprints</h3>
-    <ul class="list-disc ml-6">
-      <li>All arXiv preprints appear here…</li>
+    <!-- PREPRINTS -->
+    <h3 class="text-base font-semibold mt-4">Preprints (arXiv)</h3>
+    <ul class="pub-list ml-6">
+      <li>
+        <strong>D. Kumar</strong>, H. Mishra — <em>CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars</em>.
+        arXiv: <a class="inline-link" href="https://arxiv.org/abs/2411.17828" target="_blank">2411.17828</a> (2024).
+      </li>
+
+      <li>
+        <strong>D. Kumar</strong>, P. K. Sahu — <em>Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian analysis</em>.
+        arXiv: <a class="inline-link" href="https://arxiv.org/abs/2505.02618" target="_blank">2505.02618</a> (2025).
+      </li>
     </ul>
+
+    <!-- WORK IN PROGRESS / IN PREPARATION (Full BibTeX blocks) -->
+    <h3 class="text-base font-semibold mt-4">Work in Progress / In Preparation</h3>
+
+    <div class="mt-3 ml-4">
+      <p class="muted mb-2">Full BibTeX entries (verbatim):</p>
+
+      <pre class="bib">
+@uarticle{Kumar1,
+    author = "Arpan Das, and \textbf{D. Kumar}, and Tuhin Malik, and Hiranmaya Mishra",
+    title = "{The asteroseismology in neutron stars in presence of dark matter}",
+    archivePrefix = "arXiv"
+}
+      </pre>
+
+      <pre class="bib">
+@uarticle{Kumar2,
+    author = "\textbf{D. Kumar}, and Anshuman Verma, and Hiranmaya Mishra, and Ritam Mallick",
+    title = "{Shock waves in the proto-neutron stars}",
+    archivePrefix = "arXiv"
+}
+      </pre>
+
+      <pre class="bib">
+@uarticle{Kumar3,
+    author = "\textbf{D. Kumar}, and Hiranmaya Mishra",
+    title = "{Nambu--Jona-Lasinio model parameters from the astrophysical observations using Bayesian analysis}",
+    archivePrefix = "arXiv"
+}
+      </pre>
+
+      <pre class="bib">
+@uarticle{Kumar4,
+    author = "Asit Karan, and \textbf{D. Kumar}, and Ritam Mallick",
+    title = "{Non-radial oscillations in two fluid approach with dark matter in the core of neutron star}",
+    archivePrefix = "arXiv"
+}
+      </pre>
+
+      <pre class="bib">
+@uarticle{Kumar5,
+    author = "\textbf{D. Kumar}, and Pradip Kumar Sahu",
+    title = "{Study of supernovae}",
+    archivePrefix = "arXiv"
+}
+      </pre>
+
+    </div>
+
   </div>
 </section>
 
-<!-- ===============================
-      IMPORTANT LINKS
-================================ -->
+<!-- IMPORTANT LINKS -->
 <section id="links" class="section-card" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-3">Important Research Links</h2>
-  <ul class="list-disc ml-6 text-sm">
-    <li><a href="https://www.ligo.org" class="text-blue-700">LIGO</a></li>
-    <li><a href="https://heasarc.gsfc.nasa.gov/docs/nicer/" class="text-blue-700">NICER</a></li>
-    <li><a href="https://pharosh.com" class="text-blue-700">PHAROSH</a></li>
-    <li><a href="https://hyperspace.uni-frankfurt.de/tag/neutron-stars/" class="text-blue-700">Hyperspace – Neutron Stars</a></li>
+  <h2>Important Research Links</h2>
+  <ul class="ml-6 list-disc muted">
+    <li><a class="inline-link" href="https://www.ligo.org/" target="_blank">LIGO – Gravitational Wave Observatory</a></li>
+    <li><a class="inline-link" href="https://heasarc.gsfc.nasa.gov/docs/nicer/" target="_blank">NICER – Neutron star Interior Composition Explorer</a></li>
+    <li><a class="inline-link" href="https://www.pharos-astrophysics.org/" target="_blank">PHAROSH – Physics of Neutron Stars</a></li>
+    <li><a class="inline-link" href="https://arxiv.org/" target="_blank">arXiv</a></li>
+    <li><a class="inline-link" href="https://inspirehep.net/" target="_blank">INSPIRE-HEP</a></li>
+    <li><a class="inline-link" href="https://hyperspace.uni-frankfurt.de/tag/neutron-stars/" target="_blank">Hyperspace – Neutron Stars</a></li>
   </ul>
 </section>
 
-<!-- ===============================
-      CONTACT
-================================ -->
-<section id="contact" class="section-card mb-20" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-3">Contact</h2>
-
-  <p><i class="fa-solid fa-envelope mr-2"></i>deepakkumar@iopb.res.in</p>
-
-  <div class="flex space-x-4 mt-2">
-    <a href="#" class="px-4 py-2 bg-green-600 text-white rounded-lg">
-      <i class="fa-brands fa-orcid mr-1"></i>ORCID
-    </a>
-    <a href="#" class="px-4 py-2 bg-purple-600 text-white rounded-lg">
-      <i class="fa-solid fa-atom mr-1"></i>INSPIRE-HEP
-    </a>
-  </div>
+<!-- CONTACT -->
+<section id="contact" class="section-card" data-aos="fade-up">
+  <h2>Contact</h2>
+  <p class="muted"><i class="fa-solid fa-envelope mr-2"></i> Email: <a class="inline-link" href="mailto:dpqraja02@gmail.com">dpqraja02@gmail.com</a></p>
+  <p class="muted mt-2">
+    <a class="pill" href="https://orcid.org/0000-0001-9292-3598" target="_blank"><i class="fa-brands fa-orcid"></i> ORCID</a>
+    <a class="pill ml-2" href="https://inspirehep.net/authors/1750571" target="_blank"><i class="fa-solid fa-magnet"></i> INSPIRE-HEP</a>
+  </p>
+  <p class="muted mt-3">Download CV: <a class="inline-link" href="cv_deepak.pdf" target="_blank">cv_deepak.pdf</a></p>
 </section>
+
+<!-- Footer spacer -->
+<div style="height:64px"></div>
 
 <script>
-AOS.init({
-  duration: 900,
-  once: true
-});
+  // Initialize AOS
+  AOS.init({ duration: 800, once: true, anchorPlacement: 'top-bottom' });
+
+  // Welcome overlay fade-out after load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const w = document.getElementById('welcome-screen');
+      if(w) w.classList.add('hidden');
+    }, 1600); // 1.6 seconds before fade
+  });
 </script>
+
 </body>
 </html>
