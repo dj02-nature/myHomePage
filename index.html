@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deepak Kumar – Research Webpage</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #f0f4ff, #e8f7ff);
+        scroll-behavior: smooth;
+    }
+
+    /* ------------------------ WELCOME SCREEN ------------------------ */
+    #welcome-screen {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #0a0a0a;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.2rem;
+        z-index: 2000;
+        opacity: 1;
+        animation: fadeOut 2.5s ease forwards;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; }
+    }
+
+    /* ------------------------ LAYOUT ------------------------ */
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 18px;
+        padding: 25px;
+        margin: 40px auto;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+        width: 90%;
+    }
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    h2 {
+        margin-top: 0;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    /* Subcards */
+    .subcard-container {
+        display: flex;
+        gap: 20px;
+    }
+    .subcard {
+        flex: 1;
+        background: #f9fbff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    /* Publications scroll box */
+    .pub-box {
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+    .pub-section-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 15px 0 5px;
+        padding-left: 5px;
+        border-left: 4px solid #5a8dee;
+    }
+
+    /* Contact buttons */
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        border-radius: 8px;
+        background: #5a8dee;
+        color: white;
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background: #3d6fd1;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ===================== WELCOME SCREEN ===================== -->
+<div id="welcome-screen">
+    Welcome to Deepak Kumar’s Research Page
+</div>
+
+<div class="container">
+
+    <!-- ===================== HERO ===================== -->
+    <div class="card appear">
+        <h2>Deepak Kumar</h2>
+        <p><strong>Nuclear Astrophysics | Neutron Stars | Dense QCD Matter</strong></p>
+        <p>Email: deepak@example.com</p>
+        <a class="btn" href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+        <a class="btn" href="https://inspirehep.net/authors/">INSPIRE-HEP</a>
+    </div>
+
+    <!-- ===================== ABOUT ME ===================== -->
+    <div class="card appear">
+        <h2>About Me</h2>
+
+        <div class="subcard-container">
+
+            <!-- EDUCATION -->
+            <div class="subcard">
+                <h3>Education</h3>
+                <p><b>2017–2022</b> Ph.D., IIT Gandhinagar, PRL Ahmedabad  
+                Thesis: Properties of strongly interacting matter under extreme conditions  
+                Defense: 09 May 2023  
+                Supervisor: Prof. Hiranmaya Mishra</p>
+
+                <p><b>2014–2016</b> M.Sc. Physics, Banaras Hindu University  
+                Thesis: Field configuration in the GEM Detector</p>
+
+                <p><b>2011–2014</b> B.Sc. Physics, Banaras Hindu University</p>
+            </div>
+
+            <!-- EMPLOYMENT -->
+            <div class="subcard">
+                <h3>Employment</h3>
+                <p><b>Oct 2024 – Present</b> Post-doctoral Fellow, Institute of Physics Bhubaneswar</p>
+                <p><b>Jun 2023 – Aug 2024</b> Post-doctoral Fellow, IISER Bhopal</p>
+                <p><b>Sep 2022 – May 2023</b> Post-doctoral Fellow, PRL Ahmedabad</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== RESEARCH ===================== -->
+    <div class="card appear">
+        <h2>Research</h2>
+        <p>
+            The non-radial oscillation modes in neutron stars are sensitive probes of dense matter.
+            A quark–hadron phase transition can significantly alter the oscillation frequencies.
+            I study correlations between these modes and neutron star matter properties,
+            including symmetry energy parameters, tidal deformability, radius, and equation of state.
+        </p>
+    </div>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <div class="card appear">
+        <h2>Publications</h2>
+
+        <div class="pub-box">
+
+            <div class="pub-section-title">Journal Articles</div>
+            <p>• Kumar, D., Mishra, H., etc… (FULL BIBTEX ENTRY #1)</p>
+            <p>• Kumar, D., et al. (FULL BIBTEX ENTRY #2)</p>
+            <p>• ... (All remaining journal BibTeX entries)</p>
+
+            <div class="pub-section-title">Conference Proceedings</div>
+            <p>• Kumar, D., etc… (PROCEEDING ENTRY 1)</p>
+            <p>• ...</p>
+
+            <div class="pub-section-title">Preprints</div>
+            <p>• arXiv:xxxx.xxxxx — (PREPRINT ENTRY 1)</p>
+            <p>• ...</p>
+
+        </div>
+    </div>
+
+    <!-- ===================== IMPORTANT LINKS ===================== -->
+    <div class="card appear">
+        <h2>Important Research Links</h2>
+        <p><a class="btn" href="https://www.ligo.org">LIGO</a></p>
+        <p><a class="btn" href="https://heasarc.gsfc.nasa.gov/docs/nicer/">NICER</a></p>
+        <p><a class="btn" href="https://pharos-html.org/">PHAROS</a></p>
+        <p><a class="btn" href="https://hyperspace.uni-frankfurt.de/tag/neutron-stars/">Hyperspace Neutron Stars</a></p>
+    </div>
+
+</div>
+
+<!-- ===================== SCROLL ANIMATIONS ===================== -->
+<script>
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
