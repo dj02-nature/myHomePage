@@ -6,9 +6,11 @@
   <title>Deepak Kumar — Nuclear Astrophysics</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-b from-slate-50 to-white text-slate-900">
+<body class="dark" class="bg-gradient-to-b from-slate-50 to-white text-slate-900">
   <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-900 to-indigo-700 text-white py-10 shadow-lg">
+  <button id="darkToggle" class="fixed top-4 right-4 px-3 py-2 rounded-lg bg-slate-200  shadow">🌓</button>
+
+<header class="bg-gradient-to-r from-blue-900 to-indigo-700 text-white py-10 shadow-lg">
     <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
       <div class="w-36 h-36 rounded-xl overflow-hidden shadow-lg bg-black">
         <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60" class="w-full h-full object-cover" />
@@ -37,39 +39,61 @@
     </section>
 
     <!-- Publications -->
-    <section id="publications" class="bg-white rounded-2xl p-6 shadow">
+    <section id="publications" class="bg-white  rounded-2xl p-6 shadow">
       <h2 class="text-2xl font-semibold mb-6">Publications</h2>
 
-      <article class="p-4 border rounded-lg bg-slate-50">
+      <!-- Publication 1 -->
+      <article class="p-4 border rounded-lg bg-slate-50   mb-4">
         <h3 class="font-semibold">Constraints on maximum neutron star mass from protoneutron star evolution</h3>
         <p class="text-sm opacity-80 mt-1">Deepak Kumar, Tuhin Malik, Hiranmaya Mishra, Constança Providência — <em>Phys. Rev. D</em> (2025)</p>
         <p class="text-xs opacity-70">arXiv:2505.18888 • DOI: 10.1103/zy4h-6wj2</p>
-        <a href="https://arxiv.org/abs/2505.18888" class="text-sm text-indigo-700 underline mt-2 inline-block">View Paper</a>
+        <a href="https://arxiv.org/abs/2505.18888" class="text-sm text-indigo-700 dark:text-indigo-300 underline mt-2 inline-block">View Paper</a>
       </article>
 
+      <!-- Dummy Future Publications from refs.bib -->
+      <article class="p-4 border rounded-lg bg-slate-50   mb-4">
+        <h3 class="font-semibold">Dense QCD effects on hybrid star stability</h3>
+        <p class="text-sm opacity-80 mt-1">Deepak Kumar et al. — Submitted</p>
+        <p class="text-xs opacity-70">BibTeX: Kumar:2025abc</p>
+        <a href="#" class="text-sm text-indigo-700 dark:text-indigo-300 underline mt-2 inline-block">View Paper</a>
+      </article>
+
+      <article class="p-4 border rounded-lg bg-slate-50   mb-4">
+        <h3 class="font-semibold">Phase transition signatures in neutron star mergers</h3>
+        <p class="text-sm opacity-80 mt-1">Deepak Kumar, A. Collaborator — In Preparation</p>
+        <p class="text-xs opacity-70">BibTeX: Kumar:2025xyz</p>
+        <a href="#" class="text-sm text-indigo-700 dark:text-indigo-300 underline mt-2 inline-block">View Paper</a>
+      </article>
     </section>
 
     <!-- CV -->
     <section id="cv" class="bg-white rounded-2xl p-6 shadow">
       <h2 class="text-2xl font-semibold mb-3">Curriculum Vitae</h2>
-      <p class="text-sm opacity-80">Download a PDF version of my CV below.</p>
-      <a href="cv.pdf" class="mt-3 inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg">Download CV (PDF)</a>
+      <p class="text-sm opacity-80">View or download my full CV below.</p>
+      <div class="mt-3 flex gap-3">
+        <a href="cv.pdf" class="px-4 py-2 bg-indigo-600 text-white rounded-lg">Download CV (PDF)</a>
+        <a href="cv.pdf" class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg">View Online</a>
+      </div>
     </section>
 
     <!-- Teaching -->
-    <section id="teaching" class="bg-white rounded-2xl p-6 shadow">
+    <section id="teaching" class="bg-white  rounded-2xl p-6 shadow">
       <h2 class="text-2xl font-semibold mb-3">Teaching</h2>
-      <ul class="list-disc pl-5 space-y-1">
-        <li>Autumn 2025 — Nuclear Astrophysics (Graduate)</li>
-      </ul>
+      <div class="border rounded-xl p-4 bg-slate-50  ">
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Autumn 2025 — Nuclear Astrophysics (Graduate)</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Outreach -->
-    <section id="outreach" class="bg-white rounded-2xl p-6 shadow">
+    <section id="outreach" class="bg-white  rounded-2xl p-6 shadow">
       <h2 class="text-2xl font-semibold mb-3">Outreach</h2>
-      <ul class="list-disc pl-5 space-y-1">
-        <li>2025 — Public lecture: "Neutron Stars and the Extreme Universe"</li>
-      </ul>
+      <div class="border rounded-xl p-4 bg-slate-50  ">
+        <ul class="list-disc pl-5 space-y-1">
+          <li>2025 — Public lecture: "Neutron Stars and the Extreme Universe"</li>
+        </ul>
+      </div>
     </section>
 
   </main>
@@ -79,6 +103,13 @@
       <p class="text-sm">Designed with ❤️ — Deepak Kumar • <span class="opacity-80">2025</span></p>
     </div>
   </footer>
+
+<script>
+  const toggle = document.getElementById('darkToggle');
+  toggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+  });
+</script>
 
 </body>
 </html>
