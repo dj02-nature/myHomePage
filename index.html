@@ -20,25 +20,26 @@
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
 
-    /* Card styling — WIDER + more compact */
+    /* Card styling — WIDER + more spacing between cards */
     .card {
       background: white;
       border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 95%;                 /* increased from 90% */
-      max-width: 1150px;          /* increased from 900px */
-      margin: 0.8rem auto;        /* slightly reduced gap */
-      padding: 1.2rem 1.4rem;     /* slightly reduced padding */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      width: 95%;                  /* wide layout */
+      max-width: 1150px;
+      margin: 2.2rem auto;          /* ⬆ increased spacing between cards */
+      padding: 1.2rem 1.4rem;       /* compact internal padding */
     }
 
+    /* Heading and text spacing tuned */
     .card h2 { 
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
     }
     .card p { 
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
     .card ul li { 
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     /* Publications scrollable area */
@@ -48,11 +49,12 @@
       padding-right: 0.7rem; 
     }
 
-    /* Reduce spacing between sections */
+    /* Section spacing (kept slightly compact) */
     section {
       margin-bottom: 1rem;
     }
 </style>
+
 
 </head>
 <body class="text-gray-800">
