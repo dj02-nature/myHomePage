@@ -19,30 +19,6 @@
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
 
-    /* Hero background parallax */
-    #hero-bg {
-      position: absolute;
-      width: 100%;
-      height: 150%;
-      top: 0;
-      left: 0;
-      background: linear-gradient(135deg, #a2d9ff, #ffffff, #c3f0ff);
-      z-index: -1;
-      transition: transform 0.1s ease-out;
-    }
-
-    /* Sticky hero container */
-    #hero-container {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
     /* Compact card styling */
     .card {
       background: white;
@@ -51,7 +27,7 @@
       max-width: 5xl;
       margin: auto;
       margin-bottom: 2rem;
-      padding: 1.5rem 1.5rem; /* reduced padding */
+      padding: 1.5rem 1.5rem;
     }
     .card h2 { margin-bottom: 0.8rem; }
     .card p { margin-bottom: 0.5rem; }
@@ -74,34 +50,20 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Sticky + Parallax -->
-  <div id="hero-container">
-    <section id="hero" class="relative w-full flex items-center justify-center text-center">
-      <div id="hero-bg"></div>
-      <div class="z-10">
-        <h1 class="text-5xl font-bold mb-3 text-gray-800">Dr. Deepak Kumar</h1>
-        <p class="text-xl mb-4 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a href="DeepakKumar_CV.pdf" class="px-5 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
-          <a href="mailto:deepak.kumar@example.com" class="px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
-          <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
-          <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    // Hero parallax effect
-    window.addEventListener('scroll', function() {
-      const scrolled = window.scrollY;
-      const heroBg = document.getElementById('hero-bg');
-      heroBg.style.transform = `translateY(${scrolled * 0.2}px)`;
-    });
-  </script>
+  <!-- Top Section -->
+  <section class="pt-24 text-center mb-8">
+    <h1 class="text-5xl font-bold mb-3 text-gray-800">Dr. Deepak Kumar</h1>
+    <p class="text-xl mb-4 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="DeepakKumar_CV.pdf" class="px-5 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Download CV</a>
+      <a href="mailto:deepak.kumar@example.com" class="px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition">Email Me</a>
+      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">ORCID</a>
+      <a href="https://inspirehep.net/search?ln=en&ln=en&p=au%3A%22Deepak+Kumar%22&of=hb" target="_blank" class="px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">INSPIRE-HEP</a>
+    </div>
+  </section>
 
   <!-- About Me Card -->
-  <section id="about" class="py-8">
+  <section id="about" class="py-6">
     <div class="card text-center">
       <h2 class="text-3xl font-bold">About Me</h2>
       <p class="text-lg text-gray-700 leading-relaxed">
@@ -111,7 +73,7 @@
   </section>
 
   <!-- Research Interests Card -->
-  <section id="research" class="py-8">
+  <section id="research" class="py-6">
     <div class="card text-center">
       <h2 class="text-3xl font-bold">Research Interests</h2>
       <p class="text-lg text-gray-700 mb-4 leading-relaxed">
@@ -139,25 +101,38 @@
   </section>
 
   <!-- Publications Card -->
-  <section id="publications" class="py-8">
+  <section id="publications" class="py-6">
     <div class="card flex flex-col">
       <h2 class="text-3xl font-bold mb-2 text-center">Publications</h2>
-      <div class="overflow-y-auto flex-1 scrollbar-thin max-h-[400px] pr-2">
+      <div class="overflow-y-auto flex-1 scrollbar-thin max-h-[500px] pr-2">
         <ul class="list-decimal list-inside space-y-2 text-lg">
           <li><strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-blue-700 hover:underline">arXiv:2411.17828</a>, 2024.</li>
           <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">arXiv:2505.02618</a>, 2025.</li>
-          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, and C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", <a href="https://doi.org/10.1103/zy4h-6wj2" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 112, 063042</a>, 2025.</li>
+          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", <a href="https://doi.org/10.1103/zy4h-6wj2" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 112, 063042</a>, 2025.</li>
           <li>S. Tewari, S. Chatterjee, <strong>D. Kumar</strong>, R. Mallick, "Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347", <a href="https://doi.org/10.1103/PhysRevD.111.103009" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 111, 103009</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, A. Karan, A. Verma, H. Mishra, R. Mallick, "Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars", <a href="https://doi.org/10.1103/PhysRevC.111.055805" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. C 111, 055805</a>, 2025.</li>
           <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, "The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach", <a href="https://doi.org/10.1088/1475-7516/2025/03/033" target="_blank" class="text-blue-700 hover:underline">JCAP 03, 033</a>, 2025.</li>
-          <!-- Add remaining publications here similarly -->
+          <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, C. Providência, "Robust universal relations in neutron star asteroseismology", <a href="https://doi.org/10.1103/PhysRevD.108.083008" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 108, 083008</a>, 2023.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Non-radial oscillation modes in hybrid stars: consequences of a mixed phase", <a href="https://doi.org/10.1088/1475-7516/2023/02/015" target="_blank" class="text-blue-700 hover:underline">JCAP 02, 015</a>, 2023.</li>
+          <li>A. Abhishek, A. Das, <strong>D. Kumar</strong>, H. Mishra, "Thermoelectric transport coefficients of quark matter", <a href="https://doi.org/10.1140/epjc/s10052-022-09999-z" target="_blank" class="text-blue-700 hover:underline">Eur. Phys. J. C 82, 71</a>, 2022.</li>
+          <li>A. Das, <strong>D. Kumar</strong>, H. Mishra, "Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach", <a href="https://doi.org/10.1103/PhysRevD.100.094030" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 100, 094030</a>, 2019.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Quark Matter in the Core of Neutron Stars and Its Consequences on Non-radial Oscillations", <a href="https://doi.org/10.1007/978-981-97-0289-3_144" target="_blank" class="text-blue-700 hover:underline">Springer Proc. Phys. 304, 637-639</a>, 2024.</li>
+          <li>A. Jaiswal et al., "Dynamics of QCD matter — current status", <a href="https://doi.org/10.1142/S0218301321300010" target="_blank" class="text-blue-700 hover:underline">Int. J. Mod. Phys. E 30, 2130001</a>, 2021.</li>
+          <li><strong>D. Kumar</strong>, P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using the Bayesian approach", (XXVI DAE-BRNS High Energy Physics Symposium 2024).</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, "Axion effects on the non-radial oscillations of neutron stars", (XXVI DAE-BRNS High Energy Physics Symposium 2024).</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, "Axion effects on the non-radial oscillations of neutron stars", (Journal of Subatomic Particles and Cosmology: ATHIC 2025).</li>
+          <li>A. Das, <strong>D. Kumar</strong>, T. Malik, H. Mishra, "The asteroseismology in neutron stars in presence of dark matter", arXiv.</li>
+          <li><strong>D. Kumar</strong>, A. Verma, H. Mishra, R. Mallick, "Shock waves in the proto-neutron stars", arXiv.</li>
+          <li><strong>D. Kumar</strong>, H. Mishra, "Nambu--Jona-Lasinio model parameters from the astrophysical observations using Bayesian analysis", arXiv.</li>
+          <li>A. Karan, <strong>D. Kumar</strong>, R. Mallick, "Non-radial oscillations in two fluid approach with dark matter in the core of neutron star", arXiv.</li>
+          <li><strong>D. Kumar</strong>, P. K. Sahu, "Study of supernovae", arXiv.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- Important Research Links Card -->
-  <section id="links" class="py-8">
+  <section id="links" class="py-6">
     <div class="card text-left">
       <h2 class="text-3xl font-bold mb-2 text-center">Important Research Links</h2>
       <ul class="list-disc list-inside space-y-2 text-lg">
@@ -171,7 +146,7 @@
     </div>
   </section>
 
-  <!-- Contact Information (No Card) -->
+  <!-- Contact Information -->
   <section id="contact" class="py-6 text-center">
     <p class="text-lg text-gray-700 mb-2">Email: <a href="mailto:deepak.kumar@example.com" class="text-blue-700 hover:underline">deepak.kumar@example.com</a></p>
     <p class="text-lg text-gray-700 mb-2">Download CV: <a href="DeepakKumar_CV.pdf" class="text-blue-700 hover:underline">DeepakKumar_CV.pdf</a></p>
