@@ -12,23 +12,13 @@
       margin: 0;
       font-family: 'Helvetica', sans-serif;
     }
-    /* Scrollbar styling */
+    /* Scrollbar styling for publications */
     .scrollbar-thin::-webkit-scrollbar { width: 6px; }
     .scrollbar-thin::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
     .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #555; }
 
-    /* Parallax Hero */
-    #hero {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    /* Hero background parallax */
     #hero-bg {
       position: absolute;
       width: 100%;
@@ -57,10 +47,10 @@
     </div>
   </nav>
 
-  <!-- Sticky Hero Section with Parallax -->
-  <section id="hero">
+  <!-- Hero Section with Parallax Background -->
+  <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
     <div id="hero-bg"></div>
-    <div class="w-full h-full flex flex-col justify-center items-center text-center z-10">
+    <div class="z-10">
       <h1 class="text-5xl font-bold mb-4 text-gray-800">Dr. Deepak Kumar</h1>
       <p class="text-xl mb-6 text-gray-700">Nuclear Astrophysicist | Compact Objects | Neutron Stars | Dense Matter</p>
       <div class="flex flex-wrap justify-center gap-4">
@@ -77,7 +67,7 @@
     window.addEventListener('scroll', function() {
       const scrolled = window.scrollY;
       const heroBg = document.getElementById('hero-bg');
-      heroBg.style.transform = `translateY(${scrolled * 0.3}px)`; // move slower than scroll
+      heroBg.style.transform = `translateY(${scrolled * 0.2}px)`; // slower than scroll
     });
   </script>
 
@@ -123,8 +113,7 @@
   <section id="publications" class="py-12">
     <div class="bg-white p-8 rounded-2xl shadow-lg max-w-5xl min-h-[450px] mx-auto overflow-y-auto scrollbar-thin text-left">
       <h2 class="text-3xl font-bold mb-6 text-center">Publications</h2>
-      <ul class="list-decimal list-inside space-y-3">
-        <!-- Fully integrated BibTeX entries -->
+      <ul class="list-decimal list-inside space-y-3 text-lg">
         <li><strong>D. Kumar</strong> and H. Mishra, "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars", <a href="https://arxiv.org/abs/2411.17828" target="_blank" class="text-blue-700 hover:underline">arXiv:2411.17828</a>, 2024.</li>
         <li><strong>D. Kumar</strong> and P. K. Sahu, "Constraining the neutron star equation of state by including the isoscalar-vector and isovector-vector coupling using Bayesian analysis", <a href="https://arxiv.org/abs/2505.02618" target="_blank" class="text-blue-700 hover:underline">arXiv:2505.02618</a>, 2025.</li>
         <li><strong>D. Kumar</strong>, T. Malik, H. Mishra, and C. Providência, "Constraints on maximum neutron star mass from protoneutron star evolution", <a href="https://doi.org/10.1103/zy4h-6wj2" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 112, 063042</a>, 2025.</li>
@@ -135,7 +124,7 @@
         <li><strong>D. Kumar</strong>, H. Mishra, T. Malik, "Non-radial oscillation modes in hybrid stars: consequences of a mixed phase", <a href="https://doi.org/10.1088/1475-7516/2023/02/015" target="_blank" class="text-blue-700 hover:underline">JCAP 02, 015</a>, 2023.</li>
         <li>A. Abhishek, A. Das, <strong>D. Kumar</strong>, H. Mishra, "Thermoelectric transport coefficients of quark matter", <a href="https://doi.org/10.1140/epjc/s10052-022-09999-z" target="_blank" class="text-blue-700 hover:underline">Eur. Phys. J. C 82, 71</a>, 2022.</li>
         <li>A. Das, <strong>D. Kumar</strong>, H. Mishra, "Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach", <a href="https://doi.org/10.1103/PhysRevD.100.094030" target="_blank" class="text-blue-700 hover:underline">Phys. Rev. D 100, 094030</a>, 2019.</li>
-        <!-- You can continue adding all remaining conference proceedings and preprints in the same format -->
+        <!-- Add remaining entries similarly -->
       </ul>
     </div>
   </section>
