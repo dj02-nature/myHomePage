@@ -583,36 +583,16 @@
     </section>
 
 
-<div id="visitCounterBox" 
-     style="
-       display: flex;
-       align-items: center;
-       gap: 10px;
-       font-size: 1.1rem;
-       font-family: 'Inter', sans-serif;
-     ">
-  
-  <!-- Transparent Circular Icon -->
-  <div style="
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        background: rgba(0,0,0,0);  /* fully transparent */
-        border: 2px solid #4CAF50;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #4CAF50;
-        font-weight: bold;
-        font-size: 18px;">
-    👁️
-  </div>
 
-  <span>Total Visits:
-      <strong id="visitCounter">...</strong>
-  </span>
+
+
+<!-- VISITOR COUNTER -->
+<section id="counter" class="max-w-6xl mx-auto px-6 py-10" data-aos="fade-up">
+<div class="bg-white shadow rounded-xl p-6 text-center">
+<p class="text-lg">This page has been visited <span id="visitCount" class="font-semibold text-blue-700">0</span> times.</p>
 </div>
-
+</section>
+    
 
 
   </main>
@@ -662,27 +642,6 @@
 
 
 
-
-<script>
-// Fully working CountAPI endpoint for GitHub Pages
-const namespace = "dj02_nature_github";
-const key = "global_counter";
-
-async function updateVisitorCounter() {
-  try {
-    const res = await fetch(`https://countapi.xyz/update/${namespace}/${key}?amount=1`);
-    const data = await res.json();
-
-    document.getElementById("visitCounter").innerText = data.value;
-  }
-  catch (err) {
-    console.log("Counter error:", err);
-    document.getElementById("visitCounter").innerText = "N/A";
-  }
-}
-
-updateVisitorCounter();
-</script>
 
 
 
