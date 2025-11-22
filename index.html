@@ -579,88 +579,10 @@
       <div class="mt-2 flex items-center justify-center gap-3">
         <a href="cv_deepak.pdf" class="btn-ghost">Download CV</a>
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
-        <a href="#" class="btn-ghost">
-          <p class="text-lg"> <span id="visitCount" class="font-semibold"></span> </p>
-        </a>
+        <a href="#" class="btn-ghost">Thank YOU</a>
       </div>
     </section>
-
-
-<!-- CountAPI script: increments global counter and updates the visible count -->
-<script>
-(function(){
-const namespace = 'deepak_kumar_site';
-const key = 'global_visits';
-const display = document.getElementById('visitCounter');
-
-
-async function hitCounter(){
-try{
-// Try the simple hit endpoint
-const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-if(!res.ok) throw new Error('hit failed');
-const data = await res.json();
-if(display) display.textContent = data.value.toLocaleString();
-return;
-}catch(err){
-console.warn('CountAPI hit failed, attempting create+hit fallback', err);
-}
-
-
-try{
-// Create namespace/key if not exist (initial value 0)
-const createRes = await fetch('https://api.countapi.xyz/create', {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ namespace: namespace, key: key, value: 0 })
-});
-if(createRes.ok){
-// Now hit the counter
-const res2 = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-const data2 = await res2.json();
-if(display) display.textContent = data2.value.toLocaleString();
-return;
-}
-}catch(e){
-console.error('CountAPI create+hit fallback failed', e);
-}
-
-
-// final fallback: try update endpoint
-try{
-const res3 = await fetch(`https://api.countapi.xyz/update/${namespace}/${key}?amount=1`);
-const data3 = await res3.json();
-if(display) display.textContent = data3.value.toLocaleString();
-}catch(e){
-console.error('CountAPI update fallback failed', e);
-if(display) display.textContent = '...';
-}
-}
-
-
-// Run on DOM ready
-if(document.readyState === 'loading'){
-document.addEventListener('DOMContentLoaded', hitCounter);
-} else {
-hitCounter();
-}
-})();
-</script>
-
-
-<script>
-function updateVisitCounter() {
-let count = localStorage.getItem('globalVisitCount');
-if (!count) count = 0;
-count = parseInt(count) + 1;
-localStorage.setItem('globalVisitCount', count);
-document.getElementById('visitCount').textContent = `${count}`;
-}
-updateVisitCounter();
-</script>
-
-
-    
+ 
 
 
   </main>
