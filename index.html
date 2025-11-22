@@ -583,7 +583,7 @@
     </section>
 
 
-  <div id="visitCounterBox" 
+<div id="visitCounterBox" 
      style="
        display: flex;
        align-items: center;
@@ -592,16 +592,17 @@
        font-family: 'Inter', sans-serif;
      ">
   
-  <!-- Circular Icon -->
+  <!-- Transparent Circular Icon -->
   <div style="
         width: 45px;
         height: 45px;
         border-radius: 50%;
-        background: #4CAF50;
+        background: rgba(0,0,0,0);  /* fully transparent */
+        border: 2px solid #4CAF50;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: white;
+        color: #4CAF50;
         font-weight: bold;
         font-size: 18px;">
     👁️
@@ -610,7 +611,8 @@
   <span>Total Visits:
       <strong id="visitCounter">...</strong>
   </span>
-  </div>
+</div>
+
 
 
   </main>
@@ -658,26 +660,30 @@
     })();
   </script>
 
+
+
+
 <script>
-// Global counter for your website
-const namespace = "dj02_nature_github_io";
-const key = "global_visit_counter";
+// Fully working CountAPI endpoint for GitHub Pages
+const namespace = "dj02_nature_github";
+const key = "global_counter";
 
 async function updateVisitorCounter() {
   try {
-    const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+    const res = await fetch(`https://countapi.xyz/update/${namespace}/${key}?amount=1`);
     const data = await res.json();
 
-    // Update visible count
     document.getElementById("visitCounter").innerText = data.value;
-  } 
+  }
   catch (err) {
-    console.error("Counter Error:", err);
+    console.log("Counter error:", err);
+    document.getElementById("visitCounter").innerText = "N/A";
   }
 }
 
 updateVisitorCounter();
 </script>
+
 
 
 
