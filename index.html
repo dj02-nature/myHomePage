@@ -582,6 +582,12 @@
       </div>
     </section>
 
+  <div id="visit-counter" class="mt-6 mx-auto w-fit px-4 py-2 bg-white shadow rounded-lg text-gray-700">
+    <span class="font-semibold">Total Visits:</span>
+    <span id="count-number" class="text-blue-600 font-bold">0</span>
+  </div>
+
+
 
   </main>
 
@@ -627,6 +633,24 @@
       });
     })();
   </script>
+
+  <script>
+  // Retrieve current count or start with 0
+  let count = localStorage.getItem("visitCount");
+
+  if (count === null) {
+    count = 1; // first visit
+  } else {
+    count = parseInt(count) + 1; // increment count
+  }
+
+  // Save updated count
+  localStorage.setItem("visitCount", count);
+
+  // Display on page
+  document.getElementById("count-number").textContent = count;
+</script>
+
 
 </body>
 </html>
