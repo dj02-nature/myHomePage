@@ -581,13 +581,6 @@
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
         <a href="#" class="btn-ghost">
           <p class="text-lg"> <span id="visitCount" class="font-semibold"></span> </p>
-          <p class="text-sm text-gray-700 mt-3 flex items-center justify-center gap-2">
-          <span id="visitCircle" 
-          class="w-9 h-9 flex items-center justify-center rounded-full bg-transparent border border-gray-400 text-gray-800 text-lg font-semibold">
-          0
-          </span>
-          <span class="text-gray-700"> </span>
-          </p>
         </a>
       </div>
     </section>
@@ -666,29 +659,6 @@ document.getElementById('visitCount').textContent = `${count}`;
 updateVisitCounter();
 </script>
 
-<script>
-  async function updateVisitCounter() {
-    try {
-      // Your unique namespace and key
-      const namespace = "deepak_webpage_global";
-      const key = "visitor_count";
-
-      // Create counter if not exists
-      await fetch(`https://api.countapi.xyz/create?namespace=${namespace}&key=${key}&value=0`);
-
-      // Increment global count
-      const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-      const data = await res.json();
-
-      // Update UI
-      document.getElementById("visitCircle").textContent = data.value;
-    } catch (error) {
-      console.error("Counter Error:", error);
-    }
-  }
-
-  updateVisitCounter();
-</script>
 
     
 
