@@ -582,12 +582,35 @@
       </div>
     </section>
 
-  <div id="visit-counter" class="mt-6 mx-auto w-fit px-4 py-2 bg-white shadow rounded-lg text-gray-700">
-    <!-- <span class="font-semibold">Total Visits:</span> -->
-    <p>Total Visits: <span id="visitCounter"></span></p>
-    <!-- <span id="count-number" class="text-blue-600 font-bold">0</span> -->
+
+  <div id="visitCounterBox" 
+     style="
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       font-size: 1.1rem;
+       font-family: 'Inter', sans-serif;
+     ">
+  
+  <!-- Circular Icon -->
+  <div style="
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #4CAF50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;">
+    👁️
   </div>
 
+  <span>Total Visits:
+      <strong id="visitCounter">...</strong>
+  </span>
+  </div>
 
 
   </main>
@@ -636,15 +659,24 @@
   </script>
 
 <script>
+// Global counter for your website
 const namespace = "dj02_nature_github_io";
 const key = "global_visit_counter";
 
-async function incrementGlobalCounter() {
-  const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-  const data = await res.json();
-  document.getElementById("visitCounter").innerText = data.value;
+async function updateVisitorCounter() {
+  try {
+    const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+    const data = await res.json();
+
+    // Update visible count
+    document.getElementById("visitCounter").innerText = data.value;
+  } 
+  catch (err) {
+    console.error("Counter Error:", err);
+  }
 }
-incrementGlobalCounter();
+
+updateVisitorCounter();
 </script>
 
 
