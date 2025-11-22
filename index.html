@@ -645,11 +645,8 @@ hitCounter();
 }
 })();
 </script>
-<p class="text-sm text-gray-700 mt-4 flex items-center justify-center gap-2 opacity-80">
-<span id="visitIcon" class="w-6 h-6 rounded-full border border-gray-400 flex items-center justify-center text-xs">👁️</span>
-<span id="visitCount">Loading...</span>
-</p>
-</section>
+
+
 <script>
 function updateVisitCounter() {
 let count = localStorage.getItem('globalVisitCount');
@@ -658,7 +655,7 @@ count = parseInt(count) + 1;
 localStorage.setItem('globalVisitCount', count);
 document.getElementById('visitCount').textContent = `${count}`;
 }
-// updateVisitCounter();
+updateVisitCounter();
 </script>
 
 
