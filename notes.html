@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer</title>
+
+  <!-- Include your main CSS -->
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Arial, sans-serif;
+    }
+
+    .pdf-container {
+      width: 100%;
+      height: 100vh; /* Full screen height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pdf-header {
+      padding: 12px 20px;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pdf-header h2 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .download-btn {
+      padding: 8px 14px;
+      background: var(--accent);
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .pdf-viewer {
+      flex-grow: 1;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pdf-container">
+
+    <!-- Header -->
+    <div class="pdf-header">
+      <h2>Embedded PDF Viewer</h2>
+      <a class="download-btn" href="../assets/myfile.pdf" download>Download PDF</a>
+    </div>
+
+    <!-- Embedded PDF -->
+    <iframe
+      class="pdf-viewer"
+      src="../assets/myfile.pdf#toolbar=1&navpanes=0&scrollbar=1"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+</body>
+</html>
