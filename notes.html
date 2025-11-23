@@ -228,7 +228,22 @@
       display: block;
     }
   </style>
-  
+
+    <script>
+    function switchPDF(tabIndex) {
+      const frames = document.querySelectorAll(".pdf-frame");
+      const buttons = document.querySelectorAll(".tab-buttons button");
+
+      frames.forEach(f => f.classList.remove("active"));
+      buttons.forEach(b => b.classList.remove("active"));
+
+      frames[tabIndex].classList.add("active");
+      buttons[tabIndex].classList.add("active");
+    }
+
+    window.onload = () => switchPDF(0); // Default: show first PDF
+  </script>
+
 </head>
 <body>
 
