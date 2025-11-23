@@ -171,6 +171,64 @@
 }
 
   </style>
+
+    <style>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Arial, sans-serif;
+    }
+
+    .tabs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .tab-buttons button {
+      padding: 8px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.25s;
+      white-space: nowrap;
+    }
+
+    .tab-buttons button.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .tab-buttons button:hover {
+      opacity: 0.9;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 85vh;
+      border: none;
+      display: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .pdf-frame.active {
+      display: block;
+    }
+  </style>
+  
 </head>
 <body>
 
