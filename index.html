@@ -192,6 +192,7 @@
             <div class="slide" style="background-image:url('images/slide4.jpg');"><div class="slide-overlay"></div></div>
             <div class="slide" style="background-image:url('images/slide5.jpg');"><div class="slide-overlay"></div></div>
             <div class="slide" style="background-image:url('images/slide6.jpg');"><div class="slide-overlay"></div></div>
+            <div class="slide" style="background-image:url('images/slide7.jpg');"><div class="slide-overlay"></div></div>
           </div>
         </div>
       </div>
@@ -616,7 +617,7 @@
       if(!container) return;
       const slides = Array.from(container.querySelectorAll('.slide'));
       if(slides.length <= 1) return;
-      let idx = 0;
+      let idx = 1;
       const next = () => {
         slides[idx].classList.remove('active');
         idx = (idx+1) % slides.length;
