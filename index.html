@@ -171,6 +171,82 @@
 }
 
   </style>
+
+
+  
+    <style>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Arial, sans-serif;
+    }
+
+    .tabs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .tab-buttons button {
+      padding: 8px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--fg);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.25s;
+      white-space: nowrap;
+    }
+
+    .tab-buttons button.active {
+      background: var(--accent);
+      color: blue;
+      border-color: var(--accent);
+    }
+
+    .tab-buttons button:hover {
+      opacity: 0.9;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 85vh;
+      border: none;
+      display: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .pdf-frame.active {
+      display: block;
+    }
+  </style>
+
+    <script>
+    function switchPDF(tabIndex) {
+      const frames = document.querySelectorAll(".pdf-frame");
+      const buttons = document.querySelectorAll(".tab-buttons button");
+
+      frames.forEach(f => f.classList.remove("active"));
+      buttons.forEach(b => b.classList.remove("active"));
+
+      frames[tabIndex].classList.add("active");
+      buttons[tabIndex].classList.add("active");
+    }
+
+    window.onload = () => switchPDF(0); // Default: show first PDF
+  </script>
+
+  
 </head>
 <body>
 
@@ -193,8 +269,8 @@
         <a class="nav-link" href="#publications">Publications</a>
         <a class="nav-link" href="#links">Links</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-link" href="#note">
-          <li class="nav-item dropdown">
+        <a class="nav-link" href="#note">Notes</a>
+          <!-- <li class="nav-item dropdown">
             <a href="notes.html" class="nav-link dropdown-toggle">Notes</a>
             <ul class="dropdown-menu">
               <li><a href="Notes/DarkMatter_notes.pdf">Dark Matter</a></li>
@@ -203,7 +279,7 @@
               <li><a href="Notes/PulsatingEquations.pdf">Pulsating Equations</a></li>
             </ul>
           </li>
-        </a>
+        </a> -->
 
       </div>
 
@@ -420,6 +496,48 @@
 
   </div>
   </section>
+
+<!-- Research Notes -->
+    <section id="about" class="card">
+
+    <div class="tabs-container">
+
+    <h1 class="text-xl font-bold mb-4">Research Notes</h1>
+
+    <!-- TAB BUTTONS -->
+    <div class="tab-buttons">
+      <button onclick="switchPDF(0)">Dark Matter</button>
+      <button onclick="switchPDF(1)">DDB</button>
+      <button onclick="switchPDF(2)">Neutron Star</button>
+      <button onclick="switchPDF(3)">Pulsating Equations</button>
+    </div>
+
+    <!-- TAB 1 -->
+    <iframe
+      class="pdf-frame"
+      src="Notes/DarkMatter_notes.pdf#toolbar=1&navpanes=0">
+    </iframe>
+
+    <!-- TAB 2 -->
+    <iframe
+      class="pdf-frame"
+      src="Notes/DDB.pdf#toolbar=1&navpanes=0">
+    </iframe>
+
+    <!-- TAB 3 -->
+    <iframe
+      class="pdf-frame"
+      src="Notes/NeutronStar.pdf#toolbar=1&navpanes=0">
+    </iframe>
+
+    <!-- TAB 4 -->
+    <iframe
+      class="pdf-frame"
+      src="Notes/PulsatingEquations.pdf#toolbar=1&navpanes=0">
+    </iframe>
+
+    </div>
+    </section>
 
    
 <!-- IMPORTANT RESEARCH LINKS -->
