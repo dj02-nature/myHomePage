@@ -122,6 +122,54 @@
 
     .item-title { font-weight: 600; margin-bottom: 2px; }
     .item-sub { font-size: 0.75rem; color: var(--fg-500); }
+
+    /* Dropdown container */
+.nav-item.dropdown {
+  position: relative;
+}
+
+/* Dropdown toggle link */
+.nav-item .dropdown-toggle::after {
+  content: " ▼";
+  font-size: 0.6rem;
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 0;
+  display: none;
+  min-width: 180px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Items in dropdown */
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: var(--fg-500);
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  border-radius: 8px;
+}
+
+/* Hover animation */
+.dropdown-menu li a:hover {
+  background: var(--hover);
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
   </style>
 </head>
 <body>
@@ -145,6 +193,17 @@
         <a class="nav-link" href="#publications">Publications</a>
         <a class="nav-link" href="#links">Links</a>
         <a class="nav-link" href="#contact">Contact</a>
+
+        <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Notes</a>
+        <ul class="dropdown-menu">
+          <li><a href="notes/research-notes.html">Research Notes</a></li>
+          <li><a href="notes/gr-notes.html">GR Notes</a></li>
+          <li><a href="notes/eos-notes.html">EOS Notes</a></li>
+          <li><a href="notes/hpc-notes.html">HPC Notes</a></li>
+        </ul>
+        </li>
+
       </div>
 
       <div class="flex items-center gap-3">
