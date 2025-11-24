@@ -236,113 +236,6 @@
     }
   </style>
 
-  <style>
-
-.particle {
-  position: absolute;
-  pointer-events: none;
-  animation: floatUp 3s ease-out forwards, wobble 3s ease-in-out infinite;
-  opacity: 0.95;
-  transform-origin: center;
-}
-
-/* Basic balloon shape */
-.balloon {
-  width: 40px;
-  height: 50px;
-  background-color: var(--color);
-  border-radius: 50% 50% 45% 55%;
-}
-
-/* Balloon string */
-.balloon::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50px;
-  width: 2px;
-  height: 40px;
-  background-color: #888;
-}
-
-/* Heart shape */
-.heart {
-  width: 30px;
-  height: 30px;
-  background-color: var(--color);
-  position: relative;
-  transform: rotate(45deg);
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  width: 30px;
-  height: 30px;
-  background-color: var(--color);
-  border-radius: 50%;
-  position: absolute;
-}
-
-.heart::before {
-  left: -15px;
-}
-
-.heart::after {
-  top: -15px;
-}
-
-/* Star shape */
-.star {
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 30px solid var(--color);
-  position: relative;
-}
-
-.star::after {
-  content: "";
-  position: absolute;
-  left: -15px;
-  top: 10px;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 30px solid var(--color);
-}
-
-/* Confetti square */
-.confetti {
-  width: 14px;
-  height: 14px;
-  background-color: var(--color);
-}
-
-/* Float up */
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-250px) scale(1.2);
-    opacity: 0;
-  }
-}
-
-/* Side wobble */
-@keyframes wobble {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-15px); }
-  50% { transform: translateX(10px); }
-  75% { transform: translateX(-8px); }
-  100% { transform: translateX(0); }
-}
-
-  </style>
 
     <script>
     function switchPDF(tabIndex) {
@@ -896,7 +789,7 @@
       <p class="text-sm text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-[var(--fg-500)] hover:underline">0000-0001-9292-3598</a></p>
       <div class="mt-2 flex items-center justify-center gap-3">
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
-        <a href="#" class="btn-primary"> <button id="balloonButton">Thank YOU</button> </a>
+        <a href="#thankyou" class="btn-primary"> <button id="balloonButton">Thank YOU</button> </a>
       </div>
     </section>
  
@@ -944,47 +837,6 @@
       });
     })();
   </script>
-
-
-
-<script>
-const button = document.getElementById("balloonButton");
-
-button.addEventListener("click", () => {
-    const count = 12; // number of particles per click
-    for (let i = 0; i < count; i++) {
-        createParticle();
-    }
-});
-
-function createParticle() {
-    const particle = document.createElement("div");
-
-    // Random shape classes
-    const shapes = ["balloon", "heart", "star", "confetti"];
-    const shape = shapes[Math.floor(Math.random() * shapes.length)];
-
-    particle.classList.add("particle", shape);
-
-    // Random color
-    const colors = ["#ff6bd6", "#6bbaff", "#ffea6b", "#6bff95", "#ff6b6b", "#ff9b3d"];
-    const chosenColor = colors[Math.floor(Math.random() * colors.length)];
-    particle.style.setProperty("--color", chosenColor);
-
-    // Get button position
-    const rect = button.getBoundingClientRect();
-    const startX = rect.left + rect.width / 2 + (Math.random() * 40 - 20);
-    const startY = rect.top - 20;
-
-    particle.style.left = startX + "px";
-    particle.style.top = startY + "px";
-
-    document.body.appendChild(particle);
-
-    // Remove after animation
-    setTimeout(() => particle.remove(), 3000);
-}
-</script>
 
 
 </body>
