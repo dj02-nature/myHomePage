@@ -1,0 +1,229 @@
+Skip to content
+Chat history
+
+
+
+You said:
+make a form to for a registration of a condidate
+ChatGPT said:
+Here is a clean and simple registration form you can use anywhere — website, Google Forms, or print.
+Tell me if you want it in HTML, LaTeX, PDF, or with more fields.
+
+Candidate Registration Form
+Candidate Information
+
+Full Name: __________________________________________
+
+Date of Birth: ____ / ____ / ________
+
+Gender: ☐ Male ☐ Female ☐ Other
+
+Email ID: __________________________________________
+
+Phone Number: ______________________________________
+
+Address Details
+Permanent Address:
+
+Current Address (if different):
+
+Academic Information
+Highest Qualification:
+☐ High School
+☐ Diploma
+☐ Bachelor’s Degree
+☐ Master’s Degree
+☐ PhD
+☐ Other: _______________________
+
+Stream / Specialization: _______________________________
+
+University / College Name: _____________________________
+
+Year of Passing: ___________________
+
+Professional Information (Optional)
+Current Occupation: __________________________________
+
+Organization / Company: ______________________________
+
+Experience (in years): ________________________________
+
+Documents Required
+☐ ID Proof
+☐ Latest Photograph
+☐ Signature
+☐ Educational Certificates
+☐ Other: ________________________________________________
+
+Declaration
+I hereby declare that the information provided above is true and correct to the best of my knowledge.
+
+Signature of Candidate: __________________________
+Date: ____ / ____ / ________
+
+If you want this in HTML form format, Google Form template, or LaTeX, just tell me — I’ll generate it!
+
+You said:
+HTML form format
+ChatGPT said:
+Here is a clean, responsive HTML Registration Form (no external CSS required).
+You can directly paste this into any webpage.
+
+✅ Candidate Registration Form — HTML Code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidate Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 60%;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .radio-group, .checkbox-group {
+      margin-top: 10px;
+    }
+    .radio-group label, .checkbox-group label {
+      font-weight: normal;
+      margin-right: 15px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Candidate Registration Form</h2>
+  
+  <form>
+    <!-- Personal Info -->
+    <label>Full Name</label>
+    <input type="text" required>
+
+    <label>Date of Birth</label>
+    <input type="date" required>
+
+    <label>Gender</label>
+    <div class="radio-group">
+      <label><input type="radio" name="gender"> Male</label>
+      <label><input type="radio" name="gender"> Female</label>
+      <label><input type="radio" name="gender"> Other</label>
+    </div>
+
+    <label>Email</label>
+    <input type="email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" required>
+
+    <!-- Address -->
+    <label>Permanent Address</label>
+    <textarea rows="3" required></textarea>
+
+    <label>Current Address</label>
+    <textarea rows="3"></textarea>
+
+    <!-- Academic Info -->
+    <label>Highest Qualification</label>
+    <select>
+      <option>Select</option>
+      <option>High School</option>
+      <option>Diploma</option>
+      <option>Bachelor’s Degree</option>
+      <option>Master’s Degree</option>
+      <option>PhD</option>
+      <option>Other</option>
+    </select>
+
+    <label>Stream / Specialization</label>
+    <input type="text">
+
+    <label>University / College Name</label>
+    <input type="text">
+
+    <label>Year of Passing</label>
+    <input type="number">
+
+    <!-- Professional Info -->
+    <label>Current Occupation</label>
+    <input type="text">
+
+    <label>Organization / Company</label>
+    <input type="text">
+
+    <label>Experience (Years)</label>
+    <input type="number">
+
+    <!-- Documents -->
+    <label>Documents Provided</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox"> ID Proof</label>
+      <label><input type="checkbox"> Photograph</label>
+      <label><input type="checkbox"> Signature</label>
+      <label><input type="checkbox"> Educational Certificates</label>
+    </div>
+
+    <!-- Declaration -->
+    <label>Declaration</label>
+    <input type="checkbox" required> I confirm that the above information is correct.
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
+If you want:
+
+✅ Connected to Google Sheets
+✅ PHP backend for database submission
+✅ Stylish version with icons & animations
+✅ A printable PDF version
+
+Just tell me — I’ll generate it!
+
+
+
+
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info. See Cookie Preferences.
