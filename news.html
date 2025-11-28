@@ -1,98 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Candidate Registration</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Minimal Registration</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #005ec2;
+  }
+</style>
+
 <script>
-  function submitForm(event) {
+  function verifyForm(event) {
     event.preventDefault();
 
-    const formData = {
-      name: document.getElementById("name").value,
-      dob: document.getElementById("dob").value,
-      gender: document.querySelector('input[name="gender"]:checked')?.value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      permanent: document.getElementById("permanent").value,
-      current: document.getElementById("current").value,
-      qualification: document.getElementById("qualification").value,
-      stream: document.getElementById("stream").value,
-      college: document.getElementById("college").value,
-      year: document.getElementById("year").value,
-      occupation: document.getElementById("occupation").value,
-      organization: document.getElementById("organization").value,
-      experience: document.getElementById("experience").value,
-    };
+    const email = document.getElementById("email").value;
+    const passport = document.getElementById("passport").value;
 
-    fetch("YOUR_WEB_APP_URL_HERE", {
-      method: "POST",
-      mode: "no-cors",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(formData)
-    });
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passportPattern = /^[A-Za-z0-9]{6,15}$/; 
 
-    alert("Form submitted successfully!");
-    document.getElementById("regForm").reset();
+    if (!emailPattern.test(email)) {
+      alert("Invalid email format!");
+      return;
+    }
+
+    if (!passportPattern.test(passport)) {
+      alert("Invalid passport number! Use 6–15 letters/numbers.");
+      return;
+    }
+
+    alert("Registration successful!");
   }
 </script>
+
 </head>
-
 <body>
-<h2>Candidate Registration Form</h2>
 
-<form id="regForm" onsubmit="submitForm(event)">
-  <label>Full Name</label>
-  <input type="text" id="name" required>
+<div class="box">
+  <h3 style="text-align:center;">Register</h3>
 
-  <label>Date of Birth</label>
-  <input type="date" id="dob" required>
+  <form onsubmit="verifyForm(event)">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="passport" placeholder="Passport Number" required>
 
-  <label>Gender</label>
-  <input type="radio" name="gender" value="Male"> Male
-  <input type="radio" name="gender" value="Female"> Female
-  <input type="radio" name="gender" value="Other"> Other
-  
-  <label>Email</label>
-  <input type="email" id="email" required>
-
-  <label>Phone</label>
-  <input type="tel" id="phone" required>
-
-  <label>Permanent Address</label>
-  <textarea id="permanent" required></textarea>
-
-  <label>Current Address</label>
-  <textarea id="current"></textarea>
-
-  <label>Highest Qualification</label>
-  <select id="qualification">
-    <option>High School</option>
-    <option>Diploma</option>
-    <option>Bachelor's</option>
-    <option>Master's</option>
-    <option>PhD</option>
-  </select>
-
-  <label>Stream / Specialization</label>
-  <input type="text" id="stream">
-
-  <label>College / University</label>
-  <input type="text" id="college">
-
-  <label>Year of Passing</label>
-  <input type="number" id="year">
-
-  <label>Occupation</label>
-  <input type="text" id="occupation">
-
-  <label>Organization</label>
-  <input type="text" id="organization">
-
-  <label>Experience (Years)</label>
-  <input type="number" id="experience">
-
-  <button type="submit">Submit</button>
-</form>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 </body>
 </html>
+
