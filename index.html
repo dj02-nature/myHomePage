@@ -240,51 +240,7 @@
   color: #2563eb; /* Tailwind blue-600 */
   }
 
-  /* .tab-buttons button {
-  padding: 8px 16px;
-  border-radius: 10px;
-  background: #f1f5f3;
-  color: #164f2a;
-  border: 1px solid rgba(20,60,30,0.15);
-  font-weight: 600;
-  transition: all 0.25s ease;
-}
-
-.tab-buttons button:hover {
-  background: rgba(31,111,59,0.12);
-} */
-
-/* ACTIVE BUTTON */
-/* .tab-buttons button.active {
-  background: linear-gradient(180deg, #1f6f3b, #164f2a);
-  color: #ffffff;
-  border-color: #1f6f3b;
-  box-shadow: 0 4px 12px rgba(31,111,59,0.35);
-} */
-
-
   </style>
-
-
-    <script>
-    function switchPDF(tabIndex) {
-      const frames = document.querySelectorAll(".pdf-frame");
-      const buttons = document.querySelectorAll(".tab-buttons button");
-
-      frames.forEach(f => f.classList.remove("active"));
-      buttons.forEach(b => b.classList.remove("active"));
-
-      frames[tabIndex].classList.add("active");
-      buttons[tabIndex].classList.add("active");
-    }
-
-    window.onload = () => switchPDF(4); // Default: show first PDF
-
-    
-  </script>
-
-
-
   
 </head>
 <body>
@@ -304,20 +260,14 @@
 
       <div class="hidden md:flex items-center gap-4">
         <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#news">News</a>
         <a class="nav-link" href="#research">Research</a>
         <a class="nav-link" href="#publications">Publications</a>
         <a class="nav-link" href="#links">Links</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a class="nav-link" href="#news">News</a>
         <a class="nav-link" href="#notes">
           <li class="nav-item dropdown">
             <a href="#notes" class="nav-link dropdown-toggle font-bold">Notes</a>
-            <!-- <ul class="dropdown-menu">
-              <li>Dark Matter</li>
-              <li>DDB</li>
-              <li>Neutron Star</li>
-              <li>Pulsating Equations</li>
-            </ul> -->
           </li>
         </a>
       </div>
@@ -404,10 +354,10 @@
     <!-- ABOUT + NEWS (SIDE BY SIDE) -->
 <!-- <section id="about-news" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up"> -->
   <section id="about" class="card">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
 
     <!-- ABOUT ME -->
-    <div class="bg-white shadow rounded-xl p-6">
+    <div class="bg-white shadow rounded-xl p-9">
 
       <h2 class="mb-3">About</h2>
       <p class="text-sm text-gray-700 mb-3">
@@ -436,7 +386,7 @@
     
 
     <!-- NEWS & UPDATES -->
-    <div class="bg-white shadow rounded-xl p-6" id="news">
+    <div class="bg-white shadow rounded-xl p-3" id="news">
       <!-- <h2 class="text-3xl font-bold mb-4">News & Updates</h2> -->
       <h2 class="mb-3">News & Updates</h2>
 
