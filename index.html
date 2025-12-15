@@ -240,6 +240,29 @@
   color: #2563eb; /* Tailwind blue-600 */
   }
 
+  .tab-buttons button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: #f1f5f3;
+  color: #164f2a;
+  border: 1px solid rgba(20,60,30,0.15);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.tab-buttons button:hover {
+  background: rgba(31,111,59,0.12);
+}
+
+/* ACTIVE BUTTON */
+.tab-buttons button.active {
+  background: linear-gradient(180deg, #1f6f3b, #164f2a);
+  color: #ffffff;
+  border-color: #1f6f3b;
+  box-shadow: 0 4px 12px rgba(31,111,59,0.35);
+}
+
+
   </style>
 
 
@@ -256,6 +279,8 @@
     }
 
     window.onload = () => switchPDF(4); // Default: show first PDF
+
+    
   </script>
 
 
@@ -590,12 +615,13 @@
 
   <!-- TAB BUTTONS -->
   <div class="tab-buttons mb-4 flex flex-wrap gap-2">
-    <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf')">Dark Matter</button>
-    <button type="button" onclick="openPDF('Notes/DDB.pdf')">DDB</button>
-    <button type="button" onclick="openPDF('Notes/NeutronStar.pdf')">Neutron Star</button>
-    <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf')">Pulsating Equations</button>
-    <button type="button" onclick="closePDF()">Close</button>
-  </div>
+  <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf', this)">Dark Matter</button>
+  <button type="button" onclick="openPDF('Notes/DDB.pdf', this)">DDB</button>
+  <button type="button" onclick="openPDF('Notes/NeutronStar.pdf', this)">Neutron Star</button>
+  <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf', this)">Pulsating Equations</button>
+  <button type="button" onclick="closePDF(this)">Close</button>
+ </div>
+
 
   <!-- PLACEHOLDER -->
   <div id="pdfPlaceholder" class="text-center text-gray-200 py-5">
@@ -611,9 +637,16 @@
 </section>
 
 <script>
-function openPDF(path) {
+function openPDF(path, btn) {
   const iframe = document.getElementById('pdfFrame');
   const placeholder = document.getElementById('pdfPlaceholder');
+  const buttons = document.querySelectorAll('.tab-buttons button');
+
+  // Reset buttons
+  buttons.forEach(b => b.classList.remove('active'));
+
+  // Activate clicked button
+  btn.classList.add('active');
 
   iframe.src = path + '#toolbar=1&navpanes=0';
   iframe.style.display = 'block';
@@ -621,16 +654,24 @@ function openPDF(path) {
   if (placeholder) placeholder.style.display = 'none';
 }
 
-function closePDF() {
+function closePDF(btn) {
   const iframe = document.getElementById('pdfFrame');
   const placeholder = document.getElementById('pdfPlaceholder');
+  const buttons = document.querySelectorAll('.tab-buttons button');
 
   iframe.src = '';
   iframe.style.display = 'none';
 
   if (placeholder) placeholder.style.display = 'block';
+
+  // Remove active state from all buttons
+  buttons.forEach(b => b.classList.remove('active'));
+
+  // Optional: highlight Close briefly
+  if (btn) btn.classList.add('active');
 }
 </script>
+
 
 
 
