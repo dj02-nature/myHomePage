@@ -584,6 +584,53 @@
   </section>
 
 
+<!-- Research Notes -->
+<section id="notes" class="card">
+  <h2 class="mb-3">Important Research Notes</h2>
+
+  <!-- TAB BUTTONS -->
+  <div class="tab-buttons mb-4 flex flex-wrap gap-2">
+    <button onclick="switchPDF('Notes/DarkMatter_notes.pdf')">Dark Matter</button>
+    <button onclick="switchPDF('Notes/DDB.pdf')">DDB</button>
+    <button onclick="switchPDF('Notes/NeutronStar.pdf')">Neutron Star</button>
+    <button onclick="switchPDF('Notes/PulsatingEquations.pdf')">Pulsating Equations</button>
+    <button onclick="closePDF()">Close</button>
+  </div>
+
+  <!-- PLACEHOLDER -->
+  <div id="pdfPlaceholder" class="text-center text-gray-500 py-16">
+    Select a note to view the PDF
+  </div>
+
+  <!-- SINGLE PDF FRAME (lazy loaded) -->
+  <iframe
+    id="pdfFrame"
+    class="pdf-frame w-full h-[80vh] border rounded-lg hidden">
+  </iframe>
+</section>
+
+    <script>
+function switchPDF(pdfPath) {
+  const iframe = document.getElementById('pdfFrame');
+  const placeholder = document.getElementById('pdfPlaceholder');
+
+  // Load only on click
+  iframe.src = pdfPath + '#toolbar=1&navpanes=0';
+  iframe.classList.remove('hidden');
+
+  if (placeholder) placeholder.style.display = 'none';
+}
+
+function closePDF() {
+  const iframe = document.getElementById('pdfFrame');
+  const placeholder = document.getElementById('pdfPlaceholder');
+
+  iframe.src = '';
+  iframe.classList.add('hidden');
+
+  if (placeholder) placeholder.style.display = 'block';
+}
+</script>
 
 
 
