@@ -234,6 +234,12 @@
     .pdf-frame.active {
       display: block;
     }
+
+  .highlight {
+  font-weight: 600;
+  color: #2563eb; /* Tailwind blue-600 */
+  }
+
   </style>
 
 
@@ -367,6 +373,15 @@
             Research Associate / Teaching duties
           </p>
         </div>
+      </div>
+  
+      <!-- NEWS (COMPACT, SCRIPT-DRIVEN) -->
+      <div class="bg-white shadow rounded-xl p-5">
+        <h2 class="text-2xl font-bold mb-3">News</h2>
+        
+        <ul id="news-list" class="space-y-3 text-sm text-gray-700">
+        <!-- News items will be injected here -->
+        </ul>
       </div>
     </section>
 
@@ -855,6 +870,38 @@
     })();
   </script>
 
+<script>
+/*
+HOW TO UPDATE NEWS:
+-------------------
+1. Add a new entry at the TOP of the newsItems array.
+2. Format: { date: 'YYYY-MM-DD', text: 'Your news text' }
+3. Save and refresh the page.
+*/
+
+const newsItems = [
+  {
+    date: '2025-01-10',
+    text: 'Upcoming seminar on <span class="highlight">Non-radial oscillations of neutron stars</span>.'
+  },
+  {
+    date: '2024-12-02',
+    text: 'Preprint submitted on relativistic pulsation equations in full General Relativity.'
+  },
+  {
+    date: '2024-10-18',
+    text: 'Invited talk at an international workshop on dense matter and compact objects.'
+  }
+];
+
+const list = document.getElementById('news-list');
+
+newsItems.forEach(item => {
+  const li = document.createElement('li');
+  li.innerHTML = `<time class="text-gray-500 mr-1">${item.date} —</time>${item.text}`;
+  list.appendChild(li);
+});
+</script>
 
 </body>
 </html>
