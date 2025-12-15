@@ -609,7 +609,7 @@
   </iframe>
 </section>
 
-    <script>
+<script>
 function switchPDF(pdfPath) {
   const iframe = document.getElementById('pdfFrame');
   const placeholder = document.getElementById('pdfPlaceholder');
@@ -627,6 +627,55 @@ function closePDF() {
 
   iframe.src = '';
   iframe.classList.add('hidden');
+
+  if (placeholder) placeholder.style.display = 'block';
+}
+</script>
+
+
+    <!-- Research Notes -->
+<section id="notes" class="card">
+  <h2 class="mb-3">Important Research Notes</h2>
+
+  <!-- TAB BUTTONS -->
+  <div class="tab-buttons mb-4 flex flex-wrap gap-2">
+    <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf')">Dark Matter</button>
+    <button type="button" onclick="openPDF('Notes/DDB.pdf')">DDB</button>
+    <button type="button" onclick="openPDF('Notes/NeutronStar.pdf')">Neutron Star</button>
+    <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf')">Pulsating Equations</button>
+    <button type="button" onclick="closePDF()">Close</button>
+  </div>
+
+  <!-- PLACEHOLDER -->
+  <div id="pdfPlaceholder" class="text-center text-gray-500 py-12">
+    Click a tab to load the PDF
+  </div>
+
+  <!-- SINGLE IFRAME -->
+  <iframe
+    id="pdfFrame"
+    style="width:100%; height:80vh; border:1px solid #ddd; border-radius:10px; display:none;"
+    loading="lazy">
+  </iframe>
+</section>
+
+    <script>
+function openPDF(path) {
+  const iframe = document.getElementById('pdfFrame');
+  const placeholder = document.getElementById('pdfPlaceholder');
+
+  iframe.src = path + '#toolbar=1&navpanes=0';
+  iframe.style.display = 'block';
+
+  if (placeholder) placeholder.style.display = 'none';
+}
+
+function closePDF() {
+  const iframe = document.getElementById('pdfFrame');
+  const placeholder = document.getElementById('pdfPlaceholder');
+
+  iframe.src = '';
+  iframe.style.display = 'none';
 
   if (placeholder) placeholder.style.display = 'block';
 }
