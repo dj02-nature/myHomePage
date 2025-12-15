@@ -583,42 +583,8 @@
   </div>
   </section>
 
-<!-- Research Notes -->
-    <section id="notes" class="card">
 
-    <div class="tabs-container">
 
-    <h2 class="mb-3">Important Research Notes</h2>
-
-    <div class="flex gap-3 mb-4">
-    <button onclick="loadPDF('Notes/PulsatingEquations.pdf')" class="btn-primary">
-    Pulsation Equations
-    </button>
-    
-    <button onclick="loadPDF('Notes/NeutronStars.pdf')" class="btn-ghost">
-    Neutron Stars
-    </button>
-    </div>
-
-    <iframe
-    id="pdfFrame"
-    class="pdf-frame w-full h-[80vh] border rounded-lg"
-    data-src="Notes/PulsatingEquations.pdf">
-    </iframe>
-
-    </div>
-    </section>
-
-    <script>
-function loadPDF(pdfPath) {
-  const iframe = document.getElementById('pdfFrame');
-
-  // Only load if different PDF
-  if (iframe.getAttribute('src') !== pdfPath) {
-    iframe.setAttribute('src', pdfPath + '#toolbar=1&navpanes=0');
-  }
-}
-</script>
 
 
 <!-- Research Notes -->
@@ -652,21 +618,21 @@ function loadPDF(pdfPath) {
 
     <!-- TAB 2 -->
     <iframe
-      <!-- class="pdf-frame" -->
+      class="pdf-frame"
       class="pdf-frame w-full h-[80vh] border rounded-lg"
       data-src="Notes/DDB.pdf#toolbar=1&navpanes=0">
     </iframe>
 
     <!-- TAB 3 -->
     <iframe
-      <!-- class="pdf-frame" -->
+      class="pdf-frame"
       class="pdf-frame w-full h-[80vh] border rounded-lg"
       data-src="Notes/NeutronStar.pdf#toolbar=1&navpanes=0">
     </iframe>
 
     <!-- TAB 4 -->
     <iframe
-      <!-- class="pdf-frame" -->
+      class="pdf-frame"
       class="pdf-frame w-full h-[80vh] border rounded-lg"
       data-src="Notes/PulsatingEquations.pdf#toolbar=1&navpanes=0">
     </iframe>
