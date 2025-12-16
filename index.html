@@ -492,13 +492,8 @@
 
       <div class="flex items-center gap-3">
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Email</a>
+        <button id="themeToggle" class="ml-2 text-xl nav-link"> dark </button>
       </div>
-
-      <button id="themeToggle"
-        class="ml-2 text-xl"
-        aria-label="Toggle dark mode">
-        <a class="nav-link">Dark</a>
-      </button>
 
     </div>
   </nav>
@@ -1175,7 +1170,7 @@
          window.matchMedia("(prefers-color-scheme: dark)").matches)
       ) {
         html.classList.add("dark");
-        toggle.textContent = "Light";
+        toggle.textContent = "light";
       }
       
       /* Toggle click */
@@ -1183,7 +1178,7 @@
         html.classList.toggle("dark");
         const dark = html.classList.contains("dark");
         localStorage.theme = dark ? "dark" : "light";
-        toggle.textContent = dark ? "Light" : "Dark";
+        toggle.textContent = dark ? "light" : "dark";
       });
     </script>
 
