@@ -1,0 +1,43 @@
+/* Global cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 94%;
+  max-width: 1180px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Buttons */
+.btn-primary {
+  background: #1f6f3b;
+  color: white;
+  padding: .5rem .9rem;
+  border-radius: 10px;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: .45rem .8rem;
+  border-radius: 10px;
+}
+
+.small-muted {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* News block */
+#news time {
+  font-size: 0.8rem;
+  color: #6b7280;
+  display: block;
+}
+
+/* Tabs */
+.tab-buttons button.active {
+  background: #2563eb;
+  color: white;
+}
