@@ -485,9 +485,9 @@
       </div>
 
       <button id="themeToggle"
-        class="ml-4 text-xl"
+        class="ml-2 text-xl"
         aria-label="Toggle dark mode">
-        🌙
+        Dark
       </button>
 
     </div>
@@ -1165,7 +1165,7 @@
          window.matchMedia("(prefers-color-scheme: dark)").matches)
       ) {
         html.classList.add("dark");
-        toggle.textContent = "☀️";
+        toggle.textContent = "Light";
       }
       
       /* Toggle click */
@@ -1173,7 +1173,7 @@
         html.classList.toggle("dark");
         const dark = html.classList.contains("dark");
         localStorage.theme = dark ? "dark" : "light";
-        toggle.textContent = dark ? "☀️" : "🌙";
+        toggle.textContent = dark ? "Light" : "Dark";
       });
     </script>
 
