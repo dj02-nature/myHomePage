@@ -1,166 +1,172 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Deepak Kumar | Nuclear Astrophysics</title>
 
-  <title>Dr. Deepak Kumar — Nuclear Astrophysicist</title>
+  <!-- SEO -->
 
-  <meta name="description" content="Deepak Kumar - Nuclear Astrophysicist working on neutron stars, dense matter and gravitational waves." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Dr. Deepak Kumar, theoretical nuclear astrophysicist working on neutron stars, dense matter, compact objects and gravitational waves." />
 
-  <!-- Tailwind (required) -->
+  <!-- Tailwind CDN -->
+
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Custom styles -->
 
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Dr. Deepak Kumar",
-    "jobTitle": "Theoretical Physicist",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Institute of Physics, Bhubaneswar"
-    },
-    "url": "https://dj02-nature.github.io/myHomePage",
-    "sameAs": [
-      "https://orcid.org/0000-0001-9292-3598",
-      "https://inspirehep.net/authors/1750571"
-    ]
-  }
-  </script>
+  <style>
+    body {
+      background: linear-gradient(180deg, #f4faf6, #e9f3ec);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      padding: 1.5rem;
+      margin: 1.5rem auto;
+      max-width: 1100px;
+    }
+  </style>
+
 </head>
-
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 
-<nav class="fixed w-full z-40 top-0">
-  <div class="max-w-[1200px] mx-auto px-4 py-3 flex justify-between items-center">
-    <a class="flex gap-3 items-center" href="#">
-      <img src="images/me2.jpg" width="36" height="36" class="rounded-full" />
-      <div>
-        <div class="font-semibold text-sm">Dr. Deepak Kumar</div>
-        <div class="text-xs text-gray-500">Nuclear Astrophysics • Dense Matter • GW</div>
-      </div>
-    </a>
-    <div class="hidden md:flex gap-4">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#news">News</a>
-      <a class="nav-link" href="#research">Research</a>
-      <a class="nav-link" href="#publications">Publications</a>
-      <a class="nav-link" href="#notes">Notes</a>
-      <a class="nav-link" href="#links">Links</a>
-      <a class="nav-link" href="#contact">Contact</a>
+<nav class="fixed top-0 w-full bg-white/80 backdrop-blur shadow z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <span class="font-semibold">Dr. Deepak Kumar</span>
+    <div class="space-x-4 hidden md:block">
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#news" class="hover:underline">News</a>
+      <a href="#research" class="hover:underline">Research</a>
+      <a href="#publications" class="hover:underline">Publications</a>
+      <a href="#notes" class="hover:underline">Notes</a>
+      <a href="#contact" class="hover:underline">Contact</a>
     </div>
-    <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Email</a>
   </div>
 </nav>
 
-<main class="pt-20 pb-10">
+<main class="pt-24">
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
-<section class="card">
-  <div class="grid-2 gap-4 items-center">
-    <div>
-      <h1>Dr. Deepak Kumar</h1>
-      <p class="text-sm text-gray-600 mt-2">Theoretical physicist working on neutron stars, dense matter, oscillation modes and gravitational-wave signatures.</p>
-    </div>
-    <div class="slideshow" id="slideshow">
-      <div class="slide active" style="background-image:url('images/slide1.jpg')"><div class="slide-overlay"></div></div>
-      <div class="slide" style="background-image:url('images/slide2.jpg')"><div class="slide-overlay"></div></div>
-    </div>
+<section class="card text-center">
+  <h1 class="text-4xl font-bold mb-3">Dr. Deepak Kumar</h1>
+  <p class="text-lg text-gray-700 mb-4">Nuclear Astrophysics • Neutron Stars • Dense Matter • Compact Objects</p>
+  <div class="flex flex-wrap justify-center gap-3">
+    <a href="cv_deepak.pdf" class="px-5 py-2 bg-green-700 text-white rounded-lg">Download CV</a>
+    <a href="mailto:dpqraja02@gmail.com" class="px-5 py-2 bg-gray-200 rounded-lg">Email</a>
+    <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="px-5 py-2 bg-green-600 text-white rounded-lg">ORCID</a>
+    <a href="https://inspirehep.net/authors/1750571" target="_blank" class="px-5 py-2 bg-purple-600 text-white rounded-lg">INSPIRE</a>
   </div>
 </section>
 
-<!-- ================= ABOUT + NEWS ================= -->
+<!-- ABOUT + NEWS -->
 
 <section class="card">
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
-    <div id="about" class="md:col-span-3">
-      <h2>About</h2>
-      <p class="mt-2">I am a theoretical physicist at IOP Bhubaneswar working on dense nuclear and quark matter and their astrophysical implications.</p>
-    </div>
-    <div id="news" class="md:col-span-2">
-      <h2>News & Updates</h2>
-      <ul id="news-list" class="mt-3 space-y-2"></ul>
-    </div>
+  <div class="grid md:grid-cols-5 gap-6">
+
+```
+<div id="about" class="md:col-span-3">
+  <h2 class="text-2xl font-semibold mb-2">About Me</h2>
+  <p class="text-gray-700 text-sm leading-relaxed">
+    I am a theoretical physicist working as a research associate at the Institute of Physics, Bhubaneswar. My research focuses on dense nuclear and quark matter under extreme conditions and their astrophysical implications, especially neutron stars, hybrid stars, oscillation modes, and gravitational-wave observables.
+  </p>
+</div>
+
+<div id="news" class="md:col-span-2">
+  <h2 class="text-2xl font-semibold mb-2">News & Updates</h2>
+  <ul id="news-list" class="space-y-3 text-sm"></ul>
+</div>
+```
+
   </div>
 </section>
 
-<!-- ================= RESEARCH ================= -->
+<!-- RESEARCH -->
 
 <section id="research" class="card">
-  <h2>Research Interests</h2>
-  <p class="mt-2">Equation of state, neutron stars, oscillations, and gravitational-wave observables.</p>
+  <h2 class="text-2xl font-semibold mb-2">Research Interests</h2>
+  <ul class="list-disc list-inside text-sm text-gray-700">
+    <li>Equation of state of dense matter</li>
+    <li>Non-radial oscillations of neutron stars</li>
+    <li>Hybrid stars and phase transitions</li>
+    <li>Gravitational-wave signatures</li>
+  </ul>
 </section>
 
-<!-- ================= PUBLICATIONS ================= -->
+<!-- PUBLICATIONS -->
 
 <section id="publications" class="card">
-  <h2>Publications</h2>
-  <div class="pub-scroll">(unchanged content)</div>
+  <h2 class="text-2xl font-semibold mb-3">Publications</h2>
+  <div class="max-h-96 overflow-y-auto text-sm space-y-2">
+    <p><strong>D. Kumar</strong> et al., Phys. Rev. D (2025) — Constraints on neutron star mass</p>
+    <p><strong>D. Kumar</strong> et al., JCAP (2025) — f-mode oscillations and machine learning</p>
+    <p><strong>D. Kumar</strong> et al., Phys. Rev. C (2025) — Universal relations in proto-neutron stars</p>
+  </div>
 </section>
 
-<!-- ================= NOTES ================= -->
+<!-- NOTES -->
 
 <section id="notes" class="card">
-  <h2>Research Notes</h2>
-  <div class="tab-buttons">
-    <button onclick="openPDF('Notes/DarkMatter_notes.pdf',this)">Dark Matter</button>
-    <button onclick="openPDF('Notes/DDB.pdf',this)">DDB</button>
-    <button onclick="openPDF('Notes/NeutronStar.pdf',this)">Neutron Star</button>
-    <button onclick="openPDF('Notes/PulsatingEquations.pdf',this)">Pulsations</button>
-    <button onclick="closePDF(this)">Close</button>
+  <h2 class="text-2xl font-semibold mb-3">Research Notes</h2>
+  <div class="flex flex-wrap gap-2 mb-4">
+    <button onclick="loadPDF('Notes/DarkMatter_notes.pdf')" class="px-4 py-2 bg-blue-600 text-white rounded">Dark Matter</button>
+    <button onclick="loadPDF('Notes/DDB.pdf')" class="px-4 py-2 bg-blue-600 text-white rounded">DDB</button>
+    <button onclick="loadPDF('Notes/NeutronStar.pdf')" class="px-4 py-2 bg-blue-600 text-white rounded">Neutron Star</button>
+    <button onclick="clearPDF()" class="px-4 py-2 bg-gray-400 text-white rounded">Close</button>
   </div>
-  <div id="pdfPlaceholder" class="text-center text-gray-400">Click a tab to load notes</div>
-  <iframe id="pdfFrame" style="width:100%;height:80vh;display:none"></iframe>
+  <iframe id="pdfFrame" class="w-full h-[75vh] border rounded hidden"></iframe>
 </section>
 
-<!-- ================= LINKS ================= -->
-
-<section id="links" class="card">
-  <h2>Important Links</h2>
-  <div class="links-grid">(unchanged content)</div>
-</section>
-
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
 
 <section id="contact" class="card text-center">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--fg-500)]">dpqraja02@gmail.com</a></p>
+  <h2 class="text-2xl font-semibold mb-2">Contact</h2>
+  <p>Email: <a href="mailto:dpqraja02@gmail.com" class="text-green-700">dpqraja02@gmail.com</a></p>
 </section>
 
 </main>
 
-<footer>
-  © <span id="year"></span> Dr. Deepak Kumar — Institute of Physics, Bhubaneswar
+<footer class="text-center text-sm text-gray-500 py-6">
+  © <span id="year"></span> Dr. Deepak Kumar
 </footer>
 
-<!-- External JS -->
+<!-- SCRIPTS -->
 
 <script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const newsItems = [
+    { date: '2025-01-10', text: 'Upcoming seminar on non-radial oscillations of neutron stars.' },
+    { date: '2024-12-02', text: 'Preprint submitted on relativistic pulsation equations.' }
+  ];
+
+  const newsList = document.getElementById('news-list');
+  newsItems.forEach(n => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${n.date}</strong>: ${n.text}`;
+    newsList.appendChild(li);
   });
-},{ threshold:0.12 });
 
-document.querySelectorAll('.card').forEach(card => observer.observe(card));
+  function loadPDF(path) {
+    const frame = document.getElementById('pdfFrame');
+    frame.src = path;
+    frame.classList.remove('hidden');
+  }
+
+  function clearPDF() {
+    const frame = document.getElementById('pdfFrame');
+    frame.src = '';
+    frame.classList.add('hidden');
+  }
 </script>
-
-<script src="assets/js/main.js" defer></script>
-
 
 </body>
 </html>
+
