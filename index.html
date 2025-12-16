@@ -552,40 +552,10 @@
     </div>
 
     <!-- NEWS & UPDATES -->
-    <!-- <div class="bg-white shadow rounded-xl p-6" id="news"> -->
     <div class="bg-white shadow rounded-xl p-6 md:col-span-2" id="news">
-
       <h2 class="mb-3">News & Updates</h2>
-
-      <div class="space-y-4">
-
-        <div class="border-l-4 border-blue-600 pl-4">
-          <p class="text-sm text-gray-500">Nov 2025</p>
-          <p class="font-medium">
-            <!-- Invited talk on <span class="font-semibold">Dense Matter Equation of State</span> at an international conference on compact objects. -->
-            <span>Coming soon...</span>
-          </p>
-        </div>
-
-        <div class="border-l-4 border-green-600 pl-4">
-          <p class="text-sm text-gray-500">Dec 2025</p>
-          <p class="font-medium">
-            <!-- New preprint submitted on <span class="font-semibold">Non-radial oscillations of neutron stars</span>. -->
-            <span>Coming soon...</span>
-          </p>
-        </div>
-
-        <div class="border-l-4 border-purple-600 pl-4">
-          <p class="text-sm text-gray-500">January 2026</p>
-          <p class="font-medium">
-            <!-- Started collaboration on <span class="font-semibold">Gravitational-wave signatures of hybrid stars</span>. -->
-            <span>Coming soon...</span>
-          </p>
-        </div>
-
-      </div>
+      <div id="news-list" class="space-y-4"></div>
     </div>
-
   </div>
 </section>
 
@@ -1093,34 +1063,42 @@ function closePDF(btn) {
 /*
 HOW TO UPDATE NEWS:
 -------------------
-1. Add a new entry at the TOP of the newsItems array.
-2. Format: { date: 'YYYY-MM-DD', text: 'Your news text' }
-3. Save and refresh the page.
+1. Add a new item at the TOP of the newsItems array.
+2. Format:
+   { date: "Month Year", text: "Your update text", color: "blue" }
 */
 
 const newsItems = [
   {
-    date: '2025-01-10',
-    text: 'Upcoming seminar on <span class="highlight">Non-radial oscillations of neutron stars</span>.'
+    date: "Nov 2025",
+    text: "Invited talk on Dense Matter Equation of State at an international conference.",
+    color: "blue"
   },
   {
-    date: '2024-12-02',
-    text: 'Preprint submitted on relativistic pulsation equations in full General Relativity.'
+    date: "Dec 2025",
+    text: "New preprint submitted on non-radial oscillations of neutron stars.",
+    color: "green"
   },
   {
-    date: '2024-10-18',
-    text: 'Invited talk at an international workshop on dense matter and compact objects.'
+    date: "January 2026",
+    text: "Started collaboration on gravitational-wave signatures of compact objects.",
+    color: "purple"
   }
 ];
 
-const list = document.getElementById('news-list');
+const newsList = document.getElementById("news-list");
 
 newsItems.forEach(item => {
-  const li = document.createElement('li');
-  li.innerHTML = `<time class="text-gray-500 mr-1">${item.date} —</time>${item.text}`;
-  list.appendChild(li);
+  const div = document.createElement("div");
+  div.className = `border-l-4 border-${item.color}-600 pl-4`;
+
+  div.innerHTML = `
+    <p class="text-sm text-gray-500">${item.date}</p>
+    <p class="font-medium">${item.text}</p>
+  `;
+
+  newsList.appendChild(div);
 });
 </script>
-
-
-</body></html>
+</body>
+</html>
