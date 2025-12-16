@@ -13,6 +13,11 @@
   <meta name="google-site-verification" content="R0YC1M5qvThMpsC5Mtu1YwGQ5Y9zaowKxWr7RNW-Mrs" />
     
   <!-- Tailwind CDN (development build; for production you can compile) -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script type="application/ld+json">
@@ -433,6 +438,13 @@
       <div class="flex items-center gap-3">
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Email</a>
       </div>
+
+      <button id="themeToggle"
+        class="ml-4 text-xl"
+        aria-label="Toggle dark mode">
+        🌙
+      </button>
+
     </div>
   </nav>
 
@@ -549,12 +561,34 @@
     </div>
 
     <!-- NEWS & UPDATES -->
-    <div class="bg-white shadow rounded-xl p-6 md:col-span-2" id="news">
+    <div class="bg-white dark:bg-slate-900 shadow rounded-xl p-6 md:col-span-2" id="news">
       <h2 class="mb-3">News & Updates</h2>
       <div id="news-list" class="space-y-4"></div>
     </div>
   </div>
   </section>
+
+<!-- <div class="bg-white dark:bg-slate-900
+            shadow rounded-xl p-6 md:col-span-2">
+
+  <h2 class="mb-3 text-gray-900 dark:text-gray-100">
+    News & Updates
+  </h2>
+
+  <div class="space-y-4">
+
+    <div class="border-l-4 border-blue-600 pl-4">
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Nov 2025
+      </p>
+      <p class="font-medium text-gray-800 dark:text-gray-200">
+        Coming soon…
+      </p>
+    </div>
+
+  </div>
+</div> -->
+
 
 
     <!-- RESEARCH -->
@@ -1097,5 +1131,29 @@
       newsList.appendChild(div);
     });
     </script>
+
+    <script>
+      const html = document.documentElement;
+      const toggle = document.getElementById("themeToggle");
+      
+      /* Load preference */
+      if (
+        localStorage.theme === "dark" ||
+        (!localStorage.theme &&
+         window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        html.classList.add("dark");
+        toggle.textContent = "☀️";
+      }
+      
+      /* Toggle click */
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const dark = html.classList.contains("dark");
+        localStorage.theme = dark ? "dark" : "light";
+        toggle.textContent = dark ? "☀️" : "🌙";
+      });
+    </script>
+
   </body>
 </html>
