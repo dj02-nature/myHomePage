@@ -373,6 +373,51 @@
     font-weight: 600;
     color: #2563eb; 
     }
+
+    /* ================= DARK THEME ================= */
+
+    :root.dark {
+      --bg: #0b1220;
+      --card: #0f172a;
+      --glass: rgba(15, 23, 42, 0.8);
+      --fg-500: #38bdf8;
+      --fg-700: #7dd3fc;
+      --muted: #94a3b8;
+      --shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
+    
+    :root.dark body {
+      background: linear-gradient(180deg, #020617, #020617 60%);
+      color: #e5e7eb;
+    }
+    
+    :root.dark .card {
+      background: var(--card);
+    }
+    
+    :root.dark p,
+    :root.dark li {
+      color: #cbd5f5;
+    }
+    
+    :root.dark h1,
+    :root.dark h2,
+    :root.dark h3 {
+      color: #e0f2fe;
+    }
+    
+    :root.dark nav {
+      background: rgba(2, 6, 23, 0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    :root.dark .btn-ghost {
+      border-color: rgba(255,255,255,0.15);
+    }
+    
+    :root.dark a {
+      color: #7dd3fc;
+    }
   </style>
   
   <link rel="stylesheet" href="style.css" />
@@ -523,73 +568,50 @@
     </section> -->
 
     <!-- ABOUT + NEWS (SIDE BY SIDE) -->
-<!-- <section id="about-news" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up"> -->
-  <section class="card visible">
-  <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"> -->
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
-
-    <!-- ABOUT ME -->
-    <!-- <div class="bg-white shadow rounded-xl p-6" id="about"> -->
-    <div class="bg-white shadow rounded-xl p-6 md:col-span-3" id="about">
-
-      <h2 class="mb-3">About</h2>
-      <p class="text-sm text-gray-700 mb-3">
-        I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. 
-        My research centres on dense nuclear and quark matter under extreme conditions and their 
-        astrophysical implications: neutron stars, hybrid stars, oscillation modes and 
-        gravitational-wave signatures. I build and maintain my own numerical codes for simulations and analysis.
-      </p>
-
-      <div class="grid-2 mt-3">
-        <div class="bg-gray-50 p-3 rounded-lg">
-          <h3>Education</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            <strong>Ph.D.</strong> Indian Institute of Technology Gandhinagar (2017 – 2023)<br>
-            Thesis: <em>Properties of strongly interacting matter under extreme conditions</em><br>
-            Supervisor: Prof. Hiranmaya Mishra
+  <!-- <section id="about-news" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up"> -->
+    <section class="card visible">
+      <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"> -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+    
+        <!-- ABOUT ME -->
+        <!-- <div class="bg-white shadow rounded-xl p-6" id="about"> -->
+        <div class="bg-white shadow rounded-xl p-6 md:col-span-3" id="about">
+    
+          <h2 class="mb-3">About</h2>
+          <p class="text-sm text-gray-700 mb-3">
+            I am a theoretical physicist working as a research associate at IOP Bhubaneswar, India. 
+            My research centres on dense nuclear and quark matter under extreme conditions and their 
+            astrophysical implications: neutron stars, hybrid stars, oscillation modes and 
+            gravitational-wave signatures. I build and maintain my own numerical codes for simulations and analysis.
           </p>
+    
+          <div class="grid-2 mt-3">
+            <div class="bg-gray-50 p-3 rounded-lg">
+              <h3>Education</h3>
+              <p class="mt-1 text-sm text-gray-600">
+                <strong>Ph.D.</strong> Indian Institute of Technology Gandhinagar (2017 – 2023)<br>
+                Thesis: <em>Properties of strongly interacting matter under extreme conditions</em><br>
+                Supervisor: Prof. Hiranmaya Mishra
+              </p>
+            </div>
+    
+            <div class="bg-gray-50 p-3 rounded-lg">
+              <h3>Employment</h3>
+              <p class="mt-1 text-sm text-gray-600">
+                <strong>Post-doctoral fellow</strong> Institute of Physics, Bhubaneswar — Oct 2024 – Present<br>
+                Research Associate / Teaching duties
+              </p>
+            </div>
+          </div>
         </div>
-
-        <div class="bg-gray-50 p-3 rounded-lg">
-          <h3>Employment</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            <strong>Post-doctoral fellow</strong> Institute of Physics, Bhubaneswar — Oct 2024 – Present<br>
-            Research Associate / Teaching duties
-          </p>
+    
+        <!-- NEWS & UPDATES -->
+        <div class="bg-white shadow rounded-xl p-6 md:col-span-2" id="news">
+          <h2 class="mb-3">News & Updates</h2>
+          <div id="news-list" class="space-y-4"></div>
         </div>
       </div>
-    </div>
-
-    <!-- NEWS & UPDATES -->
-    <div class="bg-white dark:bg-slate-900 shadow rounded-xl p-6 md:col-span-2" id="news">
-      <h2 class="mb-3">News & Updates</h2>
-      <div id="news-list" class="space-y-4"></div>
-    </div>
-  </div>
-  </section>
-
-<!-- <div class="bg-white dark:bg-slate-900
-            shadow rounded-xl p-6 md:col-span-2">
-
-  <h2 class="mb-3 text-gray-900 dark:text-gray-100">
-    News & Updates
-  </h2>
-
-  <div class="space-y-4">
-
-    <div class="border-l-4 border-blue-600 pl-4">
-      <p class="text-sm text-gray-500 dark:text-gray-400">
-        Nov 2025
-      </p>
-      <p class="font-medium text-gray-800 dark:text-gray-200">
-        Coming soon…
-      </p>
-    </div>
-
-  </div>
-</div> -->
-
-
+    </section>
 
     <!-- RESEARCH -->
     <section id="research" class="card visible">
