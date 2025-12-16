@@ -428,6 +428,19 @@
       color: #7dd3fc;
       background: var(--card);
     }
+
+    #themeToggle {
+      transition: background .25s, transform .2s;
+    }
+    
+    #themeToggle:hover {
+      transform: scale(1.08);
+    }
+    
+    body.dark #themeToggle {
+      background: rgba(255,255,255,.08);
+    }
+
   </style>
   
   <link rel="stylesheet" href="style.css" />
@@ -492,7 +505,9 @@
 
       <div class="flex items-center gap-3">
         <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Email</a>
-        <button id="themeToggle" class="ml-2 text-xl btn-ghost px-4 py-2">Dark</button>
+        <button id="themeToggle" 
+          class="ml-2 nav-link btn-ghost w-10 h-10 rounded-full flex items-center justify-center text-lg">D
+        </button>
       </div>
 
     </div>
