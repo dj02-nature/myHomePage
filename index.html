@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Dr. Deepak Kumar — Nuclear Astrophysicist | Theoretical Physicist</title>
+  <title>Dr. Deepak Kumar — Nuclear Astrophysicist</title>
 
+  <meta name="description" content="Deepak Kumar - Nuclear Astrophysicist working on neutron stars, dense matter and gravitational waves." />
   <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
-  <meta name="description" content="Deepak Kumar - Nuclear Astrophysicist working on dense matter, neutron stars, hybrid stars, gravitational waves, and high-energy theory." />
 
-  <!-- Tailwind CDN -->
-
+  <!-- Tailwind (required) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- External CSS -->
-
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <!-- JSON-LD Schema -->
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Dr. Deepak Kumar",
-    "url": "https://dj02-nature.github.io/myHomePage",
-    "jobTitle": "Research Associate",
+    "jobTitle": "Theoretical Physicist",
     "affiliation": {
       "@type": "Organization",
       "name": "Institute of Physics, Bhubaneswar"
     },
+    "url": "https://dj02-nature.github.io/myHomePage",
     "sameAs": [
       "https://orcid.org/0000-0001-9292-3598",
       "https://inspirehep.net/authors/1750571"
-    ],
-    "knowsAbout": [
-      "Nuclear Astrophysics",
-      "Neutron Stars",
-      "Dense Matter",
-      "Gravitational Waves"
     ]
   }
   </script>
-
 </head>
+
 
 <body>
 
@@ -156,7 +147,20 @@
 
 <!-- External JS -->
 
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+},{ threshold:0.12 });
+
+document.querySelectorAll('.card').forEach(card => observer.observe(card));
+</script>
+
 <script src="assets/js/main.js" defer></script>
+
 
 </body>
 </html>
