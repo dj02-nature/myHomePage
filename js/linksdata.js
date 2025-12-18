@@ -26,6 +26,18 @@ export const researchLinks = [
     icon: "cross",
   },
   {
+    title: "ZENODO",
+    sub: "Data Repository",
+    url: "https://zenodo.org/",
+    icon: "database",
+  },
+  {
+    title: "CompOSE",
+    sub: "Supernova Equation of State",
+    url: "https://compose.obspm.fr/",
+    icon: "arrow",
+  },
+  {
     title: "PHAROSH",
     sub: "Physics of Neutron Stars",
     url: "https://www.pharos-astrophysics.org/",
@@ -44,18 +56,6 @@ export const researchLinks = [
     icon: "globe",
   },
   {
-    title: "ZENODO",
-    sub: "Data Repository",
-    url: "https://zenodo.org/",
-    icon: "database",
-  },
-  {
-    title: "CompOSE",
-    sub: "Supernova Equation of State",
-    url: "https://compose.obspm.fr/",
-    icon: "arrow",
-  },
-  {
     title: "Humboldt Fellowship",
     sub: "Alexander von Humboldt-Stiftung",
     url: "https://www.humboldt-foundation.de/en/apply",
@@ -66,12 +66,6 @@ export const researchLinks = [
     sub: "Research & Mobility",
     url: "https://marie-sklodowska-curie-actions.ec.europa.eu",
     icon: "badge",
-  },
-  {
-    title: "DAAD",
-    sub: "German Academic Exchange Service",
-    url: "https://www.daad.de/en/",
-    icon: "house",
   },
   {
     title: "N-PDF",
@@ -92,10 +86,10 @@ export const researchLinks = [
     icon: "plus",
   },
   {
-    title: "Einstein Toolkit",
-    sub: "Community-driven computational tools",
-    url: "https://einsteintoolkit.org/",
-    icon: "grid",
+    title: "DAAD",
+    sub: "German Academic Exchange Service",
+    url: "https://www.daad.de/en/",
+    icon: "house",
   },
   {
     title: "Journal Rankings",
@@ -103,5 +97,10 @@ export const researchLinks = [
     url: "https://www.scimagojr.com/",
     icon: "rank",
   },
-
+  {
+    title: "Einstein Toolkit",
+    sub: "Community-driven computational tools",
+    url: "https://einsteintoolkit.org/",
+    icon: "grid",
+  },
 ];
