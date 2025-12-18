@@ -743,18 +743,6 @@
   </section>
   <script type="module" src="js/links.js"></script>
 
-    <!-- CONTACT -->
-    <section id="contact" class="card text-center visible">
-      <h2 class="mb-2">Contact</h2>
-      <p class="text-sm text-gray-700 mb-2">Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--fg-500)] hover:underline">dpqraja02@gmail.com</a></p>
-      <p class="text-sm text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-[var(--fg-500)] hover:underline">0000-0001-9292-3598</a></p>
-      <div class="mt-2 flex items-center justify-center gap-3">
-        <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
-        <a href="#thankyou" class="btn-primary"> <button id="balloonButton">Thank YOU</button> </a>
-      </div>
-    </section>
- 
-  </main>
 
   <!-- Research Notes -->
   <section id="notes" class="card visible">
@@ -762,12 +750,12 @@
   
     <!-- TAB BUTTONS -->
     <div class="tab-buttons mb-4 flex flex-wrap gap-2">
-    <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf', this)">Dark Matter</button>
-    <button type="button" onclick="openPDF('Notes/DDB.pdf', this)">DDB</button>
-    <button type="button" onclick="openPDF('Notes/NeutronStar.pdf', this)">Neutron Star</button>
-    <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf', this)">Pulsating Equations</button>
-    <button type="button" onclick="closePDF(this)">Close</button>
-   </div>
+      <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf', this)">Dark Matter</button>
+      <button type="button" onclick="openPDF('Notes/DDB.pdf', this)">DDB</button>
+      <button type="button" onclick="openPDF('Notes/NeutronStar.pdf', this)">Neutron Star</button>
+      <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf', this)">Pulsating Equations</button>
+      <button type="button" onclick="closePDF(this)">Close</button>
+    </div>
 
     <!-- SINGLE IFRAME -->
     <iframe
@@ -777,48 +765,61 @@
     </iframe>
   </section>
 
-  <script>
-    function openPDF(path, btn) {
-      const iframe = document.getElementById('pdfFrame');
-      const placeholder = document.getElementById('pdfPlaceholder');
-      const buttons = document.querySelectorAll('.tab-buttons button');
-    
-      // Reset buttons
-      buttons.forEach(b => b.classList.remove('active'));
-    
-      // Activate clicked button
-      btn.classList.add('active');
-    
-      iframe.src = path + '#toolbar=1&navpanes=0';
-      iframe.style.display = 'block';
-    
-      if (placeholder) placeholder.style.display = 'none';
-    }
-    
-    function closePDF(btn) {
-      const iframe = document.getElementById('pdfFrame');
-      const placeholder = document.getElementById('pdfPlaceholder');
-      const buttons = document.querySelectorAll('.tab-buttons button');
-    
-      iframe.src = '';
-      iframe.style.display = 'none';
-    
-      if (placeholder) placeholder.style.display = 'block';
-    
-      // Remove active state from all buttons
-      buttons.forEach(b => b.classList.remove('active'));
-    
-      // Optional: highlight Close briefly
-      if (btn) btn.classList.add('active');
-    }
-  </script>
+  
+  <!-- CONTACT -->
+  <section id="contact" class="card text-center visible">
+    <h2 class="mb-2">Contact</h2>
+    <p class="text-sm text-gray-700 mb-2">Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--fg-500)] hover:underline">dpqraja02@gmail.com</a></p>
+    <p class="text-sm text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-[var(--fg-500)] hover:underline">0000-0001-9292-3598</a></p>
+    <div class="mt-2 flex items-center justify-center gap-3">
+      <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
+      <a href="#thankyou" class="btn-primary"> <button id="balloonButton">Thank YOU</button> </a>
+    </div>
+  </section>
+ 
+  </main>
 
+  <footer>
+    <div class="max-w-[1180px] mx-auto px-4">
+      © <span id="year">2025</span> Dr. Deepak Kumar — Institute of Physics, Bhubaneswar
+    </div>
+  </footer>
 
-    <footer>
-      <div class="max-w-[1180px] mx-auto px-4">
-        © <span id="year">2025</span> Dr. Deepak Kumar — Institute of Physics, Bhubaneswar
-      </div>
-    </footer>
+    <script>
+      function openPDF(path, btn) {
+        const iframe = document.getElementById('pdfFrame');
+        const placeholder = document.getElementById('pdfPlaceholder');
+        const buttons = document.querySelectorAll('.tab-buttons button');
+      
+        // Reset buttons
+        buttons.forEach(b => b.classList.remove('active'));
+      
+        // Activate clicked button
+        btn.classList.add('active');
+      
+        iframe.src = path + '#toolbar=1&navpanes=0';
+        iframe.style.display = 'block';
+      
+        if (placeholder) placeholder.style.display = 'none';
+      }
+      
+      function closePDF(btn) {
+        const iframe = document.getElementById('pdfFrame');
+        const placeholder = document.getElementById('pdfPlaceholder');
+        const buttons = document.querySelectorAll('.tab-buttons button');
+      
+        iframe.src = '';
+        iframe.style.display = 'none';
+      
+        if (placeholder) placeholder.style.display = 'block';
+      
+        // Remove active state from all buttons
+        buttons.forEach(b => b.classList.remove('active'));
+      
+        // Optional: highlight Close briefly
+        if (btn) btn.classList.add('active');
+      }
+    </script>
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
