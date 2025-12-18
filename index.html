@@ -712,78 +712,81 @@
     </section>
     
   
-  <!-- PUBLICATIONS -->
-  <section id="publications" class="card visible">
-    <h2 class="mb-3">Publications: <a href="#articles">Journal Articles</a> and <a href="#proceedings">Conference Proceedings</a></h2>
-    <div class="pub-scroll space-y-6">
-      
-      <!-- Journal Articles -->
-      <div>
-        <h3 class="font-semibold text-gray-800 mb-2" id="articles">Journal Articles</h3>
-        <ul id="pub-list" class="space-y-2 px-2 pb-4 rounded-lg">
-          <script type="module" src="js/articles.js"></script>
-        </ul>
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="card visible">
+      <h2 class="mb-3">Publications: 
+        <a href="#articles"><h3 class="font-semibold text-gray-800 mb-2">Journal Articles</h3></a> 
+        and 
+        <a href="#proceedings"><h3 class="font-semibold text-gray-800 mb-2">Conference Proceedings</h3></a></h2>
+      <div class="pub-scroll space-y-6">
+        
+        <!-- Journal Articles -->
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2" id="articles">Journal Articles</h3>
+          <ul id="pub-list" class="space-y-2 px-2 pb-4 rounded-lg">
+            <script type="module" src="js/articles.js"></script>
+          </ul>
+        </div>
+  
+        <!-- Conference Proceedings / Preprints -->
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2" id="proceedings">Conference Proceedings / Preprints</h3>
+          <ul id="proc-list" class="space-y-2 px-2 pb-4 rounded-lg">
+            <script type="module" src="js/proceedings.js"></script>
+          </ul>
+        </div>
+  
       </div>
+    </section>
+  
+    <!-- IMPORTANT RESEARCH LINKS -->
+    <section id="links" class="card visible">
+      <h2 class="section-title">Important Research Links</h2>
+      <div class="links-grid gap-4"></div>
+    </section>
+    <script type="module" src="js/links.js"></script>
 
-      <!-- Conference Proceedings / Preprints -->
-      <div>
-        <h3 class="font-semibold text-gray-800 mb-2" id="proceedings">Conference Proceedings / Preprints</h3>
-        <ul id="proc-list" class="space-y-2 px-2 pb-4 rounded-lg">
-          <script type="module" src="js/proceedings.js"></script>
-        </ul>
+
+    <!-- Research Notes -->
+    <section id="notes" class="card visible">
+      <h2 class="mb-3">Important Research Notes</h2>
+    
+      <!-- TAB BUTTONS -->
+      <div class="tab-buttons mb-4 flex flex-wrap gap-2">
+        <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf', this)">Dark Matter</button>
+        <button type="button" onclick="openPDF('Notes/DDB.pdf', this)">DDB</button>
+        <button type="button" onclick="openPDF('Notes/NeutronStar.pdf', this)">Neutron Star</button>
+        <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf', this)">Pulsating Equations</button>
+        <button type="button" onclick="closePDF(this)">Close</button>
       </div>
-
-    </div>
-  </section>
   
-  <!-- IMPORTANT RESEARCH LINKS -->
-  <section id="links" class="card visible">
-    <h2 class="section-title">Important Research Links</h2>
-    <div class="links-grid gap-4"></div>
-  </section>
-  <script type="module" src="js/links.js"></script>
-
-
-  <!-- Research Notes -->
-  <section id="notes" class="card visible">
-    <h2 class="mb-3">Important Research Notes</h2>
-  
-    <!-- TAB BUTTONS -->
-    <div class="tab-buttons mb-4 flex flex-wrap gap-2">
-      <button type="button" onclick="openPDF('Notes/DarkMatter_notes.pdf', this)">Dark Matter</button>
-      <button type="button" onclick="openPDF('Notes/DDB.pdf', this)">DDB</button>
-      <button type="button" onclick="openPDF('Notes/NeutronStar.pdf', this)">Neutron Star</button>
-      <button type="button" onclick="openPDF('Notes/PulsatingEquations.pdf', this)">Pulsating Equations</button>
-      <button type="button" onclick="closePDF(this)">Close</button>
-    </div>
-
-    <!-- SINGLE IFRAME -->
-    <iframe
-      id="pdfFrame"
-      style="width:100%; height:80vh; border:1px solid #ddd; border-radius:10px; display:none;"
-      loading="lazy">
-    </iframe>
-  </section>
+      <!-- SINGLE IFRAME -->
+      <iframe
+        id="pdfFrame"
+        style="width:100%; height:80vh; border:1px solid #ddd; border-radius:10px; display:none;"
+        loading="lazy">
+      </iframe>
+    </section>
 
   
-  <!-- CONTACT -->
-  <section id="contact" class="card text-center visible">
-    <h2 class="mb-2">Contact</h2>
-    <p class="text-sm text-gray-700 mb-2">Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--fg-500)] hover:underline">dpqraja02@gmail.com</a></p>
-    <p class="text-sm text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-[var(--fg-500)] hover:underline">0000-0001-9292-3598</a></p>
-    <div class="mt-2 flex items-center justify-center gap-3">
-      <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
-      <a href="#thankyou" class="btn-primary"> <button id="balloonButton">Thank YOU</button> </a>
-    </div>
-  </section>
- 
-  </main>
-
-  <footer>
-    <div class="max-w-[1180px] mx-auto px-4">
-      © <span id="year">2025</span> Dr. Deepak Kumar — Institute of Physics, Bhubaneswar
-    </div>
-  </footer>
+    <!-- CONTACT -->
+    <section id="contact" class="card text-center visible">
+      <h2 class="mb-2">Contact</h2>
+      <p class="text-sm text-gray-700 mb-2">Email: <a href="mailto:dpqraja02@gmail.com" class="text-[var(--fg-500)] hover:underline">dpqraja02@gmail.com</a></p>
+      <p class="text-sm text-gray-700 mb-2">ORCID: <a href="https://orcid.org/0000-0001-9292-3598" target="_blank" class="text-[var(--fg-500)] hover:underline">0000-0001-9292-3598</a></p>
+      <div class="mt-2 flex items-center justify-center gap-3">
+        <a href="mailto:dpqraja02@gmail.com" class="btn-primary">Send Email</a>
+        <a href="#thankyou" class="btn-primary"> <button id="balloonButton">Thank YOU</button> </a>
+      </div>
+    </section>
+   
+    </main>
+  
+    <footer>
+      <div class="max-w-[1180px] mx-auto px-4">
+        © <span id="year">2025</span> Dr. Deepak Kumar — Institute of Physics, Bhubaneswar
+      </div>
+    </footer>
 
     <script>
       function openPDF(path, btn) {
