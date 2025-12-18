@@ -310,9 +310,13 @@
     .nav-item.dropdown:hover .dropdown-menu {
       display: block;
     }
+
+    .no-padding {
+      padding: 0;
+    }
   </style>
 
-
+    
   
   <style>
     body {
@@ -321,7 +325,11 @@
       color: var(--fg);
       font-family: Arial, sans-serif;
     }
-
+    
+    .no-padding {
+      padding: 0;
+    }
+    
     .tabs-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -411,7 +419,11 @@
     :root.dark h2 {
       color: #bdc708; font-weight: bold;
     }
+
     
+    :root.dark .no-padding {
+      padding: 0;
+    }
     
     :root.dark nav {
       background: rgba(2, 6, 23, 0.8);
@@ -599,7 +611,7 @@
 
     <!-- ABOUT + NEWS (SIDE BY SIDE) -->
   <!-- <section id="about-news" class="max-w-6xl mx-auto px-6 py-16" data-aos="fade-up"> -->
-    <section class="card visible">
+    <section class="card visible no-padding">
       <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"> -->
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
     
