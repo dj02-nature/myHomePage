@@ -453,6 +453,21 @@
       background: #8e85bd15;
     }
 
+     :root.dark .link-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--card-bg);
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    :root.dark .link-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    
     .pub-item:hover {
       background: #8174c097;
     }
@@ -467,11 +482,6 @@
     
     body.dark #themeToggle {
       background: rgba(255,255,255,.08);
-    }
-
-    :root.dark .link-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
   </style>
   
