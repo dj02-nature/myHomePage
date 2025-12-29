@@ -18,6 +18,9 @@
   </script>
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
+  <script type="module" src="js/bibtex2js.js"></script>
+  <script type="module" src="js/download_lop.js"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -144,41 +147,6 @@
     ]
   }
   </script>
-
-  <script>
-    function downloadPDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-    
-      let y = 20;
-    
-      // Title
-      doc.setFont("Times", "Bold");
-      doc.setFontSize(16);
-      doc.text("Publications — Dr. Deepak Kumar", 14, y);
-      y += 10;
-    
-      doc.setFont("Times", "Normal");
-      doc.setFontSize(11);
-    
-      pubsItems.forEach((p, i) => {
-        const text = `${i + 1}. ${p.authors}, "${p.title}", ${p.journal} (${p.year}).`;
-    
-        const lines = doc.splitTextToSize(text, 180);
-    
-        if (y + lines.length * 6 > 280) {
-          doc.addPage();
-          y = 20;
-        }
-    
-        doc.text(lines, 14, y);
-        y += lines.length * 6 + 4;
-      });
-    
-      doc.save("Deepak_Kumar_Publications.pdf");
-    }
-  </script>
-
 
   <!-- Theme tokens (Forest Green) and small overrides -->
   <style>
@@ -757,12 +725,39 @@
   
     <!-- PUBLICATIONS -->
     <section id="publications" class="card visible">
-      <h2 class="mb-3">Publications: 
-        <a href="#articles" class="font-semibold text-gray-800 mb-2">Journal Articles</a> 
-        and 
-        <a href="#proceedings" class="font-semibold text-gray-800 mb-2">Conference Proceedings</a>
-      </h2>
-      
+      <div class="flex items-center justify-between mb-3">
+        <h2>Publications:
+          <a href="#articles" class="font-semibold text-gray-800 ml-2">Journal Articles</a>
+          and
+          <a href="#proceedings" class="font-semibold text-gray-800 ml-2">Conference Proceedings</a>
+        </h2>
+
+        <button
+          id="downloadPubsPDF"
+          title="List of publications"
+          class="w-10 h-10 rounded-full flex items-center justify-center
+                 border hover:bg-gray-100 dark:hover:bg-gray-800 nav-link btn-ghost"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+        </button>
+      </div>
+
+
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
       <div class="pub-scroll space-y-6">
