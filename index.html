@@ -161,7 +161,7 @@
       doc.setFont("Times", "Normal");
       doc.setFontSize(11);
     
-      publications.forEach((p, i) => {
+      pubsItems.forEach((p, i) => {
         const text = `${i + 1}. ${p.authors}, "${p.title}", ${p.journal} (${p.year}).`;
     
         const lines = doc.splitTextToSize(text, 180);
