@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong style="color: #0d9488;">${counter}). </strong>
       </span>
 
-      <strong>D. Kumar</strong>${formatCoauthors(item.author)},
+      // <strong>D. Kumar</strong>${formatCoauthors(item.author)},
+      ${formatCoauthors(item.author)},
       "${item.title}",
       ${item.journal ? `
         <span class="journal" style="color:#805ad5;font-weight:600;">
