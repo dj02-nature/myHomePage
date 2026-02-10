@@ -47,17 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ===================== helpers ===================== */
 
-function formatCoauthors(authorStr) {
-  const authors = authorStr.split(";").map(a => a.trim());
+// function formatCoauthors(authorStr) {
+//   const authors = authorStr.split(";").map(a => a.trim());
 
-  const formatted = authors.map(author =>
-    author === "D. Kumar" ? `<strong>${author}</strong>` : author
-  );
+//   const formatted = authors.map(author =>
+//     author === "D. Kumar" ? `<strong>${author}</strong>` : author
+//   );
 
-  return formatted.length > 1
-    ? ", " + formatted.slice(1).join(", ")
-    : "";
-}
+//   return formatted.length > 1
+//     ? ", " + formatted.slice(1).join(", ")
+//     : "";
+// }
 
 
 // function formatCoauthors(authorStr) {
@@ -66,6 +66,19 @@ function formatCoauthors(authorStr) {
 //     ? ", " + authors.slice(1).join(", ")
 //     : "";
 // }
+
+function formatCoauthors(authorStr) {
+  const authors = authorStr.split(";").map(a => a.trim());
+
+  const formatted = authors.map(author =>
+    author === "D. Kumar" ? `<strong>${author}</strong>` : author
+  );
+
+  return formatted.length > 0
+    ? ", " + formatted.join(", ")
+    : "";
+}
+
 
 function formatJournalDetails(item) {
   if (!item.journal) return "";
