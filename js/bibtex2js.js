@@ -320,9 +320,72 @@ export const pubsItems_old = [
 
 ];
 
-
-
 export const procItems = [
+  {
+    id: "Jaiswal:2020hvk",
+    type: "inproceedings",
+    author: "Amaresh Jaiswal; others",
+    title: "Dynamics of QCD Matter — Current Status",
+    journal: "Int. J. Mod. Phys. E",
+    volume: "30",
+    pages: "2130001",
+    year: 2021,
+    doi: "https://doi.org/10.1142/S0218301321300010",
+  },
+  {
+    id: "Kumar:2024lfo",
+    type: "inproceedings",
+    author: "D. Kumar; Hiranmaya Mishra; Tuhin Malik",
+    title:
+      "Quark Matter in the Core of Neutron Stars and Its Consequences on Non-radial Oscillations",
+    journal: "Springer Proc. Phys.",
+    volume: "304",
+    pages: "637–639",
+    year: 2024,
+    doi: "https://doi.org/10.1007/978-981-97-0289-3_144",
+  },
+  {
+    id: "Mohanta:2026aue",
+    type: "inproceedings",
+    author:
+      "K. K. Mohanta; D. Kumar; Shradhha S. Panigrahi; Susmita Kar; Pradip K. Sahu",
+    title:
+      "Equation of State of Magnetized Neutron Stars from the Bayesian Inference",
+    journal: "DAE Symp. Nucl. Phys.",
+    volume: "69",
+    pages: "823–824",
+    year: 2026,
+    doi: null,
+  },
+  {
+    id: "Kumar:2026p4_60",
+    type: "inproceedings",
+    author: "D. Kumar; Pradip Kumar Sahu",
+    title:
+      "Constraining the Neutron Star Equation of State by Including the Isoscalar-Vector and Isovector-Vector Coupling Using the Bayesian Approach",
+    journal:
+      "Proceedings of the XXVI DAE-BRNS High Energy Physics (HEP) Symposium",
+    volume: null,
+    pages: "268–271",
+    year: 2025,
+    doi: "https://doi.org/10.1007/978-981-95-1513-4_60",
+  },
+  {
+    id: "Kumar:2026p4_232",
+    type: "inproceedings",
+    author: "D. Kumar; Hiranmaya Mishra",
+    title: "Axion Effects on the Non-radial Oscillations of Neutron Stars",
+    journal:
+      "Proceedings of the XXVI DAE-BRNS High Energy Physics (HEP) Symposium",
+    volume: null,
+    pages: "1016–1019",
+    year: 2025,
+    doi: "https://doi.org/10.1007/978-981-95-1513-4_232",
+  },
+];
+
+
+export const procItems_old = [
 
   {
     id: "Kumar:2024lfo",
