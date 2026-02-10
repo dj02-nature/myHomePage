@@ -1,9 +1,165 @@
 // js/pubs-data.js
-
 export const pubsItems = [
+  {
+    key: "Kumar:2024abb",
+    author: "D. Kumar; Hiranmaya Mishra",
+    title: "CP violation in cold dense quark matter and axion effects on the non-radial oscillations of neutron stars",
+    year: 2024,
+    month: 11,
+    journal: null,
+    volume: null,
+    number: null,
+    pages: null,
+    doi: null,
+    arxiv: "arXiv:2411.17828 [hep-ph]",
+    color: "emerald"
+  },
+  {
+    key: "KUMAR2026100305",
+    author: "D. Kumar; Hiranmaya Mishra",
+    title: "Axion effects on the non-radial oscillations of neutron stars",
+    year: 2026,
+    month: null,
+    journal: "Journal of Subatomic Particles and Cosmology",
+    volume: null,
+    number: null,
+    pages: "100305",
+    doi: "10.1016/j.jspc.2026.100305",
+    arxiv: null,
+    color: "emerald"
+  },
+  {
+    key: "Kumar:2025dlc",
+    author: "D. Kumar; Tuhin Malik; Hiranmaya Mishra; Constança Providência",
+    title: "Constraints on maximum neutron star mass from protoneutron star evolution",
+    year: 2025,
+    month: null,
+    journal: "Physical Review D",
+    volume: "112",
+    number: "6",
+    pages: "063042",
+    doi: "10.1103/zy4h-6wj2",
+    arxiv: "arXiv:2505.18888 [nucl-th]",
+    color: "emerald"
+  },
+  {
+    key: "Tewari:2024qit",
+    author: "Skund Tewari; Sagnik Chatterjee; D. Kumar; Ritam Mallick",
+    title: "Analyzing the dense matter equation of states in the light of the compact object HESS J1731-347",
+    year: 2025,
+    month: null,
+    journal: "Physical Review D",
+    volume: "111",
+    number: "10",
+    pages: "103009",
+    doi: "10.1103/PhysRevD.111.103009",
+    arxiv: "arXiv:2410.20355 [astro-ph.HE]",
+    color: "emerald"
+  },
+  {
+    key: "Kumar:2024bvd",
+    author: "D. Kumar; Asit Karan; Anshuman Verma; Hiranmaya Mishra; Ritam Mallick",
+    title: "Modification of the universal relation between mass, radius, and nonradial f-mode oscillation in proto-neutron stars",
+    year: 2025,
+    month: null,
+    journal: "Physical Review C",
+    volume: "111",
+    number: "5",
+    pages: "055805",
+    doi: "10.1103/PhysRevC.111.055805",
+    arxiv: "arXiv:2409.01785 [astro-ph.HE]",
+    color: "emerald"
+  },
+  {
+    key: "Kumar:2024fui",
+    author: "D. Kumar; Tuhin Malik; Hiranmaya Mishra",
+    title: "The footprint of nuclear saturation properties on the neutron star f mode oscillation frequencies: a machine learning approach",
+    year: 2025,
+    month: null,
+    journal: "JCAP",
+    volume: "03",
+    number: null,
+    pages: "033",
+    doi: "10.1088/1475-7516/2025/03/033",
+    arxiv: "arXiv:2402.03054 [nucl-th]",
+    color: "emerald"
+  },
+  {
+    key: "Kumar:2023rut",
+    author: "D. Kumar; Tuhin Malik; Hiranmaya Mishra; Constança Providência",
+    title: "Robust universal relations in neutron star asteroseismology",
+    year: 2023,
+    month: null,
+    journal: "Physical Review D",
+    volume: "108",
+    number: "8",
+    pages: "083008",
+    doi: "10.1103/PhysRevD.108.083008",
+    arxiv: "arXiv:2306.09277 [nucl-th]",
+    color: "emerald"
+  },
+  {
+    key: "Kumar:2021hzo",
+    author: "D. Kumar; Hiranmaya Mishra; Tuhin Malik",
+    title: "Non-radial oscillation modes in hybrid stars: consequences of a mixed phase",
+    year: 2023,
+    month: null,
+    journal: "JCAP",
+    volume: "02",
+    number: null,
+    pages: "015",
+    doi: "10.1088/1475-7516/2023/02/015",
+    arxiv: "arXiv:2110.00324 [hep-ph]",
+    color: "emerald"
+  },
+  {
+    key: "Abhishek:2020wjm",
+    author: "Aman Abhishek; Arpan Das; D. Kumar; Hiranmaya Mishra",
+    title: "Thermoelectric transport coefficients of quark matter",
+    year: 2022,
+    month: null,
+    journal: "European Physical Journal C",
+    volume: "82",
+    number: "1",
+    pages: "71",
+    doi: "10.1140/epjc/s10052-022-09999-z",
+    arxiv: "arXiv:2007.14757 [hep-ph]",
+    color: "emerald"
+  },
+  {
+    key: "Das:2019crc",
+    author: "Arpan Das; D. Kumar; Hiranmaya Mishra",
+    title: "Chiral susceptibility in the Nambu–Jona-Lasinio model: A Wigner function approach",
+    year: 2019,
+    month: null,
+    journal: "Physical Review D",
+    volume: "100",
+    number: "9",
+    pages: "094030",
+    doi: "10.1103/PhysRevD.100.094030",
+    arxiv: "arXiv:1907.12332 [hep-ph]",
+    color: "emerald"
+  },
+  {
+    key: "Kumar:2026tqe",
+    author: "D. Kumar; Pradip Kumar Sahu",
+    title: "Constraining isoscalar-vector and isovector-vector couplings from very heavy neutron stars and GW190814 observations",
+    year: 2026,
+    month: null,
+    journal: "Physical Review C",
+    volume: "113",
+    number: "2",
+    pages: "025801",
+    doi: "10.1103/b6ty-m1sj",
+    arxiv: null,
+    color: "emerald"
+  }
+];
+
+export const pubsItems_old = [
 
   // ===================== 2025 =====================
-
+  
   {
     key: "Kumar:2025efd",
     author: "D. Kumar; Pradip Kumar Sahu",
