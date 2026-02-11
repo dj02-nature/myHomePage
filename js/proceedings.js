@@ -47,17 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ===================== helpers ===================== */
 
-// function formatCoauthors(authorStr) {
-//   const authors = authorStr.split(";").map(a => a.trim());
+function formatCoauthors(authorStr) {
+  const authors = authorStr.split(";").map(a => a.trim());
 
-//   const formatted = authors.map(author =>
-//     author === "D. Kumar" ? `<strong>${author}</strong>` : author
-//   );
+  const formatted = authors.map(author =>
+    author === "D. Kumar" ? `<strong>${author}</strong>` : author
+  );
 
-//   return formatted.length > 1
-//     ? ", " + formatted.slice(1).join(", ")
-//     : "";
-// }
+  return formatted.length > 1
+    ? ", " + formatted.slice(1).join(", ")
+    : "";
+}
 
 
 // function formatCoauthors(authorStr) {
@@ -67,25 +67,48 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
-function formatCoauthors(authorStr) {
-  const authors = authorStr.split(";").map(a => a.trim());
+// function formatCoauthors(authorStr) {
+//   const authors = authorStr.split(";").map(a => a.trim());
 
-  const formatted = authors.map(author =>
-    author === "D. Kumar" ? `<strong>${author}</strong>` : author
-  );
+//   const formatted = authors.map(author =>
+//     author === "D. Kumar" ? `<strong>${author}</strong>` : author
+//   );
 
-  return formatted.length > 0
-    ? ", " + formatted.join(", ")
-    : "";
-}
+//   return formatted.length > 0
+//     ? ", " + formatted.join(", ")
+//     : "";
+// }
 
+
+// function formatJournalDetails(item) {
+//   if (!item.journal) return "";
+
+//   const vol = item.volume || "";
+//   const pages = item.pages || "";
+//   const text = [vol, pages].filter(Boolean).join(", ");
+
+//   if (!item.doi || !text) return text;
+
+//   return `
+//     <a href="${item.doi}" target="_blank"
+//        class="text-[var(--fg-500)] hover:underline">
+//       ${text}
+//     </a>
+//   `;
+// }
 
 function formatJournalDetails(item) {
   if (!item.journal) return "";
 
   const vol = item.volume || "";
   const pages = item.pages || "";
-  const text = [vol, pages].filter(Boolean).join(", ");
+  let text = [vol, pages].filter(Boolean).join(", ");
+
+  // Bold your name if it appears
+  text = text.replace(
+    /\bD\. Kumar\b/g,
+    "<strong>D. Kumar</strong>"
+  );
 
   if (!item.doi || !text) return text;
 
@@ -96,3 +119,4 @@ function formatJournalDetails(item) {
     </a>
   `;
 }
+
