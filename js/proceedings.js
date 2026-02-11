@@ -75,7 +75,7 @@ function formatCoauthors(authorStr) {
   );
 
   return formatted.length > 0
-    ? ", " + formatted.join(", ")
+    ? " " + formatted.join(", ")
     : "";
 }
 
