@@ -55,7 +55,7 @@ function formatCoauthors(authorStr) {
   );
 
   return formatted.length > 1
-    ? ", " + formatted.slice(1).join(", ")
+    ? "" + formatted.slice(1).join(", ")
     : "";
 }
 
