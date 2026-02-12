@@ -97,6 +97,29 @@ function formatCoauthors(authorStr) {
 //   `;
 // }
 
+// function formatJournalDetails(item) {
+//   if (!item.journal) return "";
+
+//   const vol = item.volume || "";
+//   const pages = item.pages || "";
+//   let text = [vol, pages].filter(Boolean).join(", ");
+
+//   // Bold your name if it appears
+//   text = text.replace(
+//     /\bD\. Kumar\b/g,
+//     "<strong>D. Kumar</strong>"
+//   );
+
+//   if (!item.doi || !text) return text;
+
+//   return `
+//     <a href="${item.doi}" target="_blank"
+//        class="text-[var(--fg-500)] hover:underline">
+//       ${text}
+//     </a>
+//   `;
+// }
+
 function formatJournalDetails(item) {
   if (!item.journal) return "";
 
@@ -104,11 +127,8 @@ function formatJournalDetails(item) {
   const pages = item.pages || "";
   let text = [vol, pages].filter(Boolean).join(", ");
 
-  // Bold your name if it appears
-  text = text.replace(
-    /\bD\. Kumar\b/g,
-    "<strong>D. Kumar</strong>"
-  );
+  // Make ONLY "D. Kumar" bold wherever it appears
+  text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
 
   if (!item.doi || !text) return text;
 
@@ -119,4 +139,5 @@ function formatJournalDetails(item) {
     </a>
   `;
 }
+
 
