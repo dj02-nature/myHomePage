@@ -65,12 +65,46 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
+// function formatJournalDetails(item) {
+//   if (!item.journal) return "";
+
+//   const vol = item.volume || "";
+//   const pages = item.pages || "";
+//   const text = [vol, pages].filter(Boolean).join(", ");
+
+//   if (!item.doi || !text) return text;
+
+//   return `
+//     <a href="${item.doi}" target="_blank"
+//        class="text-[var(--fg-500)] hover:underline">
+//       ${text}
+//     </a>
+//   `;
+// }
+
+
+
+function formatCoauthors(authorStr) {
+  const authors = authorStr.split(";").map(a => a.trim());
+
+  const formatted = authors.map(author =>
+    author === "D. Kumar" ? `<strong>${author}</strong>` : author
+  );
+
+  return formatted.length > 0
+    ? " " + formatted.join(", ")
+    : "";
+}
+
 function formatJournalDetails(item) {
   if (!item.journal) return "";
 
   const vol = item.volume || "";
   const pages = item.pages || "";
-  const text = [vol, pages].filter(Boolean).join(", ");
+  let text = [vol, pages].filter(Boolean).join(", ");
+
+  // Make ONLY "D. Kumar" bold wherever it appears
+  // text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
 
   if (!item.doi || !text) return text;
 
@@ -81,3 +115,4 @@ function formatJournalDetails(item) {
     </a>
   `;
 }
+
