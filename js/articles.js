@@ -65,22 +65,22 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
-// function formatJournalDetails(item) {
-//   if (!item.journal) return "";
+function formatJournalDetails(item) {
+  if (!item.journal) return "";
 
-//   const vol = item.volume || "";
-//   const pages = item.pages || "";
-//   const text = [vol, pages].filter(Boolean).join(", ");
+  const vol = item.volume || "";
+  const pages = item.pages || "";
+  const text = [vol, pages].filter(Boolean).join(", ");
 
-//   if (!item.doi || !text) return text;
+  if (!item.doi || !text) return text;
 
-//   return `
-//     <a href="${item.doi}" target="_blank"
-//        class="text-[var(--fg-500)] hover:underline">
-//       ${text}
-//     </a>
-//   `;
-// }
+  return `
+    <a href="${item.doi}" target="_blank"
+       class="text-[var(--fg-500)] hover:underline">
+      ${text}
+    </a>
+  `;
+}
 
 
 
@@ -96,23 +96,23 @@ function formatCoauthors(authorStr) {
     : "";
 }
 
-function formatJournalDetails(item) {
-  if (!item.journal) return "";
+// function formatJournalDetails(item) {
+//   if (!item.journal) return "";
 
-  const vol = item.volume || "";
-  const pages = item.pages || "";
-  let text = [vol, pages].filter(Boolean).join(", ");
+//   const vol = item.volume || "";
+//   const pages = item.pages || "";
+//   let text = [vol, pages].filter(Boolean).join(", ");
 
-  // Make ONLY "D. Kumar" bold wherever it appears
-  text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
+//   // Make ONLY "D. Kumar" bold wherever it appears
+//   text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
 
-  if (!item.doi || !text) return text;
+//   if (!item.doi || !text) return text;
 
-  return `
-    <a href="${item.doi}" target="_blank"
-       class="text-[var(--fg-500)] hover:underline">
-      ${text}
-    </a>
-  `;
-}
+//   return `
+//     <a href="${item.doi}" target="_blank"
+//        class="text-[var(--fg-500)] hover:underline">
+//       ${text}
+//     </a>
+//   `;
+// }
 
