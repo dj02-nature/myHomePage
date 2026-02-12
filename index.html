@@ -760,26 +760,26 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-      <div class="pub-scroll space-y-6">
-        
-        <!-- Journal Articles -->
-        <div>
-          <h3 class="font-semibold text-gray-800 mb-2" id="articles">Journal Articles</h3>
-          <ul id="pub-list" class="space-y-2 px-2 pb-4 rounded-lg">
-            <script type="module" src="js/articles.js"></script>
-          </ul>
+        <div class="pub-scroll space-y-6">
+          
+          <!-- Journal Articles -->
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-2" id="articles">Journal Articles</h3>
+            <ul id="pub-list" class="space-y-2 px-2 pb-4 rounded-lg">
+              <script type="module" src="js/articles.js"></script>
+            </ul>
+          </div>
+    
+          <!-- Conference Proceedings / Preprints -->
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-2" id="proceedings">Conference Proceedings / Preprints</h3>
+            <ul id="proc-list" class="space-y-2 px-2 pb-4 rounded-lg">
+              <script type="module" src="js/proceedings.js"></script>
+            </ul>
+          </div>
+    
         </div>
-  
-        <!-- Conference Proceedings / Preprints -->
-        <div>
-          <h3 class="font-semibold text-gray-800 mb-2" id="proceedings">Conference Proceedings / Preprints</h3>
-          <ul id="proc-list" class="space-y-2 px-2 pb-4 rounded-lg">
-            <script type="module" src="js/proceedings.js"></script>
-          </ul>
-        </div>
-  
-      </div>
-    </section>
+      </section>
   
     <!-- IMPORTANT RESEARCH LINKS -->
     <section id="links" class="card visible">
@@ -904,13 +904,6 @@
     </script>
 
     <script>
-      /*
-      HOW TO UPDATE NEWS:
-      -------------------
-      1. Add a new item at the TOP of the newsItems array.
-      2. Format:
-        { date: "Month Year", text: "Your update text", color: "blue" }
-      */
       
       const newsItems = [
         {
@@ -927,6 +920,11 @@
           date: "January 2026",
           text: "Started collaboration on gravitational-wave signatures of compact objects.",
           color: "purple"
+        },
+        {
+          date: "February 2026 (invited Talk at IOP Bhubaneswar)",
+          text: "Constraints on maximum neutron star mass from protoneutron star evolution",
+          color: "teal"
         }
       ];
       
