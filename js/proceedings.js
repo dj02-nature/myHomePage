@@ -128,7 +128,7 @@ function formatJournalDetails(item) {
   let text = [vol, pages].filter(Boolean).join(", ");
 
   // Make ONLY "D. Kumar" bold wherever it appears
-  text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
+  // text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
 
   if (!item.doi || !text) return text;
 
