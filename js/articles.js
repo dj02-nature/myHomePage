@@ -87,9 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function formatCoauthors(authorStr) {
   const authors = authorStr.split(";").map(a => a.trim());
 
-  const formatted = authors.map(author =>
-    author === "D. Kumar" ? `<strong>${author}</strong>` : author
-  );
+  // const formatted = authors.map(author =>
+  //   author === "D. Kumar" ? `<strong>${author}</strong>` : author
+  // );
 
   return formatted.length > 0
     ? " " + formatted.join(", ")
@@ -104,7 +104,7 @@ function formatJournalDetails(item) {
   let text = [vol, pages].filter(Boolean).join(", ");
 
   // Make ONLY "D. Kumar" bold wherever it appears
-  // text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
+  text = text.replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
 
   if (!item.doi || !text) return text;
 
