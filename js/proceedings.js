@@ -120,8 +120,8 @@ function formatCoauthors(authorStr) {
 //   `;
 // }
 
-// function formatJournalDetails(item) {
-//   if (!item.journal) return "";
+function formatJournalDetails(item) {
+  if (!item.journal) return "";
 
   const vol = item.volume || "";
   const pages = item.pages || "";
