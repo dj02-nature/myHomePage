@@ -53,17 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
-// function formatCoauthors(authorStr) {
-//   const authors = authorStr.split(";").map(a => a.trim());
+function formatCoauthors(authorStr) {
+  const authors = authorStr.split(";").map(a => a.trim());
 
-//   const formatted = authors.map(author =>
-//     author === "D. Kumar" ? `<strong>${author}</strong>` : author
-//   );
+  const formatted = authors.map(author =>
+    author === "D. Kumar" ? `<strong>${author}</strong>` : author
+  );
 
-//   return formatted.length > 0
-//     ? " " + formatted.join(", ")
-//     : "";
-// }
+  return formatted.length > 0
+    ? " " + formatted.join(", ")
+    : "";
+}
 
 function formatJournalDetails(item) {
   if (!item.journal) return "";
@@ -84,17 +84,17 @@ function formatJournalDetails(item) {
 
 
 
-function formatCoauthors(authorStr) {
-  const authors = authorStr.split(";").map(a => a.trim());
+// function formatCoauthors(authorStr) {
+//   const authors = authorStr.split(";").map(a => a.trim());
 
-  // const formatted = authors.map(author =>
-  //   author === "D. Kumar" ? `<strong>${author}</strong>` : author
-  // );
+//   // const formatted = authors.map(author =>
+//   //   author === "D. Kumar" ? `<strong>${author}</strong>` : author
+//   // );
 
-  return formatted.length > 0
-    ? " " + formatted.join(", ")
-    : "";
-}
+//   return formatted.length > 0
+//     ? " " + formatted.join(", ")
+//     : "";
+// }
 
 // function formatJournalDetails(item) {
 //   if (!item.journal) return "";
