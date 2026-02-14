@@ -65,30 +65,30 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
-// function formatCoauthors(authorStr) {
-//   return " " + authorStr
-//     .replace(/\bD\. Kumar\b/g, "<strong>Checks</strong>")
-//     .replace(/;/g, ", ");
-// }
-
 function formatCoauthors(authorStr) {
-  const seen = new Set();
-
-  const authors = authorStr
-    .split(";")
-    .map(a => a.trim())
-    .filter(a => {
-      if (seen.has(a)) return false;
-      seen.add(a);
-      return true;
-    });
-
-  const formatted = authors.map(author =>
-    author === "D. Kumar" ? `<strong>${author}</strong>` : author
-  );
-
-  return authors.length ? authors.join(", ") : "";
+  return " " + authorStr
+    .replace(/\bD\. Kumar\b/g, "<strong>Checks</strong>")
+    .replace(/;/g, ", ");
 }
+
+// function formatCoauthors(authorStr) {
+//   const seen = new Set();
+
+//   const authors = authorStr
+//     .split(";")
+//     .map(a => a.trim())
+//     .filter(a => {
+//       if (seen.has(a)) return false;
+//       seen.add(a);
+//       return true;
+//     });
+
+//   const formatted = authors.map(author =>
+//     author === "D. Kumar" ? `<strong>${author}</strong>` : author
+//   );
+
+//   return authors.length ? authors.join(", ") : "";
+// }
 
 
 function formatJournalDetails(item) {
