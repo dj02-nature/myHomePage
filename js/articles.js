@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function formatCoauthors(authorStr) {
   return " " + authorStr
-    .replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>")
+    .replace(/\bD\. Kumar\b/g, "<strong>Checks</strong>")
     .replace(/;/g, ", ");
 }
 
