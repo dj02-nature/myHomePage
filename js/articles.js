@@ -71,10 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
 //     .replace(/;/g, ", ");
 // }
 
-function formatCoauthors(authorStr) {
-  return authorStr
-    .replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
-}
+// function formatCoauthors(authorStr) {
+//   return authorStr
+//     .replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>");
+// }
 
 // function formatCoauthors(authorStr) {
 //   const seen = new Set();
