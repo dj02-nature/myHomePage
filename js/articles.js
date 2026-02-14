@@ -65,10 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
+// function formatCoauthors(authorStr) {
+//   return " " + authorStr
+//     .replace(/\bD\. Kumar\b/g, "<strong>Checks</strong>")
+//     .replace(/;/g, ", ");
+// }
+
 function formatCoauthors(authorStr) {
   return " " + authorStr
-    .replace(/\bD\. Kumar\b/g, "<strong>Checks</strong>")
-    .replace(/;/g, ", ");
+    .replace(/\bD\. Kumar\b/g, "<strong>Checks</strong>");
 }
 
 // function formatCoauthors(authorStr) {
