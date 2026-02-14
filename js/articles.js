@@ -53,17 +53,24 @@ document.addEventListener("DOMContentLoaded", () => {
 //     : "";
 // }
 
+// function formatCoauthors(authorStr) {
+//   const authors = authorStr.split(";").map(a => a.trim());
+
+//   const formatted = authors.map(author =>
+//     author === "D. Kumar" ? `<strong>${author}</strong>` : author
+//   );
+
+//   return formatted.length > 0
+//     ? " " + formatted.join(", ")
+//     : "";
+// }
+
 function formatCoauthors(authorStr) {
-  const authors = authorStr.split(";").map(a => a.trim());
-
-  const formatted = authors.map(author =>
-    author === "D. Kumar" ? `<strong>${author}</strong>` : author
-  );
-
-  return formatted.length > 0
-    ? " " + formatted.join(", ")
-    : "";
+  return " " + authorStr
+    .replace(/\bD\. Kumar\b/g, "<strong>D. Kumar</strong>")
+    .replace(/;/g, ", ");
 }
+
 
 function formatJournalDetails(item) {
   if (!item.journal) return "";
